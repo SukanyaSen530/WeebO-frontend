@@ -1,0 +1,22 @@
+.badge-icon {
+  position: relative;
+  width: fit-content;
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+
+  &__count {
+    background-color: $color-primary;
+    color: white;
+    height: 1.3rem;
+    width: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,120 @@
+.btn {
+  &,
+  &:link,
+  &:active {
+    font-size: 1rem;
+    font: inherit;
+    box-shadow: 0 8px 12px rgba($color-black, 0.5);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
+    border: transparent;
+    cursor: pointer;
+    border-radius: $border-radius-sm;
+
+    &:active {
+      box-shadow: 0 5px 8px rgba($color-black, 0.5);
+    }
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &-dark {
+      background-color: $color-primary-dark;
+      color: $color-white;
+    }
+
+    &-light {
+      background-color: $color-primary-light;
+      color: $red-800;
+    }
+  }
+
+  &--dark {
+    background-color: rgba($color-black, 0.8);
+    color: $color-white;
+  }
+
+  //   Variants
+
+  &--contained {
+    border-radius: $border-radius-md !important;
+  }
+
+  &--outlined {
+    background: $color-white !important;
+    color: $color-primary-dark;
+    border: 2px solid $color-primary-dark;
+    border-radius: $border-radius-sm;
+
+    &:hover,
+    &:active {
+      border: 2px solid $color-primary-dark;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  &--round {
+    border-radius: $border-radius-hg !important;
+  }
+
+  &--sm {
+    padding: 0.5rem 1rem;
+  }
+
+  &--md {
+    padding: 1rem 1.5rem;
+  }
+
+  &--lg {
+    padding: 1.2rem 2.2rem;
+    font-size: 1.5rem;
+
+    &:active {
+      font-size: 1.5rem;
+    }
+  }
+
+  &--animate {
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &:active {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.link {
+  &,
+  &:link,
+  &:active {
+    font-size: 1rem;
+    font: inherit;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
+    border: none;
+    cursor: pointer;
+    color: $color-primary;
+    background: transparent;
+    padding: 0.5rem 0.8rem;
+    border-radius: $border-radius-sm;
+    box-shadow: 0 3px 6px rgba($color-black, 0.2);
+
+    &:hover {
+      background-color: $red-100;
+    }
+
+    &:active {
+      background-color: $red-200;
+    }
+  }
+}
