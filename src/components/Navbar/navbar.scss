@@ -1,7 +1,7 @@
 @import "../../sass/global";
 
 .navbar {
-  background-color: rgba($color-black, 0.5);
+  background-color: rgba($color-black, 0.9);
   min-height: 80px;
   width: 100%;
   border-bottom-left-radius: $border-radius-md;
@@ -48,7 +48,7 @@
       align-items: center;
       padding-top: 1rem;
       gap: 1rem;
-      background-color: rgba($color-black, 0.5);
+      background-color: rgba($color-black, 0.9);
       z-index: 1000;
       padding: 0 2rem;
       display: none;
@@ -93,7 +93,7 @@
     @include respond(phone) {
       justify-content: center;
       gap: 3rem;
-      background-color: rgba($color-black, 0.5);
+      background-color: rgba($color-black, 0.9);
       z-index: 1000;
       display: none;
       padding: 0 2rem;
