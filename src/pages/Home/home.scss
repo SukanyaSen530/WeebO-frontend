@@ -1,0 +1,29 @@
+@import "../../sass/global";
+
+.home-section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.categories-section {
+  width: 90%;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  justify-items: center;
+  row-gap: 4rem;
+
+  @include respond(phone) {
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  }
+}
+
+.brands-section {
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

@@ -1,1 +1,131 @@
 @import "../../sass/global";
+
+.navbar {
+  background-color: rgba($color-black, 0.9);
+  min-height: 80px;
+  width: 100%;
+  border-bottom-left-radius: $border-radius-md;
+  border-bottom-right-radius: $border-radius-md;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 5rem 1fr 2fr 1fr 5rem;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  z-index: 100;
+
+  @include respond(tab-port) {
+    grid-template-columns: 10px 1fr 1fr 2fr 10px;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    height: 60px;
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  &__brand {
+    height: 80px;
+    grid-column: 2/3;
+
+    @include respond(phone) {
+      grid-column: 1;
+    }
+
+    &-icon {
+      height: 100%;
+    }
+  }
+
+  &__main-links {
+    justify-content: center;
+    display: flex;
+
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1rem;
+      gap: 1rem;
+      background-color: rgba($color-black, 0.9);
+      z-index: 1000;
+      padding: 0 2rem;
+      display: none;
+    }
+
+    &.active-menu {
+      display: flex;
+
+      & > * {
+        margin: 0.8rem 0;
+      }
+    }
+
+    a,
+    a:visited {
+      margin: 0 1rem;
+      font-size: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: $color-white;
+      transition: color 0.4s;
+      padding-bottom: 6px;
+      width: fit-content;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        color: $color-primary;
+        border-bottom: 2px solid $color-primary;
+      }
+    }
+
+    a.active {
+      color: $color-primary;
+      border-bottom: 2px solid $color-primary;
+    }
+  }
+
+  &__secondary-links {
+    display: flex;
+    justify-content: flex-end;
+
+    @include respond(phone) {
+      justify-content: center;
+      gap: 3rem;
+      background-color: rgba($color-black, 0.9);
+      z-index: 1000;
+      display: none;
+      padding: 0 2rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &.active-menu {
+      display: flex;
+      opacity: 1;
+
+      & > * {
+        margin: 0.5rem 0;
+      }
+    }
+
+    & > * {
+      margin: 0 1rem;
+    }
+  }
+}
+
+.ham-menu {
+  font-size: 3.5rem;
+  color: $color-white;
+  display: none;
+  position: absolute;
+  right: 1.5rem;
+  top: 3rem;
+
+  @include respond(phone) {
+    display: inline-block;
+  }
+}

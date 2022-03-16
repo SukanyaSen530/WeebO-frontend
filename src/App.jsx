@@ -8,7 +8,7 @@ const App = () => {
   return (
     <main>
       <Navbar />
-      <section>
+      <section className="main-section">
         <AllRoutes />
       </section>
       <Footer />

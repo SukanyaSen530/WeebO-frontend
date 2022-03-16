@@ -18,12 +18,12 @@ const AllRoutes = () => {
       <Route path="/products/:productId" element={<Product />} />
 
       {/* Protected Routes */}
-      <Route path="/:userId/cart" element={<Cart />} />
-      <Route path="/:userId/wishlist" element={<WishList />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/wishlist" element={<WishList />} />
 
       {/* Prevented Routes */}
       <Route path="/login" element={<Login />} />
-      <Route path="/singup" element={<SignUp />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
 };
