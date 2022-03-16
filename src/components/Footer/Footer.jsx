@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/logo.png";
 
 import "./footer.scss";
 
@@ -12,9 +12,9 @@ const Footer = () => {
         <img className="footer__brand-icon" src={logo} alt="brand-logo" />
       </Link>
 
-      <div className="footer__navigation u-margin-sm">
+      <div className="footer__navigation b-margin-sm">
         <div>
-          <h2 className="u-margin-sm">Shop By Lisence</h2>
+          <h2 className="b-margin-sm">Shop By Lisence</h2>
           <ul className="footer__links-container">
             <Link to="/products" className="footer__links">
               Banpresto
@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h2 className="u-margin-sm">Others</h2>
+          <h2 className="b-margin-sm">Navigate</h2>
 
           <ul className="footer__links-container">
             <Link to="/" className="footer__links">
@@ -48,22 +48,37 @@ const Footer = () => {
         </div>
 
         <div>
-          <h2 className="u-margin-sm">Connect With Me!</h2>
+          <h2 className="b-margin-sm">Connect With Me!</h2>
           <ul className="footer__links-container">
-            <a href="www.linkedin.com" className="footer__links">
+            <a
+              href="https://www.linkedin.com/in/sukanya-sen-615980130/"
+              className="footer__links"
+              target="_blank"
+              rel="noreferrer"
+            >
               LinkedIn
             </a>
-            <a href="www.github.com" className="footer__links">
+            <a
+              href="https://github.com/SukanyaSen530"
+              className="footer__links"
+              target="_blank"
+              rel="noreferrer"
+            >
               Github
             </a>
-            <a href="www.twitter.com" className="footer__links">
+            <a
+              href="https://twitter.com/Sukanya71873255"
+              className="footer__links"
+              target="_blank"
+              rel="noreferrer"
+            >
               Twitter
             </a>
           </ul>
         </div>
       </div>
 
-      <div className="footer__copyright u-margin-sm">
+      <div className="footer__copyright b-margin-sm">
         <p>
           <strong>Disclaimer - </strong>
           This website is just for illustration purposes.

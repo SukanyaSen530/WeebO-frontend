@@ -4,7 +4,7 @@ import "./navbar.scss";
 
 import { Link, NavLink } from "react-router-dom";
 
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/logo.png";
 import { BsSuitHeart } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";

@@ -1,4 +1,3 @@
-import { prototype } from "jsonwebtoken/lib/JsonWebTokenError";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
@@ -8,7 +7,8 @@ const Caraousel = ({ data = [] }) => {
   const [numOfSlides, setNumOfSlides] = useState(0);
 
   const movePrev = () => {
-    setNumOfSlides((slideNum) => (slideNum - 1) % data?.length);
+    if (numOfSlides === 0) setNumOfSlides(data?.length - 1);
+    else setNumOfSlides((slideNum) => (slideNum - 1) % data?.length);
   };
 
   const moveNext = () => {
@@ -20,7 +20,7 @@ const Caraousel = ({ data = [] }) => {
   };
 
   useEffect(() => {
-    let intervalID = setInterval(() => moveNext(), 4000);
+    let intervalID = setInterval(() => moveNext(), 6000);
 
     return () => {
       clearImmediate(intervalID);
@@ -41,7 +41,9 @@ const Caraousel = ({ data = [] }) => {
             alt={item.altText}
             className="carousel__image-container__image"
           />
-          <h2 className="carousel__description">{item.imageDescription}</h2>
+          {item.imageDescription && (
+            <h2 className="carousel__description">{item.imageDescription}</h2>
+          )}
         </article>
       ))}
 
@@ -65,6 +67,7 @@ const Caraousel = ({ data = [] }) => {
           .fill(1)
           .map((item, index) => (
             <div
+              key={index}
               onClick={() => moveDot(index)}
               className={numOfSlides === index ? "dot active" : "dot"}
             ></div>
@@ -79,7 +82,7 @@ Caraousel.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       imgSrc: PropTypes.string.isRequired,
-      imageDescription: PropTypes.string.isRequired,
+      imageDescription: PropTypes.string,
       altText: PropTypes.string.isRequired,
     })
   ).isRequired,
