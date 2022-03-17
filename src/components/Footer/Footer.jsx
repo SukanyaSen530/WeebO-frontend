@@ -14,7 +14,7 @@ const Footer = () => {
 
       <div className="footer__navigation b-margin-sm">
         <div>
-          <h2 className="b-margin-sm">Shop By Lisence</h2>
+          <h2 className="b-margin-sm">Shop By License</h2>
           <ul className="footer__links-container">
             <Link to="/products" className="footer__links">
               Banpresto

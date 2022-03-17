@@ -1,5 +1,3 @@
-import { v4 as uuid } from "uuid";
-
 /**
  * Category Database can be added here.
  * You can add category of your wish with different attributes
@@ -7,15 +5,7 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    _id: uuid(),
-    categoryName: "Naruto",
-  },
-  {
-    _id: uuid(),
-    categoryName: "non-fiction",
-  },
-  {
-    _id: uuid(),
-    categoryName: "horror",
+    _id: "c1",
+    categoryName: "",
   },
 ];

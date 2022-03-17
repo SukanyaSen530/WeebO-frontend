@@ -1,22 +1,22 @@
 .primary-heading {
   font-size: 4rem;
   font-weight: 700;
+
+  @include respond(phone) {
+    font-size: 1.8rem;
+  }
 }
 
 .designed-heading {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .designed-heading::before,
 .designed-heading::after {
   content: "";
-  flex: 0 0 25%;
+  flex: 1 1;
   border-bottom: 1px solid $color-primary;
   margin: auto;
-
-  @include respond(phone) {
-    flex: 0 0 15%;
-  }
 }
