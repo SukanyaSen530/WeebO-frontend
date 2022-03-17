@@ -8,6 +8,7 @@ import { SignUp } from "../../pages/SignUp";
 import { WishList } from "../../pages/WishList";
 import { Product } from "../../pages/Product";
 import { ProductList } from "../../pages/ProductList";
+import Mockman from "mockman-js";
 
 const AllRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AllRoutes = () => {
       {/* Public Routes */}
       <Route path="/products" element={<ProductList />} />
       <Route path="/products/:productId" element={<Product />} />
+      <Route path="/mockapi" element={<Mockman />} />
 
       {/* Protected Routes */}
       <Route path="/cart" element={<Cart />} />

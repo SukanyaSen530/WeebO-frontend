@@ -58,3 +58,24 @@
     transform: scale(1.1);
   }
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: all;
+  background-color: rgba(grey, 0.4);
+
+  &__text {
+    @include absCenter;
+    background-color: $color-white;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 2rem 3rem;
+    border-radius: $border-radius-sm;
+    color: $color-black;
+    z-index: 5;
+  }
+}
