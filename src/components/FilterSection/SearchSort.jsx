@@ -25,7 +25,7 @@ const SearchSort = () => {
       <div className="search-container">
         <FiSearch className="search-container__icon" />
         <input
-          type="text"
+          type="search"
           placeholder="Search by name"
           className="search-container__input"
           value={searchQuery}

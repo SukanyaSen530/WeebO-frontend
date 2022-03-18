@@ -30,8 +30,8 @@ const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
 
   const filteredProducts = compose(
-    // sortData,
-    // getSearchResults,
+    sortData,
+    getSearchResults,
     filterData
   )(state, state?.products || []);
 
