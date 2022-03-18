@@ -1,19 +1,25 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-import { useProductContext } from "../../context/providers/ProductProvider";
-import { productActions } from "../../context/constants/productConstant";
-import { Loader } from "../../components/Loader";
-import { ErrorPage } from "../ErrorPage";
-import { FilterSection, SearchSort } from "../../components/FilterSection";
-import { ProductCard } from "../../components/ProductCard";
+import { useProductContext, productActions } from "../../context";
 
+import {
+  Loader,
+  FilterSection,
+  SearchSort,
+  ProductCard,
+} from "../../components";
+
+import { ErrorPage } from "../ErrorPage";
+
+// Styles, Images
+import notFound from "../../assets/productnotfound.jpg";
 import "./product-list.scss";
 
 function ProductList() {
-  const { state, dispatch } = useProductContext();
+  const { state, dispatch, filteredProducts } = useProductContext();
 
-  const { products, productLoading, productFetchError } = state;
+  const { productLoading, productFetchError } = state;
 
   useEffect(
     () =>
@@ -35,6 +41,8 @@ function ProductList() {
     [dispatch]
   );
 
+  console.log("filtered", filteredProducts);
+
   if (productLoading) {
     return <Loader />;
   }
@@ -48,16 +56,24 @@ function ProductList() {
       <div className="productlist-search">
         <SearchSort />
         <p className="t-margin-sm b-margin-sm">
-          Showing All Figures (showing {products?.length} products){" "}
+          Showing All Figures (showing {filteredProducts?.length || 0} products){" "}
         </p>
       </div>
       <div className="productlist-filter">
         <FilterSection />
       </div>
       <div className="productlist-items">
-        {products?.map((product) => (
-          <ProductCard key={product._id} {...product} />
-        ))}
+        {filteredProducts?.length !== 0 ? (
+          filteredProducts?.map((product) => (
+            <ProductCard key={product._id} {...product} />
+          ))
+        ) : (
+          <img
+            src={notFound}
+            alt="Product Not Found!"
+            className="productlist-items__image"
+          />
+        )}
       </div>
     </section>
   );

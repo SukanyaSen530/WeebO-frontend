@@ -2,6 +2,13 @@ import { useReducer, useContext, createContext } from "react";
 
 import productReducer from "../reducers/productReducer";
 
+import {
+  sortData,
+  filterData,
+  getSearchResults,
+  compose,
+} from "../utils/productsUtils";
+
 const productContext = createContext();
 
 const initialState = {
@@ -9,22 +16,24 @@ const initialState = {
   products: [],
   productFetchError: null,
   productsFilter: {
-    includeOutOfStock: false,
+    includeOutOfStock: true,
     filterOnSale: false,
     sortByPrice: "",
     sortByRating: "",
     filterByCategories: [],
     filterByBrands: [],
-    filterByPrice: "",
-    search: "",
+    filterByPrice: 20000,
+    searchQuery: "",
   },
 };
 
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
 
+  const filteredProducts = [];
+
   return (
-    <productContext.Provider value={{ state, dispatch }}>
+    <productContext.Provider value={{ state, dispatch, filteredProducts }}>
       {children}
     </productContext.Provider>
   );
@@ -33,3 +42,5 @@ const ProductProvider = ({ children }) => {
 const useProductContext = () => useContext(productContext);
 
 export { ProductProvider, useProductContext };
+
+// compose(sortData, filterData, getSearchResults)(state, state.products) ||

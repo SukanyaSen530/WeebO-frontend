@@ -16,8 +16,8 @@ const FilterSection = () => {
         <h3 className="filter-heading">Price</h3>
         <div className="slider-text">
           <span>0</span>
-          <span className="slider-text__display">7500</span>
-          <span>15000</span>
+          <span className="slider-text__display">10000</span>
+          <span>20000</span>
         </div>
         <input className="slider" type="range" />
       </div>

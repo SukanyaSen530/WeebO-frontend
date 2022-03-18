@@ -46,4 +46,8 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: space-around;
+
+  &__image {
+    height: 30rem;
+  }
 }

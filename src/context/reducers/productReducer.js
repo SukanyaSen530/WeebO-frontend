@@ -101,7 +101,7 @@ export const productReducer = (state, { type, payload }) => {
         ...state,
         productsFilter: {
           ...state.productsFilter,
-          search: payload,
+          searchQuery: payload,
         },
       };
 
@@ -116,7 +116,7 @@ export const productReducer = (state, { type, payload }) => {
           filterByCategories: [],
           filterByBrands: [],
           filterByPrice: "",
-          search: "",
+          searchQuery: "",
         },
       };
 

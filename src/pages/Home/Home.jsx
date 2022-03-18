@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // CUSTOM
-import { Caraousel } from "../../components/Caraousel";
+import { Caraousel } from "../../components";
 import { bannerData, categoryData, brandData } from "../../data/imageData";
 
 // STYLES
