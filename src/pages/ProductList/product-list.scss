@@ -1,0 +1,53 @@
+@import "../../sass/global";
+
+.productlist-section {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  column-gap: 2rem;
+  grid-template-areas:
+    "filter search search search"
+    "filter items items items"
+    "filter items items items";
+
+  @include respond(tab-port) {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2rem;
+    grid-template-areas:
+      "filter search search"
+      "filter items items"
+      "filter items items";
+  }
+
+  @include respond(phone-xs) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "filter"
+      "search"
+      "items";
+  }
+}
+
+.productlist-search {
+  grid-area: search;
+
+  p {
+    font-size: 1.4rem;
+  }
+}
+
+.productlist-filter {
+  grid-area: filter;
+}
+
+.productlist-items {
+  grid-area: items;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-around;
+
+  &__image {
+    height: 30rem;
+  }
+}

@@ -16,3 +16,16 @@
     font-size: 1.5rem;
   }
 }
+
+.text-badge {
+  font-size: 1.3rem;
+  font-size: bold;
+  background-color: $color-primary-dark;
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius-lg;
+  color: $color-white;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  text-transform: uppercase;
+}

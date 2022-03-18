@@ -1,0 +1,23 @@
+@import "../../sass/global";
+
+.error-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-img {
+  height: 40vh;
+}
+
+.error-text {
+  color: $color-primary;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.error-btn {
+  margin-top: 3rem;
+}

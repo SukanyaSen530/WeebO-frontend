@@ -1,13 +1,9 @@
-@keyframes border_animation {
-  0% {
-    width: 0%;
+@keyframes loader_animation {
+  from {
+    transform: translateY(0);
   }
 
-  0% {
-    width: 50%;
-  }
-
-  100% {
-    width: 100%;
+  to {
+    transform: translateY(-10rem);
   }
 }

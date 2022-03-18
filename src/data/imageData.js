@@ -4,6 +4,7 @@ import { IMAGE_URL } from "./url";
 const bannerURL = IMAGE_URL + "v1647415515/banner/";
 const brandURL = IMAGE_URL + "v1647450695/brands/";
 const categoryURL = IMAGE_URL + "/v1647450927/category/";
+export const productURL = IMAGE_URL + "/v1647631208/products/";
 
 export const bannerData = [
   {

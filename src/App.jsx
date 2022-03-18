@@ -1,7 +1,7 @@
 import "./App.scss";
 
-import { Navbar } from "./components/Navbar";
-import { Footer } from "./components/Footer";
+import { Navbar, Footer } from "./components";
+
 import AllRoutes from "./components/Routes/AllRoutes";
 
 const App = () => {

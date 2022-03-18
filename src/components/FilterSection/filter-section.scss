@@ -1,0 +1,86 @@
+@import "../../sass/global";
+
+.filter-container {
+  max-width: 100%;
+  padding: 2rem 1rem;
+  text-transform: capitalize;
+  border: 3px solid rgb(233, 232, 232);
+  border-radius: $border-radius-sm;
+
+  @include respond(phone-xs) {
+    max-width: 100%;
+  }
+}
+
+.filter-primary-heading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+
+  p {
+    font-weight: 500;
+  }
+}
+
+.filters {
+  margin: 1rem 0;
+}
+
+.filter-heading {
+  text-transform: uppercase;
+  color: $color-primary;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.input-group-checkbox {
+  display: flex;
+  align-items: center;
+
+  input {
+    accent-color: $color-primary;
+    transform: scale(1.3);
+    padding: 10px;
+    height: 2.7rem;
+  }
+
+  label {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: 500;
+  }
+}
+
+.slider-text {
+  margin-bottom: 1.3rem;
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.5rem;
+  justify-content: space-between;
+
+  &__display {
+    border: 1px solid gray;
+    padding: 0.3rem;
+    border-radius: $border-radius-sm;
+  }
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: $border-radius-sm;
+  background: rgb(221, 221, 221);
+  outline: none;
+  transition: opacity 0.2s;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.4rem;
+    height: 1.2em;
+    border-radius: $border-radius-sm;
+    background: $color-primary;
+    cursor: pointer;
+  }
+}
