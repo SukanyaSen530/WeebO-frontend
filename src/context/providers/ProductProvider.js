@@ -18,11 +18,10 @@ const initialState = {
   productsFilter: {
     includeOutOfStock: true,
     filterOnSale: false,
-    sortByPrice: "",
-    sortByRating: "",
+    sortOption: "",
     filterByCategories: [],
     filterByBrands: [],
-    filterByPrice: 20000,
+    maxPrice: 20000,
     searchQuery: "",
   },
 };
@@ -30,7 +29,13 @@ const initialState = {
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
 
-  const filteredProducts = [];
+  const filteredProducts = compose(
+    // sortData,
+    // getSearchResults,
+    filterData
+  )(state, state?.products || []);
+
+  console.log(filteredProducts, state.productsFilter);
 
   return (
     <productContext.Provider value={{ state, dispatch, filteredProducts }}>
@@ -42,5 +47,3 @@ const ProductProvider = ({ children }) => {
 const useProductContext = () => useContext(productContext);
 
 export { ProductProvider, useProductContext };
-
-// compose(sortData, filterData, getSearchResults)(state, state.products) ||

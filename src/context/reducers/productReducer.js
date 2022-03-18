@@ -1,6 +1,8 @@
 import { productActions, filterActions } from "../constants/productConstant";
 
-export const productReducer = (state, { type, payload }) => {
+export const productReducer = (state, action) => {
+  const { type, payload } = action;
+
   switch (type) {
     case productActions.LOADING:
       return { ...state, productLoading: true, productFetchError: null };
@@ -11,21 +13,23 @@ export const productReducer = (state, { type, payload }) => {
     case productActions.ERROR:
       return { ...state, productLoading: false, productFetchError: payload };
 
-    case filterActions.SORT_BY_PRICE:
+    // Filters
+
+    case filterActions.SORT_OPTION:
       return {
         ...state,
         productsFilter: {
           ...state.productsFilter,
-          sortByPrice: payload,
+          sortOption: payload,
         },
       };
 
-    case filterActions.SORT_BY_RATING:
+    case filterActions.FILTER_SEARCH:
       return {
         ...state,
         productsFilter: {
           ...state.productsFilter,
-          sortByRating: payload,
+          searchQuery: payload,
         },
       };
 
@@ -38,8 +42,29 @@ export const productReducer = (state, { type, payload }) => {
         },
       };
 
+    case filterActions.FILTER_ON_SALE:
+      return {
+        ...state,
+        productsFilter: {
+          ...state.productsFilter,
+          filterOnSale: payload,
+        },
+      };
+
+    case filterActions.FILTER_BY_PRICE:
+      return {
+        ...state,
+        productsFilter: {
+          ...state.productsFilter,
+          maxPrice: payload,
+        },
+      };
+
     case filterActions.FILTER_BY_CATEGORIES:
       const payloadCategory = payload?.toLowerCase() || "";
+      console.log(
+        state.productsFilter.filterByCategories.includes(payloadCategory)
+      );
       if (payloadCategory === "") return state;
       return state.productsFilter.filterByCategories.includes(payloadCategory)
         ? {
@@ -56,15 +81,15 @@ export const productReducer = (state, { type, payload }) => {
             ...state,
             productsFilter: {
               ...state.productsFilter,
-              filterByBrands: [
-                ...state.productsFilter.filterByCategories.push(
-                  payloadCategory
-                ),
+              filterByCategories: [
+                ...state.productsFilter.filterByCategories,
+                payloadCategory,
               ],
             },
           };
 
     case filterActions.FILTER_BY_BRANDS:
+      console.log(payload);
       const payloadBrand = payload?.toLowerCase() || "";
       if (payloadBrand === "") return state;
       return state.productsFilter.filterByBrands.includes(payloadBrand)
@@ -81,47 +106,29 @@ export const productReducer = (state, { type, payload }) => {
             ...state,
             productsFilter: {
               ...state.productsFilter,
-              filterByCategories: [
-                ...state.productsFilter.filterByBrands.push(payloadBrand),
+              filterByBrands: [
+                ...state.productsFilter.filterByBrands,
+                payloadBrand,
               ],
             },
           };
 
-    case productActions.FILTER_BY_PRICE:
-      return {
-        ...state,
-        productsFilter: {
-          ...state.productsFilter,
-          filterByPrice: payload,
-        },
-      };
-
-    case productActions.FILTER_SEARCH:
-      return {
-        ...state,
-        productsFilter: {
-          ...state.productsFilter,
-          searchQuery: payload,
-        },
-      };
-
-    case productActions.CLEAR_FILTERS:
+    case filterActions.CLEAR_FILTERS:
       return {
         ...state,
         productsFilter: {
           includeOutOfStock: false,
           filterOnSale: false,
-          sortByPrice: "",
-          sortByRating: "",
+          sortOption: "",
           filterByCategories: [],
           filterByBrands: [],
-          filterByPrice: "",
+          maxPrice: 20000,
           searchQuery: "",
         },
       };
 
     default:
-      break;
+      return state;
   }
 };
 

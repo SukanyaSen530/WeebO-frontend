@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
 import { useProductContext, productActions } from "../../context";
@@ -41,8 +41,6 @@ function ProductList() {
     [dispatch]
   );
 
-  console.log("filtered", filteredProducts);
-
   if (productLoading) {
     return <Loader />;
   }
@@ -56,7 +54,7 @@ function ProductList() {
       <div className="productlist-search">
         <SearchSort />
         <p className="t-margin-sm b-margin-sm">
-          Showing All Figures (showing {filteredProducts?.length || 0} products){" "}
+          Showing All Figures (showing {filteredProducts?.length || 0} products)
         </p>
       </div>
       <div className="productlist-filter">

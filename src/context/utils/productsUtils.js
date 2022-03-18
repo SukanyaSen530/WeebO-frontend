@@ -1,13 +1,13 @@
-const sortData = ({ productsFilter: { sortByPrice, sortByRating } }, data) => {
-  if (sortByPrice === "HIGH_TO_LOW") {
+const sortData = ({ productsFilter: { sortOption } }, data) => {
+  if (sortOption === "HIGH_TO_LOW|price") {
     return [...data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price))];
-  } else if (sortByPrice === "LOW_TO_HIGH") {
+  } else if (sortOption === "LOW_TO_HIGH|price") {
     return [...data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))];
-  } else if (sortByRating === "HIGH_TO_LOW") {
+  } else if (sortOption === "HIGH_TO_LOW|rating") {
     return [
       ...data.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)),
     ];
-  } else if (sortByRating === "LOW_TO_HIGH") {
+  } else if (sortOption === "LOW_TO_HIGH|rating") {
     return [
       ...data.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating)),
     ];
@@ -30,15 +30,13 @@ const filterData = (
       filterOnSale,
       filterByCategories,
       filterByBrands,
-      filterByPrice,
+      maxPrice,
     },
   },
   data
 ) => {
   return (data || [])
-    .filter(
-      (product) => parseFloat(product?.price) <= parseFloat(filterByPrice)
-    )
+    .filter((product) => parseFloat(product?.price) <= parseFloat(maxPrice))
     .filter((product) => (includeOutOfStock ? true : product?.inStock))
     .filter(({ tag }) =>
       filterOnSale ? tag && tag.toLowerCase() === "sale" : true
