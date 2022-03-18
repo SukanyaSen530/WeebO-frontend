@@ -5,7 +5,7 @@ import { useProductContext } from "../../context/providers/ProductProvider";
 import { productActions } from "../../context/constants/productConstant";
 import { Loader } from "../../components/Loader";
 import { ErrorPage } from "../ErrorPage";
-// import { FilterSection, SearchSort } from "../../components/FilterSection";
+import { FilterSection, SearchSort } from "../../components/FilterSection";
 import { ProductCard } from "../../components/ProductCard";
 
 function ProductList() {
@@ -43,13 +43,15 @@ function ProductList() {
 
   return (
     <section>
-      {/* <div>
+      <div>
         <SearchSort />
       </div>
       <div>
         <FilterSection />
-      </div> */}
+      </div>
       <div>
+        <p> Showing All Figures (showing {products?.length} products) </p>
+
         {products?.map((product) => (
           <ProductCard key={product._id} {...product} />
         ))}
