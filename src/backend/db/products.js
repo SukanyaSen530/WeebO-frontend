@@ -151,7 +151,7 @@ export const products = [
     inStock: true,
     description:
       "Monkey D. Luffy is determined to become the Pirate King by finding Gol D. Roger's legendary treasure. Your collection of One Piece needs Pop! Luffytaro to lead the Straw Hat Pirates to victory.",
-    categoryName: "tokyo revengers",
+    categoryName: "one piece",
   },
   {
     _id: "p9",

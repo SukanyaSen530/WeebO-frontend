@@ -19,19 +19,13 @@ export default function Home() {
         </h1>
 
         <div className="categories-section">
-          {categoryData?.map((category) => (
-            <Link to="/products" key={category.id}>
+          {categoryData?.map(({ id, categoryName, imgSrc, altText }) => (
+            <Link to="/products" key={id}>
               <article className="category-card">
                 <div className="category-card__image">
-                  <img
-                    src={category.imgSrc}
-                    alt={category.altText}
-                    className="resp-img"
-                  />
+                  <img src={imgSrc} alt={altText} className="resp-img" />
                 </div>
-                <span className="category-card__text">
-                  {category.categoryName}
-                </span>
+                <span className="category-card__text">{categoryName}</span>
               </article>
             </Link>
           ))}
@@ -44,15 +38,11 @@ export default function Home() {
         </h1>
 
         <div className="brands-section">
-          {brandData?.map((brand) => (
-            <Link to="/products" key={brand.id}>
+          {brandData?.map(({ id, brandName, imgSrc, altText }) => (
+            <Link to="/products" key={id}>
               <article className="brand-card">
                 <div className="brand-card__image">
-                  <img
-                    src={brand.imgSrc}
-                    alt={brand.altText}
-                    className="resp-img"
-                  />
+                  <img src={imgSrc} alt={altText} className="resp-img" />
                 </div>
               </article>
             </Link>
