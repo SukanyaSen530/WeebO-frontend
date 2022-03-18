@@ -5,7 +5,7 @@ import "./navbar.scss";
 import { Link, NavLink } from "react-router-dom";
 
 import logo from "../../assets/logo.png";
-import { BsSuitHeart } from "react-icons/bs";
+import { FaHandHoldingHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -61,7 +61,7 @@ const Navbar = () => {
         </Link> */}
 
         <Link to="/wishlist" className="btn-icon badge">
-          <BsSuitHeart className="btn-icon__icon" />
+          <FaHandHoldingHeart className="btn-icon__icon" />
           <span className="btn-icon__text">Wishlist</span>
           <span className="badge__count"> 3 </span>
         </Link>

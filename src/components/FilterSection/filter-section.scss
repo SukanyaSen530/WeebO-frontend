@@ -1,11 +1,15 @@
 @import "../../sass/global";
 
 .filter-container {
-  max-width: 30rem;
+  max-width: 100%;
   padding: 2rem 1rem;
   text-transform: capitalize;
   border: 3px solid rgb(233, 232, 232);
   border-radius: $border-radius-sm;
+
+  @include respond(phone-xs) {
+    max-width: 100%;
+  }
 }
 
 .filter-primary-heading {

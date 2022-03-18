@@ -1,7 +1,7 @@
 import React from "react";
 import { v4 as uuid } from "uuid";
 
-import { IoSearchCircle } from "react-icons/io5";
+import { FiSearch } from "react-icons/fi";
 import "./search-sort.scss";
 
 const sortData = [
@@ -13,9 +13,9 @@ const sortData = [
 
 const SearchSort = () => {
   return (
-    <section>
+    <section className="search-sort-container">
       <div className="search-container">
-        <IoSearchCircle className="search-container__icon" />
+        <FiSearch className="search-container__icon" />
         <input
           type="text"
           placeholder="Search by name"
@@ -24,7 +24,7 @@ const SearchSort = () => {
       </div>
 
       <select className="sort-dropdown">
-        <option value=""> Select </option>
+        <option value=""> Sort </option>
         {sortData.map((data) => (
           <option key={data.id} value={data.sortType}>
             {data.name}

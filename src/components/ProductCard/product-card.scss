@@ -1,12 +1,17 @@
 @import "../../sass/global";
 
 .product-card {
-  width: 32rem;
+  width: 25rem;
   overflow: hidden;
   position: relative;
   padding: 1rem;
   border-radius: $border-radius-sm;
   transition: 0.4s box-shadow ease;
+
+  @include respond(phone) {
+    width: 90%;
+    margin: 0 auto;
+  }
 
   &:hover {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -47,13 +52,18 @@
     }
   }
 
-  &__wishlist-filled,
   &__wishlist-empty {
     color: $color-black;
   }
 
+  &__wishlist-filled {
+    color: $color-primary;
+  }
+
   &__title {
-    font-size: 2.6rem;
+    font-size: 2rem;
+    font-weight: 500;
+    color: $grey;
     text-transform: capitalize;
     white-space: nowrap;
     overflow: hidden;
@@ -64,7 +74,42 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.6rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__btn {
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: all 0.5s ease;
+    background-color: $color-black;
+    color: $color-white;
+
+    &__icon {
+      color: $color-white;
+    }
+
+    &:hover {
+      background-color: $color-primary;
+    }
+
+    &:first-child {
+      flex-basis: 80%;
+    }
+
+    &:last-child {
+      flex-basis: 20%;
+    }
   }
 }
 

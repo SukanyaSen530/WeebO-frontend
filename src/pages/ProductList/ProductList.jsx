@@ -8,6 +8,8 @@ import { ErrorPage } from "../ErrorPage";
 import { FilterSection, SearchSort } from "../../components/FilterSection";
 import { ProductCard } from "../../components/ProductCard";
 
+import "./product-list.scss";
+
 function ProductList() {
   const { state, dispatch } = useProductContext();
 
@@ -42,16 +44,17 @@ function ProductList() {
   }
 
   return (
-    <section>
-      <div>
+    <section className="productlist-section">
+      <div className="productlist-search">
         <SearchSort />
+        <p className="t-margin-sm b-margin-sm">
+          Showing All Figures (showing {products?.length} products){" "}
+        </p>
       </div>
-      <div>
+      <div className="productlist-filter">
         <FilterSection />
       </div>
-      <div>
-        <p> Showing All Figures (showing {products?.length} products) </p>
-
+      <div className="productlist-items">
         {products?.map((product) => (
           <ProductCard key={product._id} {...product} />
         ))}

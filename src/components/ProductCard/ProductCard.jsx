@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import { BsSuitHeart, BsSuitHeartFill, BsFillStarFill } from "react-icons/bs";
-import { GrOverview } from "react-icons/gr";
+import { FaStreetView } from "react-icons/fa";
 
 import "./product-card.scss";
 
@@ -48,9 +48,11 @@ function ProductCard({
       </div>
 
       <div className="product-card__actions">
-        <Link to="/cart">Add to Cart</Link>
-        <Link to={`/products/${_id}`}>
-          View <GrOverview />
+        <Link to="/cart" className="product-card__btn ">
+          Add to Cart
+        </Link>
+        <Link to={`/products/${_id}`} className="product-card__btn">
+          <FaStreetView className="product-card__btn__icon" />
         </Link>
       </div>
 
