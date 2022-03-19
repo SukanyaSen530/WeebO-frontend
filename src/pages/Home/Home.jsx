@@ -5,10 +5,14 @@ import { Link } from "react-router-dom";
 import { Caraousel } from "../../components";
 import { bannerData, categoryData, brandData } from "../../data/imageData";
 
+import { useProductContext, filterActions } from "../../context";
+
 // STYLES
 import "./home.scss";
 
 export default function Home() {
+  const { dispatch } = useProductContext();
+
   return (
     <section className="home-section">
       <Caraousel data={bannerData} />
@@ -20,7 +24,16 @@ export default function Home() {
 
         <div className="categories-section">
           {categoryData?.map(({ id, categoryName, imgSrc, altText }) => (
-            <Link to="/products" key={id}>
+            <Link
+              to={`/products`}
+              key={id}
+              onClick={() =>
+                dispatch({
+                  type: filterActions.FILTER_BY_CATEGORIES,
+                  payload: categoryName.toLowerCase(),
+                })
+              }
+            >
               <article className="category-card">
                 <div className="category-card__image">
                   <img src={imgSrc} alt={altText} className="resp-img" />
@@ -39,7 +52,16 @@ export default function Home() {
 
         <div className="brands-section">
           {brandData?.map(({ id, brandName, imgSrc, altText }) => (
-            <Link to="/products" key={id}>
+            <Link
+              to={`/products`}
+              key={id}
+              onClick={(e) =>
+                dispatch({
+                  type: filterActions.FILTER_BY_BRANDS,
+                  payload: brandName.toLowerCase(),
+                })
+              }
+            >
               <article className="brand-card">
                 <div className="brand-card__image">
                   <img src={imgSrc} alt={altText} className="resp-img" />

@@ -3,6 +3,10 @@
 .search-sort-container {
   display: flex;
   gap: 2rem;
+
+  @include respond(xs-phone) {
+    flex-direction: column;
+  }
 }
 
 .search-container {

@@ -1,8 +1,37 @@
+const compare1 = (
+  { price: priceA, discount: discountA },
+  { price: priceB, discount: discountB }
+) => {
+  const discountedPriceA = discountA
+    ? parseFloat(priceA - (priceA * discountA) / 100)
+    : priceA;
+  const discountedPriceB = discountB
+    ? parseFloat(priceB - (priceB * discountB) / 100)
+    : priceB;
+
+  return discountedPriceB - discountedPriceA;
+};
+
+const compare2 = (
+  { price: priceA, discount: discountA },
+  { price: priceB, discount: discountB }
+) => {
+  const discountedPriceA = discountA
+    ? parseFloat(priceA - (priceA * discountA) / 100)
+    : priceA;
+  const discountedPriceB = discountB
+    ? parseFloat(priceB - (priceB * discountB) / 100)
+    : priceB;
+
+  return discountedPriceA - discountedPriceB;
+};
+
 const sortData = ({ productsFilter: { sortOption } }, data) => {
   if (sortOption === "HIGH_TO_LOW|price") {
-    return [...data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price))];
+    console.log([...data].sort(compare1));
+    return [...data].sort(compare1);
   } else if (sortOption === "LOW_TO_HIGH|price") {
-    return [...data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))];
+    return [...data].sort(compare2);
   } else if (sortOption === "HIGH_TO_LOW|rating") {
     return [
       ...data.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)),

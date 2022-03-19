@@ -14,6 +14,7 @@ const productContext = createContext();
 const initialState = {
   productLoading: false,
   products: [],
+  view_product: {},
   productFetchError: null,
   productsFilter: {
     includeOutOfStock: true,
@@ -35,7 +36,7 @@ const ProductProvider = ({ children }) => {
     filterData
   )(state, state?.products || []);
 
-  console.log(filteredProducts, state.productsFilter);
+  // console.log(filteredProducts, state.productsFilter);
 
   return (
     <productContext.Provider value={{ state, dispatch, filteredProducts }}>

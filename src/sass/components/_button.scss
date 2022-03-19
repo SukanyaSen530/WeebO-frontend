@@ -73,6 +73,13 @@
       transform: translateY(-3px);
     }
   }
+
+  &:disabled,
+  &[disabled] {
+    border: 1px solid #646464;
+    background-color: #cccccc;
+    color: #646464;
+  }
 }
 
 .link {

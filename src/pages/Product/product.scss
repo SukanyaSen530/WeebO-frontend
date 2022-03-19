@@ -1,0 +1,117 @@
+@import "../../sass/global";
+
+.productdetails-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  min-height: 80vh;
+}
+
+.product-details {
+  display: flex;
+  width: 100%;
+  min-height: fit-content;
+  gap: 2rem;
+
+  @include respond(phone) {
+    flex-direction: column;
+  }
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-basis: 50%;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+
+  @include respond(phone) {
+    flex-basis: 100%;
+    gap: 1rem;
+    flex-direction: row;
+  }
+
+  &__image {
+    height: 40rem;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.4s transform ease;
+
+    @include respond(tab-port) {
+      height: 35rem;
+    }
+
+    @include respond(phone) {
+      height: 30rem;
+    }
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.product-content {
+  flex-basis: 50%;
+  padding: 2rem;
+  font-size: 1.8rem;
+  background: whitesmoke;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+  &__btn.btn {
+    width: 25rem;
+  }
+
+  &__heading {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid grey;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  &__brand {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+
+    .rating {
+      margin-left: 4rem;
+    }
+  }
+
+  &__price-container {
+    display: flex;
+  }
+
+  &__description {
+    text-align: justify;
+  }
+
+  &__specification {
+    color: $color-primary-dark;
+    font-weight: 600;
+    padding-bottom: 1rem;
+  }
+
+  &__specification-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+
+    li:before {
+      content: "🔥";
+      margin-right: 1rem;
+    }
+  }
+}
+
+.product-discount {
+  color: green;
+}

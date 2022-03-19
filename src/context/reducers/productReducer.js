@@ -8,10 +8,23 @@ export const productReducer = (state, action) => {
       return { ...state, productLoading: true, productFetchError: null };
 
     case productActions.LOAD_PRODUCTS:
-      return { ...state, productLoading: false, products: payload };
+      return {
+        ...state,
+        productLoading: false,
+        products: payload,
+        productFetchError: null,
+      };
 
     case productActions.ERROR:
       return { ...state, productLoading: false, productFetchError: payload };
+
+    case productActions.LOAD_SINGLE_PRODUCT:
+      return {
+        ...state,
+        productLoading: false,
+        view_product: payload,
+        productFetchError: null,
+      };
 
     // Filters
 
