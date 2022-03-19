@@ -31,7 +31,6 @@ export const products = [
     brandName: "SHFiguarts",
     price: 11999,
     discount: 20,
-    freeDelivery: true,
     tag: "new",
     img: [`${productURL}joker1.jpg`, `${productURL}joker2.jpg`],
     description:
@@ -74,7 +73,6 @@ export const products = [
       material: "PVC",
       age: "13+",
     },
-    freeDelivery: true,
     rating: 5,
     inStock: true,
     description:
@@ -105,7 +103,6 @@ export const products = [
     name: "Gyomei Himejima",
     brandName: "banpresto",
     price: 9999,
-    freeDelivery: true,
     img: [`${productURL}gyomei1.jpg`, `${productURL}gyomei2.jpg`],
     description:
       "From the popular anime series Demon Slayer: Kimetsu no Yaiba comes a figure of Gyoumei Himejima! He has been expertly recreated with great attention to detail.",
@@ -123,7 +120,6 @@ export const products = [
     name: "Naruto",
     brandName: "banpresto",
     price: 8499,
-    tag: "sold out",
     img: [`${productURL}naruto1.jpg`, `${productURL}naruto2.jpg`],
     description:
       "The Boruto Naruto Next Generation Vibration Stars series features highly detailed, collectable static figurines that are designed carefully keeping in mind the minute details of the character.",
@@ -214,7 +210,6 @@ export const products = [
     name: "megumi fushiguro",
     brandName: "banpresto",
     price: 8000,
-    tag: "sold out",
     img: [`${productURL}megumi1.jpg`, `${productURL}megumi2.jpg`],
     description:
       "From the currently airing anime series 'Jujutsu Kaisen' comes this figure from Banpresto! It features Yuji Itadori, the main character, ready for action!",
@@ -232,7 +227,6 @@ export const products = [
     name: "deku",
     brandName: "funko",
     price: 1299,
-    tag: "sold out",
     img: [`${productURL}deku1.jpg`, `${productURL}deku2.jpg`],
     specification: {
       size: "4.5 inches",

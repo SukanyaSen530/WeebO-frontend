@@ -19,8 +19,9 @@
       "filter items items";
   }
 
-  @include respond(phone-xs) {
+  @include respond(xs-phone) {
     grid-template-columns: 1fr;
+    gap: 2rem;
     grid-template-areas:
       "filter"
       "search"

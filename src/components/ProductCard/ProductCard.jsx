@@ -37,7 +37,7 @@ function ProductCard({
             </p>
             {discount && (
               <p className="product-price">
-                ₹ {price - (price * discount) / 100}
+                ₹ {parseInt(price - (price * discount) / 100)}
               </p>
             )}
           </div>
@@ -66,12 +66,11 @@ function ProductCard({
 
       {tag && <span className="text-badge">{tag}</span>}
 
+      {!inStock ? <span className="text-badge">sold out</span> : null}
       {!inStock ? (
-        <div className="overlay">
-          <Link to={`/products/${_id}`}>
-            <span className="overlay__text">Out of stock</span>
-          </Link>
-        </div>
+        <Link to={`/products/${_id}`}>
+          <div className="overlay"></div>
+        </Link>
       ) : null}
     </article>
   );
