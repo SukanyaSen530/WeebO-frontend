@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import notFound from "../../assets/pagenotFound.jpg";
+import notFound from "../../assets/pageNotFound.jpg";
 
 import { Home } from "../../pages/Home";
 import { Cart } from "../../pages/Cart";

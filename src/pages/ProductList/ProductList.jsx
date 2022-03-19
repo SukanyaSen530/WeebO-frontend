@@ -13,7 +13,7 @@ import {
 import { ErrorPage } from "../ErrorPage";
 
 // Styles, Images
-import notFound from "../../assets/productnotfound.jpg";
+import notFound from "../../assets/productNotFound.jpg";
 import "./product-list.scss";
 
 function ProductList() {
