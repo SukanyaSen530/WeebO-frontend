@@ -14,6 +14,7 @@ const productContext = createContext();
 const initialState = {
   productLoading: false,
   products: [],
+  view_product: {},
   productFetchError: null,
   productsFilter: {
     includeOutOfStock: true,

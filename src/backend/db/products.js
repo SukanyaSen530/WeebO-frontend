@@ -64,24 +64,24 @@ export const products = [
   {
     _id: "p4",
     name: "doctor strange",
-    brandName: "SHFiguarts",
-    price: 8999,
+    brandName: "funko",
+    price: 2999,
     discount: 10,
     img: [`${productURL}ds1.jpg`, `${productURL}ds2.jpg`],
     specification: {
-      size: "8 inches",
+      size: "4.5 inches",
       material: "PVC",
       age: "13+",
     },
     rating: 5,
     inStock: true,
     description:
-      "S.H.Figuarts welcomes Doctor Strange, as he prepares for new adventures in the upcoming Marvel Studios film Doctor Strange in the Multiverse of Madness! This Marvel figure includes effect parts and a cape for recreating your favourite dramatic scenes, as well as a newly sculpted body and Tamashii digital coloured head.",
+      "Funko welcomes Doctor Strange, as he prepares for new adventures in the upcoming Marvel Studios film Doctor Strange in the Multiverse of Madness! This Marvel figure includes effect parts and a cape for recreating your favourite dramatic scenes, as well as a newly sculpted body and Tamashii digital coloured head.",
     categoryName: "marvel",
   },
   {
     _id: "p5",
-    name: "Sanemi Shinazugawa",
+    name: "Sanemi",
     brandName: "Banpresto",
     price: 4999,
     discount: 10,
@@ -100,7 +100,7 @@ export const products = [
   },
   {
     _id: "p6",
-    name: "Gyomei Himejima",
+    name: "Gyomei",
     brandName: "banpresto",
     price: 9999,
     img: [`${productURL}gyomei1.jpg`, `${productURL}gyomei2.jpg`],
@@ -122,7 +122,7 @@ export const products = [
     price: 8499,
     img: [`${productURL}naruto1.jpg`, `${productURL}naruto2.jpg`],
     description:
-      "The Boruto Naruto Next Generation Vibration Stars series features highly detailed, collectable static figurines that are designed carefully keeping in mind the minute details of the character.",
+      "Banpresto features highly detailed - Naruto Uzumaki, which is designed carefully keeping in mind the minute details of the character.",
     specification: {
       size: "8 inches",
       material: "ABS",
@@ -158,7 +158,7 @@ export const products = [
     tag: "sale",
     img: [`${productURL}sabo1.jpg`, `${productURL}sabo2.jpg`],
     description:
-      "Banpresto One Piece Magazine Figure Special Episode Luffy Vol.3 - Sabo",
+      "Banpresto One Piece Magazine Figure Special Episode Luffy Vol.3 - Sabo. Sabo is the Revolutionary Army's chief of staff, recognized as the No. 2 of the entire organization outranked only by Supreme Commander Monkey D. Dragon.",
     specification: {
       size: "7 inches",
       material: "ABS",
@@ -170,13 +170,13 @@ export const products = [
   },
   {
     _id: "p10",
-    name: "baaji",
+    name: "baji",
     brandName: "banpresto",
     price: 4500,
     tag: "new",
     img: [`${productURL}baaji1.jpg`, `${productURL}baaji2.jpg`],
     description:
-      "From the Tokyo Revengers anime comes a figure of Baji! He stands about 7 inches tall and has been faithfully recreated, a great addition to any collection!",
+      "From the Tokyo Revengers anime comes a figure of Keisuke Baji! He has been faithfully recreated, a great addition to any collection!",
     specification: {
       size: "6 inches",
       material: "Plastic",
@@ -188,7 +188,7 @@ export const products = [
   },
   {
     _id: "p11",
-    name: "satoru gojo",
+    name: "gojo",
     brandName: "banpresto",
     price: 8000,
     discount: 15,
@@ -207,12 +207,12 @@ export const products = [
   },
   {
     _id: "p12",
-    name: "megumi fushiguro",
+    name: "megumi",
     brandName: "banpresto",
     price: 8000,
     img: [`${productURL}megumi1.jpg`, `${productURL}megumi2.jpg`],
     description:
-      "From the currently airing anime series 'Jujutsu Kaisen' comes this figure from Banpresto! It features Yuji Itadori, the main character, ready for action!",
+      "From the currently airing anime series 'Jujutsu Kaisen' comes this figure from Banpresto! It features Megumi Fushiguru, one of the main characters, ready for action!",
     specification: {
       size: "7 inches",
       material: "ABS & PVC",
@@ -220,6 +220,8 @@ export const products = [
     },
     rating: 4.2,
     inStock: false,
+    description:
+      "Banpresto brings the adventures of Megumi Fushiguro, the young  jujutsu sorcerer at the Tokyo Jujutsu High. He is carefully sculpted using the assets from the show which brings out the confident personality of the stoic sorcerer.",
     categoryName: "jujutsu kaisen",
   },
   {
@@ -236,7 +238,7 @@ export const products = [
     rating: 4,
     inStock: false,
     description:
-      "This Deku, complete with his iconic green hair and freckles comes as a Pop! vinyl figure. The Deku figure comes in Funko's classic themed display window box.",
+      "This Deku, complete with his iconic green hair and freckles comes as a Pop! vinyl figure. The Izuku Midoriya figure comes in Funko's classic themed display window box.",
     categoryName: "my hero academia",
   },
   {
@@ -255,7 +257,7 @@ export const products = [
     rating: 3.8,
     inStock: true,
     description:
-      "These are bound to bring a smile to your face and become a talking point among friends. These are ideal as gifts for a hardcore fan of any show/movie. It will look perfect on your work/study desk. Ideal to decorate and bring some fandom right into your home.",
+      "These cute figure of Hulk from marvel is bound to bring a smile to your face and become a talking point among friends. Look's perfect on your work/study desk. Ideal to decorate and bring some fandom right into your home.",
     categoryName: "marvel",
   },
   {
@@ -273,7 +275,8 @@ export const products = [
     },
     rating: 5,
     inStock: true,
-    description: "",
+    description:
+      "Banpresto brings the Vice-president and one of the founding members of the Tokyo Manji Gang! with this impressive figure of Ken Ryuguji from the acclaimed Japanese Manga and Anime series.",
     categoryName: "tokyo revengers",
   },
   {
@@ -292,13 +295,85 @@ export const products = [
     rating: 5,
     inStock: true,
     description:
-      "This highly articulated 6 Inch tall Sasuke figure by Bandai is the figure you have been waiting for. Sasuke is carefully sculpted using the assets from the show which brings out every possible detail bringing out his Kawai heritage.",
+      "Sasuke is carefully sculpted using the assets from the show which brings out every possible detail bringing out his Kawai heritage.",
     categoryName: "naruto",
   },
   {
     _id: "p17",
-    name: "wolverine",
+    name: "harley quinn",
+    brandName: "bandai",
+    price: 10999,
+    tag: "new",
+    img: [`${productURL}hq1.jpg`, `${productURL}hq2.jpg`],
+    specification: {
+      size: "7 inches",
+      material: "PVC",
+      age: "13+",
+    },
+    rating: 5,
+    inStock: true,
+    description:
+      "She’s athletic, intelligent and quick with a joke. Her loyalty to her loved ones is the stuff of legend. She’s definitely the kind of gal you’d want to be friends with…except for the whole mallet-happy super-villain who hangs out with the Joker thing.",
+    categoryName: "dc",
+  },
+  {
+    _id: "p18",
+    name: "catwoman",
+    brandName: "bandai",
+    price: 12000,
+    discount: 10,
+    img: [`${productURL}catwoman1.jpg`, `${productURL}catwoman2.jpg`],
+    specification: {
+      size: "4.5 inches",
+      material: "Plastic",
+      age: "5+",
+    },
+    rating: 4.8,
+    inStock: true,
+    description:
+      "Based on DC characters with universal appeal, DC Essentials is a line of 7 inch action figures that are appealing to both longtime collectors and those just starting out. These figures deliver authentic detail from a company with two decades of experience producing high-quality action figures.",
+    categoryName: "dc",
+  },
+  {
+    _id: "p19",
+    name: "poison ivy",
+    brandName: "bandai",
+    price: 14999,
+    img: [`${productURL}poison1.jpg`, `${productURL}poison2.jpg`],
+    specification: {
+      size: "7 inches",
+      material: "ABS",
+      age: "13+",
+    },
+    rating: 5,
+    inStock: false,
+    description:
+      "From Bandai comes one of the most polarizing character who bends the line between good and bad, Poison Ivy. Beautiful and deadly, Dr. Pamela Isley aka Poison Ivy displays another of her monstrous botanical creations in this beautiful'Poison Ivy DC Comics 1/10 Art Scale by Bandai'.",
+    categoryName: "dc",
+  },
+  {
+    _id: "p20",
+    name: "wonder woman",
     brandName: "SHFiguarts",
+    price: 19400,
+    discount: 20,
+    tag: "sale",
+    img: [`${productURL}ww1.jpg`, `${productURL}ww2.jpg`],
+    specification: {
+      size: "7 inches",
+      material: "PVC",
+      age: "13+",
+    },
+    rating: 4.9,
+    inStock: true,
+    description:
+      "This brand new Golden Armor Wonder Woman collectible figure faithfully reproduced the Warrior Princess and her legendary armor with startling detail. This SH Figurarts figure stands over 7 inches tall and features multiple points of premium articulation.",
+    categoryName: "dc",
+  },
+  {
+    _id: "p21",
+    name: "wolverine",
+    brandName: "bandai",
     price: 10999,
     discount: 15,
     tag: "new",
@@ -310,11 +385,12 @@ export const products = [
     },
     rating: 5,
     inStock: true,
-    description: "",
+    description:
+      "Wolverine Sixth Scale Figure features a Marvel Comics inspired design with the head sculpt of everyone’s favorite mutant having a stern expression beneath his yellow and black finned cowl.",
     categoryName: "marvel",
   },
   {
-    _id: "p18",
+    _id: "p22",
     name: "muzan",
     brandName: "funko",
     price: 2099,
@@ -327,11 +403,12 @@ export const products = [
     },
     rating: 4.8,
     inStock: true,
-    description: "",
+    description:
+      "Muzan is the main antagonist of Demon Slayer: Kimetsu no Yaiba. He is the Demon King, the first of his kind, as well as the progenitor of all other demons in existence. ",
     categoryName: "demon slayer",
   },
   {
-    _id: "p19",
+    _id: "p23",
     name: "kirishima",
     brandName: "funko",
     price: 1200,
@@ -344,11 +421,11 @@ export const products = [
     rating: 3,
     inStock: false,
     description:
-      "Figure is from the popular Anime series, My Hero Academia,  Kirishima Figure is not a bobblehead.",
+      "Eijiro Kirishima, also known as the Sturdy Hero: Red Riot, is a student in Class 1-A at U.A. High School, training to become a Pro Hero. Figure is from the popular Anime series, My Hero Academia.",
     categoryName: "my hero academia",
   },
   {
-    _id: "p20",
+    _id: "p24",
     name: "zenitsu",
     brandName: "funko",
     price: 2999,
@@ -362,7 +439,79 @@ export const products = [
     },
     rating: 4.3,
     inStock: true,
-    description: "",
+    description:
+      "Zenitsu Agatsuma is one of the main protagonists of Demon Slayer: Kimetsu no Yaiba and along with Inosuke Hashibira, a travelling companion of Tanjiro Kamado and Nezuko Kamado. This figurin is completed with his iconic yellow hair and cute face.",
+    categoryName: "demon slayer",
+  },
+  {
+    _id: "p25",
+    name: "kakashi",
+    brandName: "bandai",
+    price: 3999,
+    img: [`${productURL}kakashi1.jpg`, `${productURL}kakashi2.jpg`],
+    specification: {
+      size: "7 inches",
+      material: "PVC",
+      age: "13+",
+    },
+    rating: 3.9,
+    inStock: true,
+    description:
+      "A true anime fan needs to have this naurto shippuden vibration stars - hatake kakashi action figure made by Banpresto. From the anime series naurto comes this highly detailed pvc statue. This figure is beautifully moulded with neat detailing to give a realistic feel.",
+    categoryName: "naruto",
+  },
+  {
+    _id: "p26",
+    name: "inoske",
+    brandName: "funko",
+    price: 3199,
+    discount: 5,
+    img: [`${productURL}inoske1.jpg`, `${productURL}inoske2.jpg`],
+    specification: {
+      size: "4.5 inches",
+      material: "Plastic",
+      age: "5+",
+    },
+    rating: 4.8,
+    inStock: true,
+    description:
+      "Inosuke is a member of the Demon Slayer Corps who makes use of the Breath of the Beast sword style, a style he pioneered. He is a travelling companion of the series' main protagonist Tanjiro Kamado.",
+    categoryName: "demon slayer",
+  },
+  {
+    _id: "p27",
+    name: "nobara",
+    brandName: "banpresto",
+    price: 4999,
+    img: [`${productURL}nobara1.jpg`, `${productURL}nobara2.jpg`],
+    specification: {
+      size: "7 inches",
+      material: "PVC & ABS",
+      age: "13+",
+    },
+    rating: 4.5,
+    inStock: false,
+    description:
+      "This 7 Inch tall Jujutsu Kaisen Nobara Kugisaki Figure by Banpresto is the figure you have been waiting for. She is carefully sculpted using the assets from the show which brings out the confident personality of the sorcerer. The figure also features a high amount of detailing and paintwork from head to toe especially on Nobara Kugisaki's attire.",
+    categoryName: "jujutsu kaisen",
+  },
+  {
+    _id: "p28",
+    name: "tengen uzui",
+    brandName: "banpresto",
+    price: 4099,
+    discount: 10,
+    tag: "sale",
+    img: [`${productURL}uzui1.jpg`, `${productURL}uzui2.jpg`],
+    specification: {
+      size: "7 inches",
+      material: "ABS",
+      age: "13+",
+    },
+    rating: 4.9,
+    inStock: true,
+    description:
+      "Tengen Uzui Collectible Figure by Banpresto is the statue you have been waiting for. He is carefully sculpted using the assets from the show which brings out the features of the optimist slayer.",
     categoryName: "demon slayer",
   },
 ];

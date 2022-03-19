@@ -13,7 +13,7 @@ import {
 import { ErrorPage } from "../ErrorPage";
 
 // Styles, Images
-import notFound from "../../assets/productnotfound.jpg";
+import notFound from "../../assets/productNotFound.jpg";
 import "./product-list.scss";
 
 function ProductList() {
@@ -25,7 +25,7 @@ function ProductList() {
       (async function () {
         try {
           dispatch({ type: productActions.LOADING, payload: true });
-          const response = await axios.get("api/products");
+          const response = await axios.get("/api/products");
           dispatch({
             type: productActions.LOAD_PRODUCTS,
             payload: response?.data?.products || [],

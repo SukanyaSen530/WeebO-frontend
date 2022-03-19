@@ -13,6 +13,7 @@ const productActions = {
   LOADING: "LOADING",
   LOAD_PRODUCTS: "LOAD_PRODUCTS",
   ERROR: "ERROR",
+  LOAD_SINGLE_PRODUCT: "LOAD_SINGLE_PRODUCT",
 };
 
 export { filterActions, productActions };
