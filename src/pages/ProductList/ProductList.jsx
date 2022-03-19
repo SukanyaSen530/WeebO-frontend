@@ -18,7 +18,6 @@ import "./product-list.scss";
 
 function ProductList() {
   const { state, dispatch, filteredProducts } = useProductContext();
-
   const { productLoading, productFetchError } = state;
 
   useEffect(

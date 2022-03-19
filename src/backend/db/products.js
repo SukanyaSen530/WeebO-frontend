@@ -154,7 +154,7 @@ export const products = [
     name: "sabo",
     brandName: "banpresto",
     price: 12000,
-    discount: 34,
+    discount: 25,
     tag: "sale",
     img: [`${productURL}sabo1.jpg`, `${productURL}sabo2.jpg`],
     description:
@@ -191,7 +191,7 @@ export const products = [
     name: "satoru gojo",
     brandName: "banpresto",
     price: 8000,
-    discount: 30,
+    discount: 15,
     tag: "sale",
     img: [`${productURL}gojo1.jpg`, `${productURL}gojo2.jpg`],
     description:
@@ -220,7 +220,7 @@ export const products = [
     },
     rating: 4.2,
     inStock: false,
-    categoryName: "jujutssu kaisen",
+    categoryName: "jujutsu kaisen",
   },
   {
     _id: "p13",
@@ -244,7 +244,7 @@ export const products = [
     name: "hulk",
     brandName: "funko",
     price: 2099,
-    discount: 5,
+    discount: 10,
     tag: "new",
     img: [`${productURL}hulk1.jpg`, `${productURL}hulk2.jpg`],
     specification: {
@@ -300,7 +300,7 @@ export const products = [
     name: "wolverine",
     brandName: "SHFiguarts",
     price: 10999,
-    discount: 5,
+    discount: 15,
     tag: "new",
     img: [`${productURL}wolverin1.jpg`, `${productURL}wolverin2.jpg`],
     specification: {
