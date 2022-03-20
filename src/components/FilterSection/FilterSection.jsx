@@ -71,7 +71,7 @@ const FilterSection = () => {
                 });
               }}
             />
-            <label>{categoryName}</label>
+            <label htmlFor={id}>{categoryName}</label>
           </div>
         ))}
       </div>
@@ -92,7 +92,7 @@ const FilterSection = () => {
                 })
               }
             />
-            <label>{brandName}</label>
+            <label htmlFor={id}>{brandName}</label>
           </div>
         ))}
       </div>
@@ -103,7 +103,7 @@ const FilterSection = () => {
           <input
             type="checkbox"
             name="includeoutofstock"
-            id="includeoutofstock"
+            id="includeOutOfStock"
             checked={includeOutOfStock}
             onChange={(e) =>
               dispatch({
@@ -112,13 +112,13 @@ const FilterSection = () => {
               })
             }
           />
-          <label>Include Out Of Stock</label>
+          <label htmlFor="includeoutofstock">Include Out Of Stock</label>
         </div>
         <div className="input-group-checkbox">
           <input
             type="checkbox"
             name="On sale"
-            id="On Sale"
+            id="onSale"
             checked={filterOnSale}
             onChange={(e) =>
               dispatch({
@@ -127,7 +127,7 @@ const FilterSection = () => {
               })
             }
           />
-          <label>On Sale</label>
+          <label htmlFor="onSale">On Sale</label>
         </div>
       </div>
     </section>

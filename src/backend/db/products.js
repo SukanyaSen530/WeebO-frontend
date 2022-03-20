@@ -13,7 +13,7 @@ export const products = [
     price: 4999,
     discount: 5,
     tag: "sale",
-    img: [`${productURL}bm1.jpg`, `${productURL}bm1.jpg`],
+    img: [`${productURL}bm1.jpg`, `${productURL}bm2.jpg`],
     description:
       "Based on Michael Keaton's take on the caped crusader in Tim Burton's Batman 1989 film which became a cult classic that revived the era of superhero movies. It also brought a much darker and cool Batman onscreen for the first time.",
     specification: {
@@ -324,9 +324,9 @@ export const products = [
     discount: 10,
     img: [`${productURL}catwoman1.jpg`, `${productURL}catwoman2.jpg`],
     specification: {
-      size: "4.5 inches",
+      size: "7 inches",
       material: "Plastic",
-      age: "5+",
+      age: "13+",
     },
     rating: 4.8,
     inStock: true,

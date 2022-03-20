@@ -53,14 +53,14 @@ const Navbar = () => {
       <ul
         className={`navbar__secondary-links ${showMenu ? "active-menu" : ""}`}
       >
-        {/* <Link to="/login" className="btn btn btn--round btn--primary btn--md">
+        <Link to="/login" className="btn btn btn--round btn--primary btn--md">
           Log In
         </Link>
         <Link to="/signup" className="btn btn--outlined btn--round btn--md">
           Sign Up
-        </Link> */}
+        </Link>
 
-        <Link to="/wishlist" className="btn-icon badge">
+        {/* <Link to="/wishlist" className="btn-icon badge">
           <FaHandHoldingHeart className="btn-icon__icon" />
           <span className="btn-icon__text">Wishlist</span>
           <span className="badge__count"> 3 </span>
@@ -70,7 +70,7 @@ const Navbar = () => {
           <AiOutlineShoppingCart className="btn-icon__icon" />
           <span className="btn-icon__text">Cart</span>
           <span className="badge__count"> 1 </span>
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   );
