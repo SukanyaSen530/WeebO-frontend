@@ -5,8 +5,6 @@ import notFound from "../../assets/pageNotFound.jpg";
 
 import { Home } from "../../pages/Home";
 import { Cart } from "../../pages/Cart";
-import { Login } from "../../pages/Login";
-import { SignUp } from "../../pages/SignUp";
 import { WishList } from "../../pages/WishList";
 import { Product } from "../../pages/Product";
 import { ProductList } from "../../pages/ProductList";
@@ -34,10 +32,6 @@ const AllRoutes = () => {
       {/* Protected Routes */}
       <Route path="/cart" element={<Cart />} />
       <Route path="/wishlist" element={<WishList />} />
-
-      {/* Prevented Routes */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
 };

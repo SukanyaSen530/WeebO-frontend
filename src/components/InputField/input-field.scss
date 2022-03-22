@@ -1,1 +1,39 @@
 @import "../../sass/global";
+
+.input-group {
+  width: 90%;
+  margin: 0.5rem auto;
+  display: block;
+
+  &__label {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    color: #023e8a;
+  }
+
+  &__input {
+    font-family: inherit;
+    padding: 1rem;
+    border-radius: $border-radius-hg;
+    width: 100%;
+
+    border: 1px solid black;
+
+    &:focus {
+      outline: none;
+      box-shadow: rgba(34, 73, 90, 0.12) 0px 2px 4px 0px,
+        rgba(40, 83, 102, 0.32) 0px 2px 16px 0px;
+    }
+  }
+
+  &__error-message {
+    display: inline-block;
+    margin-left: 1rem;
+    color: red;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}

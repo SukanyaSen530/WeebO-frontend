@@ -1,6 +1,6 @@
 import { productActions, filterActions } from "../constants/productConstant";
 
-export const productReducer = (state, action) => {
+const productReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {

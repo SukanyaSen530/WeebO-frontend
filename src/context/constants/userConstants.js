@@ -1,0 +1,6 @@
+export const userAuthActions = {
+  LOADING: "LOADING",
+  LOAD_PRODUCTS: "LOAD_USER",
+  ERROR: "ERROR",
+  LOAD_USER_PROFILE: "LOAD_USER_PROFILE",
+};

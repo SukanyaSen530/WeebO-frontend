@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  flex-basis: 50%;
+  flex-basis: 45%;
 
   @include respond(tab-port) {
     flex-direction: column;

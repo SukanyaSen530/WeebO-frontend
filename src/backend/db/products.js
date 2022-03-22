@@ -3,8 +3,6 @@
  * You can add products of your wish with different attributes
  * */
 
-import { productURL } from "../../data/imageData";
-
 export const products = [
   {
     _id: "p1",
@@ -13,7 +11,10 @@ export const products = [
     price: 4999,
     discount: 5,
     tag: "sale",
-    img: [`${productURL}bm1.jpg`, `${productURL}bm2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/bm1.jpg`,
+      `https://weebofigurines.sirv.com/images/bm2.jpg`,
+    ],
     description:
       "Based on Michael Keaton's take on the caped crusader in Tim Burton's Batman 1989 film which became a cult classic that revived the era of superhero movies. It also brought a much darker and cool Batman onscreen for the first time.",
     specification: {
@@ -32,7 +33,10 @@ export const products = [
     price: 11999,
     discount: 20,
     tag: "new",
-    img: [`${productURL}joker1.jpg`, `${productURL}joker2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/joker1.jpg`,
+      `https://weebofigurines.sirv.com/images/joker2.jpg`,
+    ],
     description:
       "The IKEMAN lineup famously consists of re-designs of famous Japanese illustrator Ricken in the Japanese Ikemen (“handsome men”) style. Joining the Ikemen lineup is the clown prince of Gotham. From the trademark purple suit to his mischievous grin to the long staff and 'Laughing Fish' held in each hand, this statue perfectly showcases the insanity of Batman's Arch Enemy Joker",
     specification: {
@@ -49,7 +53,10 @@ export const products = [
     name: "iron man",
     brandName: "SHFiguarts",
     price: 5999,
-    img: [`${productURL}im1.jpg`, `${productURL}im2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/im1.jpg`,
+      `https://weebofigurines.sirv.com/images/im2.jpg`,
+    ],
     description:
       "One of the best figures in this innovative new series, the self-proclaimed Genius, Playboy, Billionaire, Philanthropist is covered in a shiny die-cast armor and each joint is carefully designed to recreate the articulation of a truly human body.",
     specification: {
@@ -67,7 +74,10 @@ export const products = [
     brandName: "funko",
     price: 2999,
     discount: 10,
-    img: [`${productURL}ds1.jpg`, `${productURL}ds2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/ds1.jpg`,
+      `https://weebofigurines.sirv.com/images/ds2.jpg`,
+    ],
     specification: {
       size: "4.5 inches",
       material: "PVC",
@@ -86,7 +96,10 @@ export const products = [
     price: 4999,
     discount: 10,
     tag: "sale",
-    img: [`${productURL}sanemi1.jpg`, `${productURL}sanemi2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/sanemi1.jpg`,
+      `https://weebofigurines.sirv.com/images/sanemi2.jpg`,
+    ],
     description:
       "This figure features Sanemi Shinazugawa from the anime series Demon Slayer: Kimetsu no Yaiba. Sanemi stands ready for battle with his trusty sword sheathed at his hip. In this Volume 15 version, Sanemi is colored in sepia tone, giving amazing detail to any collection.",
     specification: {
@@ -103,7 +116,10 @@ export const products = [
     name: "Gyomei",
     brandName: "banpresto",
     price: 9999,
-    img: [`${productURL}gyomei1.jpg`, `${productURL}gyomei2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/gyomei1.jpg`,
+      `https://weebofigurines.sirv.com/images/gyomei2.jpg`,
+    ],
     description:
       "From the popular anime series Demon Slayer: Kimetsu no Yaiba comes a figure of Gyoumei Himejima! He has been expertly recreated with great attention to detail.",
     specification: {
@@ -120,7 +136,10 @@ export const products = [
     name: "Naruto",
     brandName: "banpresto",
     price: 8499,
-    img: [`${productURL}naruto1.jpg`, `${productURL}naruto2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/naruto1.jpg`,
+      `https://weebofigurines.sirv.com/images/naruto2.jpg`,
+    ],
     description:
       "Banpresto features highly detailed - Naruto Uzumaki, which is designed carefully keeping in mind the minute details of the character.",
     specification: {
@@ -137,7 +156,10 @@ export const products = [
     name: "luffy",
     brandName: "funko",
     price: 1200,
-    img: [`${productURL}luffy1.jpg`, `${productURL}luffy2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/luffy1.jpg`,
+      `https://weebofigurines.sirv.com/images/luffy2.jpg`,
+    ],
     specification: {
       size: "1.5 inches",
       material: "PVC",
@@ -156,7 +178,10 @@ export const products = [
     price: 12000,
     discount: 25,
     tag: "sale",
-    img: [`${productURL}sabo1.jpg`, `${productURL}sabo2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/sabo1.jpg`,
+      `https://weebofigurines.sirv.com/images/sabo2.jpg`,
+    ],
     description:
       "Banpresto One Piece Magazine Figure Special Episode Luffy Vol.3 - Sabo. Sabo is the Revolutionary Army's chief of staff, recognized as the No. 2 of the entire organization outranked only by Supreme Commander Monkey D. Dragon.",
     specification: {
@@ -174,7 +199,10 @@ export const products = [
     brandName: "banpresto",
     price: 4500,
     tag: "new",
-    img: [`${productURL}baaji1.jpg`, `${productURL}baaji2.jpg`],
+    img: [
+      "https://weebofigurines.sirv.com/images/baaji1.jpg",
+      `https://weebofigurines.sirv.com/images/baaji2.jpg`,
+    ],
     description:
       "From the Tokyo Revengers anime comes a figure of Keisuke Baji! He has been faithfully recreated, a great addition to any collection!",
     specification: {
@@ -193,7 +221,10 @@ export const products = [
     price: 8000,
     discount: 15,
     tag: "sale",
-    img: [`${productURL}gojo1.jpg`, `${productURL}gojo2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/gojo1.jpg`,
+      `https://weebofigurines.sirv.com/images/gojo2.jpg`,
+    ],
     description:
       "From the hit anime series Jujutsu Kaisen comes a new figure of Satoru Gojo! Satoru Gojo has been recreated in great detail.",
     specification: {
@@ -210,7 +241,10 @@ export const products = [
     name: "megumi",
     brandName: "banpresto",
     price: 8000,
-    img: [`${productURL}megumi1.jpg`, `${productURL}megumi2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/megumi1.jpg`,
+      `https://weebofigurines.sirv.com/images/megumi2.jpg`,
+    ],
     description:
       "From the currently airing anime series 'Jujutsu Kaisen' comes this figure from Banpresto! It features Megumi Fushiguru, one of the main characters, ready for action!",
     specification: {
@@ -229,7 +263,10 @@ export const products = [
     name: "deku",
     brandName: "funko",
     price: 1299,
-    img: [`${productURL}deku1.jpg`, `${productURL}deku2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/deku1.jpg`,
+      `https://weebofigurines.sirv.com/images/deku2.jpg`,
+    ],
     specification: {
       size: "4.5 inches",
       material: "Plastic",
@@ -248,7 +285,10 @@ export const products = [
     price: 2099,
     discount: 10,
     tag: "new",
-    img: [`${productURL}hulk1.jpg`, `${productURL}hulk2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/hulk1.jpg`,
+      `https://weebofigurines.sirv.com/images/hulk2.jpg`,
+    ],
     specification: {
       size: "4.5 inches",
       material: "Plastic",
@@ -267,7 +307,10 @@ export const products = [
     price: 6000,
     discount: 5,
     tag: "new",
-    img: [`${productURL}ryuji1.jpg`, `${productURL}ryuji2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/ryuji1.jpg`,
+      `https://weebofigurines.sirv.com/images/ryuji2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "PVC & ABS",
@@ -286,7 +329,10 @@ export const products = [
     price: 14999,
     discount: 50,
     tag: "sale",
-    img: [`${productURL}sasuke1.jpg`, `${productURL}sasuke2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/sasuke1.jpg`,
+      `https://weebofigurines.sirv.com/images/sasuke2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "ABS",
@@ -304,7 +350,10 @@ export const products = [
     brandName: "bandai",
     price: 10999,
     tag: "new",
-    img: [`${productURL}hq1.jpg`, `${productURL}hq2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/hq1.jpg`,
+      `https://weebofigurines.sirv.com/images/hq2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "PVC",
@@ -322,7 +371,10 @@ export const products = [
     brandName: "bandai",
     price: 12000,
     discount: 10,
-    img: [`${productURL}catwoman1.jpg`, `${productURL}catwoman2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/catwoman1.jpg`,
+      `https://weebofigurines.sirv.com/images/catwoman2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "Plastic",
@@ -339,7 +391,10 @@ export const products = [
     name: "poison ivy",
     brandName: "bandai",
     price: 14999,
-    img: [`${productURL}poison1.jpg`, `${productURL}poison2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/poison1.jpg`,
+      `https://weebofigurines.sirv.com/images/poison2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "ABS",
@@ -358,7 +413,10 @@ export const products = [
     price: 19400,
     discount: 20,
     tag: "sale",
-    img: [`${productURL}ww1.jpg`, `${productURL}ww2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/ww1.jpg`,
+      `https://weebofigurines.sirv.com/images/ww2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "PVC",
@@ -377,7 +435,10 @@ export const products = [
     price: 10999,
     discount: 15,
     tag: "new",
-    img: [`${productURL}wolverin1.jpg`, `${productURL}wolverin2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/wolverin1.jpg`,
+      `https://weebofigurines.sirv.com/images/wolverin2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "PVC",
@@ -395,7 +456,10 @@ export const products = [
     brandName: "funko",
     price: 2099,
     discount: 5,
-    img: [`${productURL}muzan1.jpg`, `${productURL}muzan2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/muzan1.jpg`,
+      `https://weebofigurines.sirv.com/images/muzan2.jpg`,
+    ],
     specification: {
       size: "4.5 inches",
       material: "Plastic",
@@ -412,7 +476,10 @@ export const products = [
     name: "kirishima",
     brandName: "funko",
     price: 1200,
-    img: [`${productURL}kirishima1.jpg`, `${productURL}kirishima2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/kirishima1.jpg`,
+      `https://weebofigurines.sirv.com/images/kirishima2.jpg`,
+    ],
     specification: {
       size: "4.5 inches",
       material: "Plastic",
@@ -431,7 +498,10 @@ export const products = [
     price: 2999,
     discount: 10,
     tag: "sale",
-    img: [`${productURL}zenitsu1.jpg`, `${productURL}zenitsu2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/zenitsu1.jpg`,
+      `https://weebofigurines.sirv.com/images/zenitsu2.jpg`,
+    ],
     specification: {
       size: "4.5 inches",
       material: "Plastic",
@@ -448,7 +518,10 @@ export const products = [
     name: "kakashi",
     brandName: "bandai",
     price: 3999,
-    img: [`${productURL}kakashi1.jpg`, `${productURL}kakashi2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/kakashi1.jpg`,
+      `https://weebofigurines.sirv.com/images/kakashi2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "PVC",
@@ -466,7 +539,10 @@ export const products = [
     brandName: "funko",
     price: 3199,
     discount: 5,
-    img: [`${productURL}inoske1.jpg`, `${productURL}inoske2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/inoske1.jpg`,
+      `https://weebofigurines.sirv.com/images/inoske2.jpg`,
+    ],
     specification: {
       size: "4.5 inches",
       material: "Plastic",
@@ -483,7 +559,10 @@ export const products = [
     name: "nobara",
     brandName: "banpresto",
     price: 4999,
-    img: [`${productURL}nobara1.jpg`, `${productURL}nobara2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/nobara1.jpg`,
+      `https://weebofigurines.sirv.com/images/nobara2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "PVC & ABS",
@@ -502,7 +581,10 @@ export const products = [
     price: 4099,
     discount: 10,
     tag: "sale",
-    img: [`${productURL}uzui1.jpg`, `${productURL}uzui2.jpg`],
+    img: [
+      `https://weebofigurines.sirv.com/images/uzui1.jpg`,
+      `https://weebofigurines.sirv.com/images/uzui2.jpg`,
+    ],
     specification: {
       size: "7 inches",
       material: "ABS",

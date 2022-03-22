@@ -7,6 +7,7 @@ import InputField from "./InputField/InputField";
 import Loader from "./Loader/Loader";
 import Navbar from "./Navbar/Navbar";
 import ProductCard from "./ProductCard/ProductCard";
+import Modal from "./Modal/Modal";
 
 export {
   Caraousel,
@@ -18,4 +19,5 @@ export {
   Loader,
   Navbar,
   ProductCard,
+  Modal,
 };

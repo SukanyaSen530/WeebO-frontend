@@ -1,7 +1,7 @@
 import React from "react";
 
 // Data
-import { brandData, categoryData } from "../../data/imageData";
+import { brandData, categoryData } from "../../utils/imageData";
 
 import { useProductContext, filterActions } from "../../context";
 

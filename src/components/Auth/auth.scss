@@ -1,0 +1,41 @@
+@import "../../sass/global";
+
+.auth-section {
+  display: flex;
+
+  @include respond(phone) {
+    flex-direction: column;
+  }
+
+  &__image {
+    flex: 50%;
+
+    @include respond(phone) {
+      flex: 0 0 20rem;
+      width: 20rem;
+      margin: 0 auto;
+    }
+  }
+}
+
+.auth-from {
+  flex: 50%;
+  border-bottom-right-radius: $border-radius-md;
+  border-top-right-radius: $border-radius-md;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__cred-btn {
+    margin-top: 1rem;
+    color: white;
+    background-color: black;
+    width: 90%;
+  }
+
+  &__btn {
+    width: 90%;
+    margin: 1rem;
+  }
+}
