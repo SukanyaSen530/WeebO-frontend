@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 // CUSTOM
 import { Caraousel } from "../../components";
-import { bannerData, categoryData, brandData } from "../../data/imageData";
-
+import { bannerData, categoryData, brandData } from "../../utils/imageData";
 import { useProductContext, filterActions } from "../../context";
 
 // STYLES

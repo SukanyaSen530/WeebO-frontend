@@ -1,43 +1,24 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { BsFillStarFill } from "react-icons/bs";
 
-import { useProductContext, productActions } from "../../context";
-
+import { useProductContext } from "../../context";
 import { Loader } from "../../components";
 import { ErrorPage } from "../ErrorPage";
-import { BsFillStarFill } from "react-icons/bs";
+import { loadAProduct } from "../../utils/apiCalls";
 
 import "./product.scss";
 
 const Product = () => {
   const params = useParams();
-  const navigate = useNavigate();
   const productId = params.productId;
 
   const { state, dispatch } = useProductContext();
   const { productLoading, productFetchError, view_product } = state;
 
-  useEffect(
-    () =>
-      (async function () {
-        try {
-          dispatch({ type: productActions.LOADING, payload: true });
-          const response = await axios.get(`/api/products/${productId}`);
-          dispatch({
-            type: productActions.LOAD_SINGLE_PRODUCT,
-            payload: response?.data?.product || {},
-          });
-        } catch (e) {
-          console.log(e);
-          dispatch({
-            type: productActions.ERROR,
-            payload: "The requested product can't be loaded!",
-          });
-        }
-      })(),
-    [dispatch]
-  );
+  useEffect(() => {
+    loadAProduct(productId, dispatch);
+  }, [dispatch]);
 
   if (productLoading) {
     return <Loader />;
@@ -47,12 +28,7 @@ const Product = () => {
     return <ErrorPage msg={productFetchError} />;
   }
 
-  if (Object.keys(view_product).length === 0) {
-    navigate("/products");
-  }
-
   const {
-    _id,
     name,
     brandName,
     price,

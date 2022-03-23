@@ -9,8 +9,7 @@ import { formatDate } from "../utils/authUtils";
 export const users = [
   {
     _id: "user1",
-    firstName: "Adarsh",
-    lastName: "Balika",
+    fullName: "Adarsh Balika",
     email: "adarshbalika@gmail.com",
     password: bcyrpt.hashSync("adarshBalika123", 5),
     createdAt: formatDate(),
@@ -18,8 +17,7 @@ export const users = [
   },
   {
     _id: "user2",
-    firstName: "John",
-    lastName: "Doe",
+    fullName: "John Doe",
     email: "johndoe@gmail.com",
     password: bcyrpt.hashSync("johnDoe123", 5),
     createdAt: formatDate(),

@@ -1,16 +1,14 @@
 import { useEffect } from "react";
-import axios from "axios";
 
-import { useProductContext, productActions } from "../../context";
-
+import { useProductContext } from "../../context";
 import {
   Loader,
   FilterSection,
   SearchSort,
   ProductCard,
 } from "../../components";
-
 import { ErrorPage } from "../ErrorPage";
+import { loadProducts } from "../../utils/apiCalls";
 
 // Styles, Images
 import notFound from "../../assets/productNotFound.jpg";
@@ -20,25 +18,9 @@ function ProductList() {
   const { state, dispatch, filteredProducts } = useProductContext();
   const { productLoading, productFetchError } = state;
 
-  useEffect(
-    () =>
-      (async function () {
-        try {
-          dispatch({ type: productActions.LOADING, payload: true });
-          const response = await axios.get("/api/products");
-          dispatch({
-            type: productActions.LOAD_PRODUCTS,
-            payload: response?.data?.products || [],
-          });
-        } catch (e) {
-          dispatch({
-            type: productActions.ERROR,
-            payload: "Oops! Something went wrong :(",
-          });
-        }
-      })(),
-    [dispatch]
-  );
+  useEffect(() => {
+    loadProducts(dispatch);
+  }, [dispatch]);
 
   if (productLoading) {
     return <Loader />;

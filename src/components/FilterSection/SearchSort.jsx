@@ -26,7 +26,7 @@ const SearchSort = () => {
         <FiSearch className="search-container__icon" />
         <input
           type="search"
-          placeholder="Search by name"
+          placeholder="Search by product name (Ex: batman)"
           className="search-container__input"
           value={searchQuery}
           onChange={(e) =>

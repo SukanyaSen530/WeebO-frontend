@@ -7,4 +7,18 @@ import {
 
 import { filterActions, productActions } from "./constants/productConstant";
 
-export { ProductProvider, useProductContext, filterActions, productActions };
+//User Context
+
+import { UserProvider, useUserContext } from "./providers/UserProvider";
+
+import { userAuthActions } from "./constants/userConstants";
+
+export {
+  ProductProvider,
+  useProductContext,
+  filterActions,
+  productActions,
+  UserProvider,
+  useUserContext,
+  userAuthActions,
+};
