@@ -21,16 +21,6 @@ const AllRoutes = () => {
       <Route path="/products" element={<ProductList />} />
       <Route path="/products/:productId" element={<Product />} />
 
-      <Route
-        path="*"
-        element={
-          <ErrorPage
-            imgSrc={notFound}
-            msg="The Page you are looking for does not exist!"
-          />
-        }
-      />
-
       {/* Protected Routes */}
       <Route
         path="/cart"
@@ -46,6 +36,15 @@ const AllRoutes = () => {
           <ProtectedRoutes>
             <WishList />
           </ProtectedRoutes>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <ErrorPage
+            imgSrc={notFound}
+            msg="The Page you are looking for does not exist!"
+          />
         }
       />
     </Routes>
