@@ -11,7 +11,7 @@ const ProtectedRoutes = ({ children }) => {
 
   let location = useLocation();
 
-  if (token === "") {
+  if (!token) {
     openAuthModal();
     return <Navigate to="/products" state={{ from: location }} replace />;
   }

@@ -35,14 +35,13 @@ const userReducer = (state, action) => {
       };
 
     case userAuthActions.OPEN_AUTH_MODAL:
-      return { ...state, modalOpen: true };
+      return { ...state, modalOpen: true, fetchError: null };
 
     case userAuthActions.CLOSE_AUTH_MODAL:
-      return { ...state, modalOpen: false };
+      return { ...state, modalOpen: false, fetchError: null };
 
     case userAuthActions.LOGOUT: {
       window.localStorage.removeItem("weeboToken");
-
       return {
         ...state,
         user: {},

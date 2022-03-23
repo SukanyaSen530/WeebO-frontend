@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate, NavLink, Navigate } from "react-router-dom";
 
 import "./navbar.scss";
 import logo from "../../assets/logo.png";
@@ -38,6 +38,7 @@ const Navbar = () => {
 
   //Login & Signup
   const [modalType, setModalType] = useState(true);
+  const navigate = useNavigate();
 
   const signedInRoutes = (
     <>
@@ -55,7 +56,10 @@ const Navbar = () => {
 
       <button
         className="btn btn--md btn--primary"
-        onClick={() => userDispatch({ type: userAuthActions.LOGOUT })}
+        onClick={() => {
+          userDispatch({ type: userAuthActions.LOGOUT });
+          navigate("/products");
+        }}
       >
         Logout
       </button>

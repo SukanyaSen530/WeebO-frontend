@@ -53,6 +53,12 @@ const Auth = ({ type, open, onClose }) => {
     setUserData(testCredentials);
   };
 
+  //To clear inputs as soon as modal is closed
+  useEffect(() => {
+    setErrors({});
+    setUserData({ ...initialFormValues });
+  }, [open]);
+
   let content = null;
   //   if true --> login
   if (type) {

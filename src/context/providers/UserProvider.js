@@ -10,7 +10,7 @@ const initialState = {
   fetchError: null,
   modalOpen: false,
   user: {
-    token: localStorage.getItem("weeboToken") || "",
+    token: localStorage.getItem("weeboToken"),
     details: null,
   },
   cart: {
