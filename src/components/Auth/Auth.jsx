@@ -1,21 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Modal from "../Modal/Modal";
 import InputField from "../InputField/InputField";
-import { validateInputs, testCredentials } from "./helper";
+import { validateInputs, testCredentials, initialFormValues } from "./helper";
+import { useUserContext } from "../../context";
+import { loginUser, registerUser } from "../../utils/apiCalls";
 
 import "./auth.scss";
 import loginImage from "../../assets/login.svg";
 import signUpImage from "../../assets/signup.svg";
 
 const Auth = ({ type, open, onClose }) => {
-  const [userData, setUserData] = useState({
-    fullName: "",
-    userName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const { userState, userDispatch } = useUserContext();
+  const { loading, fetchError } = userState;
+
+  const [userData, setUserData] = useState({ ...initialFormValues });
   const [errors, setErrors] = useState({});
 
   const handleChange = ({ target: { name, value } }) =>
@@ -23,15 +22,36 @@ const Auth = ({ type, open, onClose }) => {
 
   const handleAuth = (e) => {
     e.preventDefault();
-    setErrors({});
-    setErrors(validateInputs(userData));
+    const err = validateInputs(userData, type);
+    setErrors(err);
 
-    setTimeout(() => {
-      setErrors({});
-    }, 5000);
+    if (Object.keys(err).length === 0) {
+      if (type === true) {
+        loginUser(
+          { email: userData.email, password: userData.password },
+          userDispatch
+        );
+        setUserData({ ...initialFormValues });
+      } else {
+        registerUser(
+          {
+            email: userData.email,
+            password: userData.password,
+            fullName: userData.fullName,
+            userName: userData.userName,
+          },
+          userDispatch
+        );
+        setUserData({ ...initialFormValues });
+      }
+    }
   };
 
-  const handleAuthwithTestCred = () => {};
+  //Test Credentials
+  const handleAuthwithTestCred = (e) => {
+    e.preventDefault();
+    setUserData(testCredentials);
+  };
 
   let content = null;
   //   if true --> login
@@ -59,7 +79,7 @@ const Auth = ({ type, open, onClose }) => {
           onClick={handleAuthwithTestCred}
           className="btn btn--round btn--sm auth-from__cred-btn"
         >
-          Login as Guest <i className="fas fa-cog fa-spin"></i>
+          Load Test Credentials
         </button>
       </>
     );
@@ -106,7 +126,7 @@ const Auth = ({ type, open, onClose }) => {
           label="Confirm Password"
           required
           name="confirmPassword"
-          value={userData.email}
+          value={userData.confirmPassword}
           onChange={handleChange}
           errorMessage={errors.confirmPassword}
         />
@@ -124,12 +144,21 @@ const Auth = ({ type, open, onClose }) => {
           />
         </div>
         <form className="auth-from">
+          <p className="auth-from__errorStatus">
+            {fetchError ? fetchError : null}
+          </p>
           {content}
           <button
             onClick={handleAuth}
             className="btn btn--round btn--primary auth-from__btn"
           >
-            {type === true ? "Login" : "Sign Up"}
+            {loading ? (
+              <i className="fas fa-cog fa-spin"></i>
+            ) : type === true ? (
+              "Login"
+            ) : (
+              "Sign Up"
+            )}
           </button>
         </form>
       </div>

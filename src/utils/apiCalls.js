@@ -8,7 +8,7 @@ export const loadProducts = async (dispatch) => {
   try {
     dispatch({ type: productActions.LOADING, payload: true });
     const response = await axios.get(productURL);
-    console.log("response", response);
+
     dispatch({
       type: productActions.LOAD_PRODUCTS,
       payload: response?.data?.data || [],
@@ -40,27 +40,19 @@ export const loadAProduct = async (productId, dispatch) => {
   }
 };
 
-const loginUser = async (payload, dispatch) => {
+export const loginUser = async (payload, dispatch) => {
   try {
     dispatch({ type: userAuthActions.LOADING, payload: true });
     const response = await axios.post(`${authURL}/login`, payload);
 
-    if (response.data?.token && response.data?.user)
-      dispatch({
-        type: userAuthActions.LOAD_USER,
-        payload: { token: response.data.token, user: response.data.user },
-      });
-    else {
-      dispatch({
-        type: userAuthActions.LOAD_USER,
-        payload: {},
-      });
-    }
+    dispatch({
+      type: userAuthActions.LOAD_USER,
+      payload: { token: response.data.token, user: response.data.user },
+    });
   } catch (e) {
-    console.log(e);
     dispatch({
       type: userAuthActions.ERROR,
-      payload: "Something wen't wrong! try again..",
+      payload: e.response.data.message,
     });
   }
 };
@@ -70,22 +62,15 @@ export const registerUser = async (payload, dispatch) => {
     dispatch({ type: userAuthActions.LOADING, payload: true });
     const response = await axios.post(`${authURL}/signup`, payload);
 
-    if (response.data?.token && response.data?.user)
-      dispatch({
-        type: userAuthActions.LOAD_USER,
-        payload: { token: response.data.token, user: response.data.user },
-      });
-    else {
-      dispatch({
-        type: userAuthActions.LOAD_USER,
-        payload: {},
-      });
-    }
+    dispatch({
+      type: userAuthActions.LOAD_USER,
+      payload: { token: response.data.token, user: response.data.user },
+    });
   } catch (e) {
-    console.log(e);
+    console.log(e.response.data.message);
     dispatch({
       type: userAuthActions.ERROR,
-      payload: "Something wen't wrong! try again..",
+      payload: e.response.data.message,
     });
   }
 };

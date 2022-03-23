@@ -9,7 +9,9 @@ import { WishList } from "../../pages/WishList";
 import { Product } from "../../pages/Product";
 import { ProductList } from "../../pages/ProductList";
 import { ErrorPage } from "../../pages/ErrorPage";
-import Mockman from "mockman-js";
+
+import ProtectedRoutes from "../Routes/ProtectedRoutes";
+// import Mockman from "mockman-js";
 
 const AllRoutes = () => {
   return (
@@ -18,20 +20,34 @@ const AllRoutes = () => {
       {/* Public Routes */}
       <Route path="/products" element={<ProductList />} />
       <Route path="/products/:productId" element={<Product />} />
-      <Route path="/mockapi" element={<Mockman />} />
+
       <Route
         path="*"
         element={
           <ErrorPage
             imgSrc={notFound}
-            msg="The Page you are looking for does not exists!"
+            msg="The Page you are looking for does not exist!"
           />
         }
       />
 
       {/* Protected Routes */}
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/wishlist" element={<WishList />} />
+      <Route
+        path="/cart"
+        element={
+          <ProtectedRoutes>
+            <Cart />
+          </ProtectedRoutes>
+        }
+      />
+      <Route
+        path="/wishlist"
+        element={
+          <ProtectedRoutes>
+            <WishList />
+          </ProtectedRoutes>
+        }
+      />
     </Routes>
   );
 };
