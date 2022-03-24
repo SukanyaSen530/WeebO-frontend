@@ -7,11 +7,17 @@ import {
 
 import { filterActions, productActions } from "./constants/productConstant";
 
-//User Context
+//Auth Context
 
 import { AuthProvider, useAuthContext } from "./providers/AuthProvider";
 
 import { userAuthActions } from "./constants/authConstants";
+
+// User Context
+
+import { UserProvider, useUserContext } from "./providers/UserProvider";
+
+import { wishlistConstants } from "./constants/userConstants";
 
 export {
   ProductProvider,
@@ -21,4 +27,7 @@ export {
   AuthProvider,
   useAuthContext,
   userAuthActions,
+  UserProvider,
+  useUserContext,
+  wishlistConstants,
 };
