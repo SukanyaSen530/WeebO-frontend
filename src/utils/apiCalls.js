@@ -2,8 +2,9 @@ import axios from "axios";
 
 import { productActions } from "../context";
 import { userAuthActions } from "../context";
-import { productURL, authURL } from "./api";
+import { productURL, authURL, wishListURL } from "./api";
 
+// Products
 export const loadProducts = async (dispatch) => {
   try {
     dispatch({ type: productActions.LOADING, payload: true });
@@ -25,12 +26,11 @@ export const loadAProduct = async (productId, dispatch) => {
   try {
     dispatch({ type: productActions.LOADING, payload: true });
     const response = await axios.get(`${productURL}/${productId}`);
+
     dispatch({
       type: productActions.LOAD_SINGLE_PRODUCT,
       payload: response?.data?.data || {},
     });
-
-    console.log(response);
   } catch (e) {
     console.log(e);
     dispatch({
@@ -40,6 +40,7 @@ export const loadAProduct = async (productId, dispatch) => {
   }
 };
 
+// Auth
 export const loginUser = async (payload, dispatch) => {
   try {
     dispatch({ type: userAuthActions.LOADING, payload: true });
@@ -74,3 +75,48 @@ export const registerUser = async (payload, dispatch) => {
     });
   }
 };
+
+// Wishlist
+
+const token = localStorage.getItem("weeboToken");
+const config = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+};
+
+export const loadWishlist = async (dispatch) => {
+  try {
+    dispatch({ type: productActions.LOADING, payload: true });
+    const response = await axios.get(wishListURL, config);
+    dispatch({});
+  } catch (e) {
+    dispatch({});
+  }
+};
+
+export const addToWishlist = async (id, dispatch) => {
+  try {
+    dispatch({ type: productActions.LOADING, payload: true });
+    const response = await post.get(`${wishListURL}/add`, config, { id });
+    dispatch({});
+  } catch (e) {
+    dispatch({});
+  }
+};
+
+export const removeFromWishlist = async (id, dispatch) => {
+  try {
+    dispatch({ type: productActions.LOADING, payload: true });
+    const response = await axios.delete(`${wishListURL}/remove`, config, {
+      id,
+    });
+    dispatch({});
+  } catch (e) {
+    dispatch({});
+  }
+};
+
+// Cart
+
+// Address

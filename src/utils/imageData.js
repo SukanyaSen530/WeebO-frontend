@@ -1,10 +1,10 @@
 import { v4 as uuid } from "uuid";
-import { IMAGE_URL } from "./url";
+
+const IMAGE_URL = "https://res.cloudinary.com/weebofigurines/image/upload/";
 
 const bannerURL = IMAGE_URL + "v1647712417/banner/";
 const brandURL = IMAGE_URL + "v1647450695/brands/";
 const categoryURL = IMAGE_URL + "/v1647450927/category/";
-export const productURL = IMAGE_URL + "/v1647713084/products/";
 
 export const bannerData = [
   {

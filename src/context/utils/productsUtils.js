@@ -1,4 +1,4 @@
-const compare1 = (
+const compareByDiscountPrice = (
   { price: priceA, discount: discountA },
   { price: priceB, discount: discountB }
 ) => {
@@ -12,26 +12,12 @@ const compare1 = (
   return discountedPriceB - discountedPriceA;
 };
 
-const compare2 = (
-  { price: priceA, discount: discountA },
-  { price: priceB, discount: discountB }
-) => {
-  const discountedPriceA = discountA
-    ? parseFloat(priceA - (priceA * discountA) / 100)
-    : priceA;
-  const discountedPriceB = discountB
-    ? parseFloat(priceB - (priceB * discountB) / 100)
-    : priceB;
-
-  return discountedPriceA - discountedPriceB;
-};
-
 const sortData = ({ productsFilter: { sortOption } }, data) => {
   if (sortOption === "HIGH_TO_LOW|price") {
-    console.log([...data].sort(compare1));
+    console.log([...data].sort(compareByDiscountPrice));
     return [...data].sort(compare1);
   } else if (sortOption === "LOW_TO_HIGH|price") {
-    return [...data].sort(compare2);
+    return [...data].sort(compareByDiscountPrice).reverse();
   } else if (sortOption === "HIGH_TO_LOW|rating") {
     return [
       ...data.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)),

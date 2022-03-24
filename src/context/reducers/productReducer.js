@@ -75,9 +75,7 @@ const productReducer = (state, action) => {
 
     case filterActions.FILTER_BY_CATEGORIES:
       const payloadCategory = payload?.toLowerCase() || "";
-      console.log(
-        state.productsFilter.filterByCategories.includes(payloadCategory)
-      );
+
       if (payloadCategory === "") return state;
       return state.productsFilter.filterByCategories.includes(payloadCategory)
         ? {

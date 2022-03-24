@@ -98,7 +98,7 @@ const Product = () => {
             </p>
             <h4 className="product-content__specification">Specifications :</h4>
             <ul className="product-content__specification-list">
-              <li>Height : {specification?.size}</li>
+              <li>Height : {specification?.size} inches</li>
               <li>Material: {specification?.material}</li>
               <li>Age : {specification?.age}</li>
             </ul>

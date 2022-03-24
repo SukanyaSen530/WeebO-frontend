@@ -15,7 +15,7 @@
   }
 
   &__brand-icon {
-    width: 15rem;
+    width: 10rem;
     height: auto;
 
     @include respond(phone) {
@@ -56,13 +56,15 @@
       text-decoration: none;
       text-transform: uppercase;
       display: inline-block;
+      max-width: 120px;
       transition: all 0.2s;
     }
 
     &:hover,
     &:active {
-      box-shadow: 0 1rem 2rem rgba($color-white, 0.3);
+      box-shadow: 0 0.3rem 0.6rem rgba($color-white, 0.3);
       transform: scale(1.2);
+      padding-left: 0.8rem;
     }
   }
 

@@ -7,8 +7,8 @@ import { useUserContext } from "../../context";
 import { loginUser, registerUser } from "../../utils/apiCalls";
 
 import "./auth.scss";
-import loginImage from "../../assets/login.svg";
-import signUpImage from "../../assets/signup.svg";
+import loginImage from "../../assets/login.png";
+import signUpImage from "../../assets/signup.png";
 
 const Auth = ({ type, open, onClose }) => {
   const { userState, userDispatch } = useUserContext();
