@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Link, useNavigate, NavLink, Navigate } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 
 import "./navbar.scss";
 import logo from "../../assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import Auth from "../Auth/Auth";
 
-import { userAuthActions, useUserContext } from "../../context";
+import { userAuthActions, useAuthContext } from "../../context";
+import Auth from "../Auth/Auth";
 
 const mainLinks = [
   {
@@ -24,40 +24,42 @@ const mainLinks = [
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   //Responsive Navbar
   const [showMenu, setShowMenu] = useState(false);
+  //Login & Signup
+  const [modalType, setModalType] = useState(true);
+
   const {
-    userState: {
+    authState: {
       modalOpen,
       user: { token },
     },
     modalOperations,
-    userDispatch,
-  } = useUserContext();
-  const { openAuthModal, closeAuthModal } = modalOperations;
+    authDispatch,
+  } = useAuthContext();
 
-  //Login & Signup
-  const [modalType, setModalType] = useState(true);
-  const navigate = useNavigate();
+  const { openAuthModal, closeAuthModal } = modalOperations;
 
   const signedInRoutes = (
     <>
       <Link to="/wishlist" className="btn-icon badge">
         <FaHandHoldingHeart className="btn-icon__icon" />
         <span className="btn-icon__text">Wishlist</span>
-        <span className="badge__count"> 3 </span>
+        <span className="badge__count"> 0 </span>
       </Link>
 
       <Link to="/cart" className="btn-icon badge">
         <AiOutlineShoppingCart className="btn-icon__icon" />
         <span className="btn-icon__text">Cart</span>
-        <span className="badge__count"> 1 </span>
+        <span className="badge__count"> 0 </span>
       </Link>
 
       <button
         className="btn btn--md btn--primary"
         onClick={() => {
-          userDispatch({ type: userAuthActions.LOGOUT });
+          authDispatch({ type: userAuthActions.LOGOUT });
           navigate("/products");
         }}
       >

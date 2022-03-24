@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 import { BsSuitHeart, BsSuitHeartFill, BsFillStarFill } from "react-icons/bs";
-import { FaStreetView } from "react-icons/fa";
 
 import "./product-card.scss";
 
@@ -17,8 +16,10 @@ function ProductCard({
   img,
   inStock,
   rating,
-  inWishlist,
+  discountedPrice,
 }) {
+  let inWishlist = false;
+
   return (
     <article className="product-card">
       <Link to={`/products/${_id}`}>
@@ -33,14 +34,10 @@ function ProductCard({
         </p>
         <div className="product-card__price-details">
           <div>
+            {discount && <p className="product-price">₹ {discountedPrice}</p>}
             <p className={`${discount ? "strike" : "product-price"}`}>
               ₹ {price}
             </p>
-            {discount && (
-              <p className="product-price">
-                ₹ {parseInt(price - (price * discount) / 100)}
-              </p>
-            )}
           </div>
           <p>
             {rating} <BsFillStarFill />
@@ -53,7 +50,7 @@ function ProductCard({
           Add to Cart
         </Link>
         <Link to={`/products/${_id}`} className="product-card__btn">
-          <FaStreetView className="product-card__btn__icon" />
+          <i className="fa-solid fa-binoculars"></i>
         </Link>
       </div>
 

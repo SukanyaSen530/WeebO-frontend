@@ -78,44 +78,50 @@ export const registerUser = async (payload, dispatch) => {
 
 // Wishlist
 
-const token = localStorage.getItem("weeboToken");
-const config = {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-};
+// const token = localStorage.getItem("weeboToken");
+// const config = {
+//   headers: {
+//     Authorization: `Bearer ${token}`,
+//   },
+// };
 
-export const loadWishlist = async (dispatch) => {
-  try {
-    dispatch({ type: productActions.LOADING, payload: true });
-    const response = await axios.get(wishListURL, config);
-    dispatch({});
-  } catch (e) {
-    dispatch({});
-  }
-};
+// export const loadWishlist = async (dispatch) => {
+//   try {
+//     dispatch({ type: userAuthActions.LOADING, payload: true });
+//     const response = await axios.get(wishListURL, config);
+//     dispatch({
+//       type: wishlistConstants.LOAD_WISHLIST,
+//       payload: { token: response.data.token, user: response.data.user },
+//     });
+//   } catch (e) {
+//     dispatch({
+//       type: userAuthActions.ERROR,
+//       payload: e.response.data.message,
+//     });
+//   }
+// };
 
-export const addToWishlist = async (id, dispatch) => {
-  try {
-    dispatch({ type: productActions.LOADING, payload: true });
-    const response = await post.get(`${wishListURL}/add`, config, { id });
-    dispatch({});
-  } catch (e) {
-    dispatch({});
-  }
-};
+// export const addToWishlist = async (id, dispatch) => {
+//   try {
+//     dispatch({ type: productActions.LOADING, payload: true });
+//     const response = await post.get(`${wishListURL}/add`, config, { id });
+//     dispatch({});
+//   } catch (e) {
+//     dispatch({});
+//   }
+// };
 
-export const removeFromWishlist = async (id, dispatch) => {
-  try {
-    dispatch({ type: productActions.LOADING, payload: true });
-    const response = await axios.delete(`${wishListURL}/remove`, config, {
-      id,
-    });
-    dispatch({});
-  } catch (e) {
-    dispatch({});
-  }
-};
+// export const removeFromWishlist = async (id, dispatch) => {
+//   try {
+//     dispatch({ type: productActions.LOADING, payload: true });
+//     const response = await axios.delete(`${wishListURL}/remove`, config, {
+//       id,
+//     });
+//     dispatch({});
+//   } catch (e) {
+//     dispatch({});
+//   }
+// };
 
 // Cart
 

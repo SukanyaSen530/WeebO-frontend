@@ -53,6 +53,15 @@
     }
   }
 
+  &__wishlist-remove {
+    color: rgb(88, 88, 88);
+    transition: 0.3 color;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+
   &__wishlist-empty {
     color: $color-black;
   }

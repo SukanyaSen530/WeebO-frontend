@@ -1,6 +1,6 @@
-import { userAuthActions } from "../constants/userConstants";
+import { userAuthActions } from "../constants/authConstants";
 
-const userReducer = (state, action) => {
+const authReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -50,4 +50,4 @@ const userReducer = (state, action) => {
   }
 };
 
-export default userReducer;
+export default authReducer;

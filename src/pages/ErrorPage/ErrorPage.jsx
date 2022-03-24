@@ -7,6 +7,8 @@ import errorImage from "../../assets/error.jpg";
 const ErrorPage = ({
   msg = "Unable to fetch data. Check you internet coonection!",
   imgSrc = errorImage,
+  buttonText = "Go back",
+  path,
 }) => {
   const navigate = useNavigate();
 
@@ -15,8 +17,11 @@ const ErrorPage = ({
       <img src={imgSrc} alt="error image" className="error-img" />
       <div>
         <p className="error-text">{msg}</p>
-        <button className="link error-btn" onClick={() => navigate(-1)}>
-          Go back
+        <button
+          className="link error-btn"
+          onClick={() => (path ? navigate(path) : navigate(-1))}
+        >
+          {buttonText}
         </button>
       </div>
     </section>

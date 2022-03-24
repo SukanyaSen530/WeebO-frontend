@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Modal from "../Modal/Modal";
 import InputField from "../InputField/InputField";
 import { validateInputs, testCredentials, initialFormValues } from "./helper";
-import { useUserContext } from "../../context";
+import { useAuthContext } from "../../context";
 import { loginUser, registerUser } from "../../utils/apiCalls";
 
 import "./auth.scss";
@@ -11,8 +11,8 @@ import loginImage from "../../assets/login.png";
 import signUpImage from "../../assets/signup.png";
 
 const Auth = ({ type, open, onClose }) => {
-  const { userState, userDispatch } = useUserContext();
-  const { loading, fetchError } = userState;
+  const { authState, authDispatch } = useAuthContext();
+  const { loading, fetchError } = authState;
 
   const [userData, setUserData] = useState({ ...initialFormValues });
   const [errors, setErrors] = useState({});
@@ -29,7 +29,7 @@ const Auth = ({ type, open, onClose }) => {
       if (type === true) {
         loginUser(
           { email: userData.email, password: userData.password },
-          userDispatch
+          authDispatch
         );
         setUserData({ ...initialFormValues });
       } else {
@@ -40,7 +40,7 @@ const Auth = ({ type, open, onClose }) => {
             fullName: userData.fullName,
             userName: userData.userName,
           },
-          userDispatch
+          authDispatch
         );
         setUserData({ ...initialFormValues });
       }

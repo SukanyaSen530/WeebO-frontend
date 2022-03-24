@@ -11,7 +11,6 @@ import { ProductList } from "../../pages/ProductList";
 import { ErrorPage } from "../../pages/ErrorPage";
 
 import ProtectedRoutes from "../Routes/ProtectedRoutes";
-// import Mockman from "mockman-js";
 
 const AllRoutes = () => {
   return (
@@ -43,7 +42,7 @@ const AllRoutes = () => {
         element={
           <ErrorPage
             imgSrc={notFound}
-            msg="The Page you are looking for does not exist!"
+            msg="The page you are looking for does not exist!"
           />
         }
       />

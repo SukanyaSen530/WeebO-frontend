@@ -1,21 +1,22 @@
-const compareByDiscountPrice = (
-  { price: priceA, discount: discountA },
-  { price: priceB, discount: discountB }
-) => {
-  const discountedPriceA = discountA
-    ? parseFloat(priceA - (priceA * discountA) / 100)
-    : priceA;
-  const discountedPriceB = discountB
-    ? parseFloat(priceB - (priceB * discountB) / 100)
-    : priceB;
+export const transformData = (data) => {
+  return data.map((product) => ({
+    ...product,
+    discountedPrice: parseInt(
+      product.price - (product.price * product?.discount || 0) / 100
+    ),
+  }));
+};
 
-  return discountedPriceB - discountedPriceA;
+const compareByDiscountPrice = (
+  { discountedPrice: discountA },
+  { discountedPrice: discountB }
+) => {
+  return discountB - discountA;
 };
 
 const sortData = ({ productsFilter: { sortOption } }, data) => {
   if (sortOption === "HIGH_TO_LOW|price") {
-    console.log([...data].sort(compareByDiscountPrice));
-    return [...data].sort(compare1);
+    return [...data].sort(compareByDiscountPrice);
   } else if (sortOption === "LOW_TO_HIGH|price") {
     return [...data].sort(compareByDiscountPrice).reverse();
   } else if (sortOption === "HIGH_TO_LOW|rating") {
@@ -51,7 +52,7 @@ const filterData = (
   data
 ) => {
   return (data || [])
-    .filter((product) => parseFloat(product?.price) <= parseFloat(maxPrice))
+    .filter((product) => product.discountedPrice <= parseInt(maxPrice))
     .filter((product) => (includeOutOfStock ? true : product?.inStock))
     .filter(({ tag }) =>
       filterOnSale ? tag && tag.toLowerCase() === "sale" : true

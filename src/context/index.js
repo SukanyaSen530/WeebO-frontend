@@ -9,16 +9,16 @@ import { filterActions, productActions } from "./constants/productConstant";
 
 //User Context
 
-import { UserProvider, useUserContext } from "./providers/UserProvider";
+import { AuthProvider, useAuthContext } from "./providers/AuthProvider";
 
-import { userAuthActions } from "./constants/userConstants";
+import { userAuthActions } from "./constants/authConstants";
 
 export {
   ProductProvider,
   useProductContext,
   filterActions,
   productActions,
-  UserProvider,
-  useUserContext,
+  AuthProvider,
+  useAuthContext,
   userAuthActions,
 };

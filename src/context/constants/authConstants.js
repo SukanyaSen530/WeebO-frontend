@@ -7,3 +7,9 @@ export const userAuthActions = {
   OPEN_AUTH_MODAL: "OPEN_AUTH_MODAL",
   CLOSE_AUTH_MODAL: "CLOSE_AUTH_MODAL",
 };
+
+// export const wishlistConstants = {
+//   LOAD_WISHLIST: "LOAD_WISHLIST",
+//   ADD_TO_WISHLIST: "ADD_TO_WISHLIST",
+//   REMOVE_FROM_WISHLIST: " REMOVE_FROM_WISHLIST",
+// };
