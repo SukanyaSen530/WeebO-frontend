@@ -5,16 +5,17 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 
 // Provdiers
-import { ProductProvider } from "./context";
-import { UserProvider } from "./context";
+import { ProductProvider, AuthProvider, UserProvider } from "./context";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ProductProvider>
-        <UserProvider>
-          <App />
-        </UserProvider>
+        <AuthProvider>
+          <UserProvider>
+            <App />
+          </UserProvider>
+        </AuthProvider>
       </ProductProvider>
     </Router>
   </React.StrictMode>,

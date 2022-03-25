@@ -1,0 +1,16 @@
+.wishlist-section {
+  padding: 5rem 4rem 2rem;
+  min-height: 80vh;
+  text-align: center;
+
+  &__heading {
+    font-size: 3rem;
+  }
+
+  &__items {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

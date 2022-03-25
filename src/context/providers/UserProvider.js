@@ -1,44 +1,32 @@
-import { useReducer, useContext, createContext } from "react";
+import { useReducer, useContext, createContext, useEffect } from "react";
+import { loadWishlist } from "../../utils/apiCalls";
 
 import userReducer from "../reducers/userReducer";
-import { userAuthActions } from "../constants/userConstants";
 
 const userContext = createContext();
 
 const initialState = {
-  loading: false,
-  fetchError: null,
-  modalOpen: false,
-  user: {
-    token: localStorage.getItem("weeboToken"),
-    details: null,
-  },
-  cart: {
-    productIds: [],
-    qty: 0,
-  },
-  wishlist: {
-    productIds: [],
+  userWishlist: {
+    loading: false,
+    error: null,
+    items: [],
   },
 };
 
 const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
 
-  const openAuthModal = () =>
-    dispatch({ type: userAuthActions.OPEN_AUTH_MODAL });
+  const token = localStorage.getItem("weeboToken");
 
-  const closeAuthModal = () =>
-    dispatch({ type: userAuthActions.CLOSE_AUTH_MODAL });
-
-  console.log(state);
+  useEffect(() => {
+    if (state.userWishlist.items?.length === 0 && token) loadWishlist(dispatch);
+  }, []);
 
   return (
     <userContext.Provider
       value={{
         userState: state,
         userDispatch: dispatch,
-        modalOperations: { openAuthModal, closeAuthModal },
       }}
     >
       {children}

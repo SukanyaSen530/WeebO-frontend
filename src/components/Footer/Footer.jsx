@@ -25,30 +25,33 @@ const Footer = () => {
             <Link to="/products" className="footer__links">
               S.H.Figuarts
             </Link>
+            <Link to="/products" className="footer__links">
+              Bandai
+            </Link>
           </ul>
         </div>
 
         <div>
-          <h2 className="b-margin-sm">Navigate</h2>
+          <h2 className="b-margin-sm">My Account</h2>
 
           <ul className="footer__links-container">
             <Link to="/" className="footer__links">
-              Home
+              My Account
             </Link>
             <Link to="/products" className="footer__links">
-              Shop
+              My Orders
             </Link>
             <Link to="/cart" className="footer__links">
-              Cart
+              My Wishlist
             </Link>
             <Link to="/wishlist" className="footer__links">
-              WishList
+              View Cart
             </Link>
           </ul>
         </div>
 
         <div>
-          <h2 className="b-margin-sm">Connect With Me!</h2>
+          <h2 className="b-margin-sm">Connect With Us!</h2>
           <ul className="footer__links-container">
             <a
               href="https://www.linkedin.com/in/sukanya-sen-615980130/"

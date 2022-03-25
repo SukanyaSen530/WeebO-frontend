@@ -1,4 +1,5 @@
 import { productActions, filterActions } from "../constants/productConstant";
+import { transformData } from "../utils/productsUtils";
 
 const productReducer = (state, action) => {
   const { type, payload } = action;
@@ -11,7 +12,7 @@ const productReducer = (state, action) => {
       return {
         ...state,
         productLoading: false,
-        products: payload,
+        products: transformData(payload),
         productFetchError: null,
       };
 
@@ -75,9 +76,7 @@ const productReducer = (state, action) => {
 
     case filterActions.FILTER_BY_CATEGORIES:
       const payloadCategory = payload?.toLowerCase() || "";
-      console.log(
-        state.productsFilter.filterByCategories.includes(payloadCategory)
-      );
+
       if (payloadCategory === "") return state;
       return state.productsFilter.filterByCategories.includes(payloadCategory)
         ? {

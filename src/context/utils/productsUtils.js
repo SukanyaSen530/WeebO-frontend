@@ -1,37 +1,24 @@
-const compare1 = (
-  { price: priceA, discount: discountA },
-  { price: priceB, discount: discountB }
-) => {
-  const discountedPriceA = discountA
-    ? parseFloat(priceA - (priceA * discountA) / 100)
-    : priceA;
-  const discountedPriceB = discountB
-    ? parseFloat(priceB - (priceB * discountB) / 100)
-    : priceB;
-
-  return discountedPriceB - discountedPriceA;
+export const transformData = (data) => {
+  return data.map((product) => ({
+    ...product,
+    discountedPrice: parseInt(
+      product.price - (product.price * product?.discount || 0) / 100
+    ),
+  }));
 };
 
-const compare2 = (
-  { price: priceA, discount: discountA },
-  { price: priceB, discount: discountB }
+const compareByDiscountPrice = (
+  { discountedPrice: discountA },
+  { discountedPrice: discountB }
 ) => {
-  const discountedPriceA = discountA
-    ? parseFloat(priceA - (priceA * discountA) / 100)
-    : priceA;
-  const discountedPriceB = discountB
-    ? parseFloat(priceB - (priceB * discountB) / 100)
-    : priceB;
-
-  return discountedPriceA - discountedPriceB;
+  return discountB - discountA;
 };
 
 const sortData = ({ productsFilter: { sortOption } }, data) => {
   if (sortOption === "HIGH_TO_LOW|price") {
-    console.log([...data].sort(compare1));
-    return [...data].sort(compare1);
+    return [...data].sort(compareByDiscountPrice);
   } else if (sortOption === "LOW_TO_HIGH|price") {
-    return [...data].sort(compare2);
+    return [...data].sort(compareByDiscountPrice).reverse();
   } else if (sortOption === "HIGH_TO_LOW|rating") {
     return [
       ...data.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)),
@@ -65,7 +52,7 @@ const filterData = (
   data
 ) => {
   return (data || [])
-    .filter((product) => parseFloat(product?.price) <= parseFloat(maxPrice))
+    .filter((product) => product.discountedPrice <= parseInt(maxPrice))
     .filter((product) => (includeOutOfStock ? true : product?.inStock))
     .filter(({ tag }) =>
       filterOnSale ? tag && tag.toLowerCase() === "sale" : true

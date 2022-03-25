@@ -1,11 +1,12 @@
 @import "../../sass/global";
 
 .error-section {
-  height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
 }
 
 .error-img {

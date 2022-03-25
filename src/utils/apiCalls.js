@@ -1,9 +1,10 @@
 import axios from "axios";
 
-import { productActions } from "../context";
-import { userAuthActions } from "../context";
-import { productURL, authURL } from "./api";
+import { productActions, userAuthActions, wishlistConstants } from "../context";
 
+import { productURL, authURL, wishListURL } from "./api";
+
+// Products
 export const loadProducts = async (dispatch) => {
   try {
     dispatch({ type: productActions.LOADING, payload: true });
@@ -25,12 +26,11 @@ export const loadAProduct = async (productId, dispatch) => {
   try {
     dispatch({ type: productActions.LOADING, payload: true });
     const response = await axios.get(`${productURL}/${productId}`);
+
     dispatch({
       type: productActions.LOAD_SINGLE_PRODUCT,
       payload: response?.data?.data || {},
     });
-
-    console.log(response);
   } catch (e) {
     console.log(e);
     dispatch({
@@ -40,6 +40,7 @@ export const loadAProduct = async (productId, dispatch) => {
   }
 };
 
+// Auth
 export const loginUser = async (payload, dispatch) => {
   try {
     dispatch({ type: userAuthActions.LOADING, payload: true });
@@ -74,3 +75,73 @@ export const registerUser = async (payload, dispatch) => {
     });
   }
 };
+
+// Wishlist
+const token = localStorage.getItem("weeboToken");
+const config = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+};
+
+export const loadWishlist = async (dispatch) => {
+  try {
+    dispatch({ type: userAuthActions.LOADING, payload: true });
+    const response = await axios.get(wishListURL, config);
+
+    dispatch({
+      type: wishlistConstants.LOAD_WISHLIST,
+      payload: response.data?.wishlist || [],
+    });
+  } catch (e) {
+    console.log(e.response);
+    dispatch({
+      type: wishlistConstants.ERROR,
+      payload: e.response.data.message,
+    });
+  }
+};
+
+export const addToWishlist = async (id, dispatch) => {
+  try {
+    const response = await axios.post(`${wishListURL}/add`, { id }, config);
+
+    if (response.status === 200) {
+      dispatch({
+        type: wishlistConstants.ADD_TO_WISHLIST,
+        payload: response?.data.wishlist,
+      });
+
+      console.log(response.data.wishlist);
+    }
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e);
+  }
+};
+
+export const removeFromWishlist = async (id, dispatch) => {
+  try {
+    const response = await axios.post(
+      `${wishListURL}/remove`,
+      {
+        id,
+      },
+      config
+    );
+
+    if (response.status === 200) {
+      dispatch({
+        type: wishlistConstants.REMOVE_FROM_WISHLIST,
+        payload: id,
+      });
+    }
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e.response.data);
+  }
+};
+
+// Cart
+
+// Address

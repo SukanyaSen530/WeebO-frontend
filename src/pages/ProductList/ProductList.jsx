@@ -19,8 +19,10 @@ function ProductList() {
   const { productLoading, productFetchError } = state;
 
   useEffect(() => {
-    loadProducts(dispatch);
-  }, [dispatch]);
+    if (filteredProducts?.length === 0) {
+      loadProducts(dispatch);
+    }
+  }, []);
 
   if (productLoading) {
     return <Loader />;

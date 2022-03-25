@@ -7,18 +7,27 @@ import {
 
 import { filterActions, productActions } from "./constants/productConstant";
 
-//User Context
+//Auth Context
+
+import { AuthProvider, useAuthContext } from "./providers/AuthProvider";
+
+import { userAuthActions } from "./constants/authConstants";
+
+// User Context
 
 import { UserProvider, useUserContext } from "./providers/UserProvider";
 
-import { userAuthActions } from "./constants/userConstants";
+import { wishlistConstants } from "./constants/userConstants";
 
 export {
   ProductProvider,
   useProductContext,
   filterActions,
   productActions,
+  AuthProvider,
+  useAuthContext,
+  userAuthActions,
   UserProvider,
   useUserContext,
-  userAuthActions,
+  wishlistConstants,
 };

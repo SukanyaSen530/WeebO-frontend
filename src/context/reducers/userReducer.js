@@ -1,53 +1,57 @@
-import { userAuthActions } from "../constants/userConstants";
+import { wishlistConstants } from "../constants/userConstants";
+import { transformData } from "../utils/productsUtils";
 
-const userReducer = (state, action) => {
+const authReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case userAuthActions.LOADING:
-      return { ...state, loading: true, fetchError: null };
-
-    case userAuthActions.LOAD_USER:
-      if (payload.token !== "" || !payload.token) {
-        window.localStorage.setItem("weeboToken", payload.token);
-      }
-
+    case wishlistConstants.LOADING:
       return {
         ...state,
-        loading: false,
-        modalOpen: false,
-        user: { token: payload.token, details: payload.user },
+        userWishlist: { ...state.userWishlist, loading: true },
       };
 
-    case userAuthActions.ERROR:
+    case wishlistConstants.LOAD_WISHLIST:
       return {
         ...state,
-        loading: false,
-        user: {},
-        fetchError: payload,
+        userWishlist: {
+          error: null,
+          loading: false,
+          items: transformData(payload),
+        },
       };
 
-    case userAuthActions.LOAD_USER_PROFILE:
+    case wishlistConstants.ERROR:
       return {
         ...state,
-        loading: false,
-        user: { ...state.user, details: payload },
+        userWishlist: { error: payload, loading: false, items: [] },
       };
 
-    case userAuthActions.OPEN_AUTH_MODAL:
-      return { ...state, modalOpen: true, fetchError: null };
-
-    case userAuthActions.CLOSE_AUTH_MODAL:
-      return { ...state, modalOpen: false, fetchError: null };
-
-    case userAuthActions.LOGOUT: {
-      window.localStorage.removeItem("weeboToken");
+    case wishlistConstants.ADD_TO_WISHLIST:
       return {
         ...state,
-        user: {},
+        userWishlist: {
+          error: null,
+          loading: false,
+          items: transformData(payload),
+        },
       };
-    }
+
+    case wishlistConstants.REMOVE_FROM_WISHLIST:
+      return {
+        ...state,
+        userWishlist: {
+          error: null,
+          loading: false,
+          items: state.userWishlist.items.filter(
+            (item) => item._id !== payload
+          ),
+        },
+      };
+
+    default:
+      return state;
   }
 };
 
-export default userReducer;
+export default authReducer;
