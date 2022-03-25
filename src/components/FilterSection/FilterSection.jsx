@@ -46,6 +46,7 @@ const FilterSection = () => {
           value={maxPrice}
           min={1000}
           max={20000}
+          step={1000}
           onChange={(e) =>
             dispatch({
               type: filterActions.FILTER_BY_PRICE,

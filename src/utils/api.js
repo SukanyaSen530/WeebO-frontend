@@ -1,5 +1,5 @@
-// const backend_URL = "https://weebo-backend.herokuapp.com/api/";
-const backend_URL = "http://localhost:8000/api/";
+const backend_URL = "https://weebo-backend.herokuapp.com/api/";
+// const backend_URL = "http://localhost:8000/api/";
 
 const productURL = `${backend_URL}products`;
 const authURL = `${backend_URL}auth`;

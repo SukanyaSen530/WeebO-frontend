@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-import { userAuthActions, useAuthContext } from "../../context";
+import { userAuthActions, useAuthContext, useUserContext } from "../../context";
 import Auth from "../Auth/Auth";
 
 const mainLinks = [
@@ -39,6 +39,11 @@ const Navbar = () => {
     modalOperations,
     authDispatch,
   } = useAuthContext();
+  const {
+    userState: {
+      userWishlist: { items: wishlistItems },
+    },
+  } = useUserContext();
 
   const { openAuthModal, closeAuthModal } = modalOperations;
 
@@ -47,7 +52,7 @@ const Navbar = () => {
       <Link to="/wishlist" className="btn-icon badge">
         <FaHandHoldingHeart className="btn-icon__icon" />
         <span className="btn-icon__text">Wishlist</span>
-        <span className="badge__count"> 0 </span>
+        <span className="badge__count"> {wishlistItems?.length} </span>
       </Link>
 
       <Link to="/cart" className="btn-icon badge">

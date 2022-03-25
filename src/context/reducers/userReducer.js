@@ -1,4 +1,5 @@
 import { wishlistConstants } from "../constants/userConstants";
+import { transformData } from "../utils/productsUtils";
 
 const authReducer = (state, action) => {
   const { type, payload } = action;
@@ -13,7 +14,11 @@ const authReducer = (state, action) => {
     case wishlistConstants.LOAD_WISHLIST:
       return {
         ...state,
-        userWishlist: { error: null, loading: false, items: payload },
+        userWishlist: {
+          error: null,
+          loading: false,
+          items: transformData(payload),
+        },
       };
 
     case wishlistConstants.ERROR:
@@ -26,19 +31,21 @@ const authReducer = (state, action) => {
       return {
         ...state,
         userWishlist: {
-          error: payload,
+          error: null,
           loading: false,
-          items: [...userWishlist, payload],
+          items: transformData(payload),
         },
       };
 
-    case userAuthActions.REMOVE_FROM_WISHLIST:
+    case wishlistConstants.REMOVE_FROM_WISHLIST:
       return {
         ...state,
         userWishlist: {
-          error: payload,
+          error: null,
           loading: false,
-          items: state.userWishlist.filter((item) => item._id !== payload),
+          items: state.userWishlist.items.filter(
+            (item) => item._id !== payload
+          ),
         },
       };
 

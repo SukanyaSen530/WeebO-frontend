@@ -41,8 +41,6 @@ const Product = () => {
     categoryName,
   } = view_product;
 
-  console.log(view_product);
-
   return (
     <section className="productdetails-section">
       <article className="product-details">

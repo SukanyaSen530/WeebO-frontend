@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { BsSuitHeart, BsSuitHeartFill, BsFillStarFill } from "react-icons/bs";
 
+import { useAuthContext, useUserContext } from "../../context";
+import { addToWishlist, removeFromWishlist } from "../../utils/apiCalls";
+
 import "./product-card.scss";
 
 function ProductCard({
@@ -18,7 +21,18 @@ function ProductCard({
   rating,
   discountedPrice,
 }) {
-  let inWishlist = false;
+  const {
+    authState: {
+      user: { token },
+    },
+  } = useAuthContext();
+  const { userState, userDispatch } = useUserContext();
+  const {
+    userWishlist: { items: wishlistItems },
+  } = userState;
+
+  let inWishlist = wishlistItems.some((item) => item._id === _id);
+  let inCart = null;
 
   return (
     <article className="product-card">
@@ -54,18 +68,32 @@ function ProductCard({
         </Link>
       </div>
 
-      <button className="product-card__wishlist-icon">
-        {inWishlist && inWishlist === true ? (
-          <BsSuitHeartFill className="product-card__wishlist-filled" />
-        ) : (
+      {!token ? (
+        <Link to="/wishlist" className="product-card__wishlist-icon">
           <BsSuitHeart className="product-card__wishlist-empty" />
-        )}
-      </button>
+        </Link>
+      ) : (
+        <button className="product-card__wishlist-icon">
+          {inWishlist === true ? (
+            <BsSuitHeartFill
+              className="product-card__wishlist-filled"
+              onClick={() => removeFromWishlist(_id, userDispatch)}
+            />
+          ) : (
+            <BsSuitHeart
+              className="product-card__wishlist-empty"
+              onClick={() => addToWishlist(_id, userDispatch)}
+            />
+          )}
+        </button>
+      )}
 
       {tag && <span className="text-badge">{tag}</span>}
 
-      {!inStock ? <span className="text-badge">sold out</span> : null}
-      {!inStock ? (
+      {inStock && !inStock ? (
+        <span className="text-badge">sold out</span>
+      ) : null}
+      {inStock && !inStock ? (
         <Link to={`/products/${_id}`}>
           <div className="overlay"></div>
         </Link>
