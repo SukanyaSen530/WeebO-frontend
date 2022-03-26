@@ -11,11 +11,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ProductProvider>
-        <AuthProvider>
-          <UserProvider>
+        <UserProvider>
+          <AuthProvider>
             <App />
-          </UserProvider>
-        </AuthProvider>
+          </AuthProvider>
+        </UserProvider>
       </ProductProvider>
     </Router>
   </React.StrictMode>,

@@ -1,8 +1,12 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { BsFillStarFill } from "react-icons/bs";
 
-import { useProductContext } from "../../context";
+import {
+  useProductContext,
+  useUserContext,
+  useAuthContext,
+} from "../../context";
 import { Loader } from "../../components";
 import { ErrorPage } from "../ErrorPage";
 import { loadAProduct } from "../../utils/apiCalls";
@@ -13,8 +17,22 @@ const Product = () => {
   const params = useParams();
   const productId = params.productId;
 
-  const { state, dispatch } = useProductContext();
-  const { productLoading, productFetchError, view_product } = state;
+  const {
+    state: { productLoading, productFetchError, view_product },
+    dispatch,
+  } = useProductContext();
+  const { userState } = useUserContext();
+  const {
+    authState: {
+      user: { token },
+    },
+    modalOperations: { openAuthModal },
+  } = useAuthContext();
+
+  const {
+    userWishlist: { items: wishlistItems },
+    userCart: { items: cartItems },
+  } = userState;
 
   useEffect(() => {
     loadAProduct(productId, dispatch);
@@ -29,6 +47,7 @@ const Product = () => {
   }
 
   const {
+    _id,
     name,
     brandName,
     price,
@@ -40,6 +59,9 @@ const Product = () => {
     description,
     categoryName,
   } = view_product;
+
+  let inWishlist = wishlistItems.some((item) => item._id === _id);
+  let inCart = cartItems.some((item) => item.product._id === _id);
 
   return (
     <section className="productdetails-section">
@@ -83,12 +105,35 @@ const Product = () => {
             )}
           </div>
 
-          <button
-            className={`btn btn--primary btn--md btn--contained product-content__btn`}
-            disabled={!inStock}
-          >
-            {!inStock ? "Out of stock" : "Add to cart"}
-          </button>
+          <div className="product-content__actions">
+            {!token ? (
+              <button
+                className="btn btn--primary btn--md btn--contained product-content__btn"
+                onClick={openAuthModal}
+              >
+                Login to Add the product to cart / wishlist
+              </button>
+            ) : (
+              <>
+                <button
+                  className={`btn btn--primary btn--md btn--contained product-content__btn`}
+                  disabled={!inStock || inCart}
+                >
+                  {!inStock
+                    ? "Out of stock"
+                    : inCart
+                    ? "Already in cart"
+                    : "Add to cart"}
+                </button>
+                <button
+                  className={`btn btn--outlined btn--md btn--contained product-content__btn`}
+                  disabled={!inStock || inWishlist}
+                >
+                  Add to wishlist
+                </button>
+              </>
+            )}
+          </div>
 
           <div className="t-margin-md">
             <p className="b-margin-sm product-content__description">

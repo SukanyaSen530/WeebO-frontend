@@ -1,5 +1,4 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 import { useAuthContext } from "../../context";
 
 const ProtectedRoutes = ({ children }) => {

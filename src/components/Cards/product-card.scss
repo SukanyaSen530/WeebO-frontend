@@ -85,6 +85,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 1.6rem;
+    gap: 1rem;
   }
 
   &__actions {
@@ -95,6 +96,8 @@
 
   &__btn {
     border-radius: 5px;
+    border: none;
+    font-family: inherit;
     padding: 0.5rem;
     width: 100%;
     display: block;

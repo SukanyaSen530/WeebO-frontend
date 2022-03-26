@@ -1,5 +1,4 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
-import { loadWishlist } from "../../utils/apiCalls";
 
 import userReducer from "../reducers/userReducer";
 
@@ -20,12 +19,6 @@ const initialState = {
 
 const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
-
-  const token = localStorage.getItem("weeboToken");
-
-  useEffect(() => {
-    if (state.userWishlist.items?.length === 0 && token) loadWishlist(dispatch);
-  }, []);
 
   return (
     <userContext.Provider

@@ -17,7 +17,7 @@ import { userAuthActions } from "./constants/authConstants";
 
 import { UserProvider, useUserContext } from "./providers/UserProvider";
 
-import { wishlistConstants } from "./constants/userConstants";
+import { wishlistConstants, cartConstants } from "./constants/userConstants";
 
 export {
   ProductProvider,
@@ -30,4 +30,5 @@ export {
   UserProvider,
   useUserContext,
   wishlistConstants,
+  cartConstants,
 };

@@ -42,6 +42,7 @@ const Navbar = () => {
   const {
     userState: {
       userWishlist: { items: wishlistItems },
+      userCart: { items: cartItems },
     },
   } = useUserContext();
 
@@ -58,7 +59,7 @@ const Navbar = () => {
       <Link to="/cart" className="btn-icon badge">
         <AiOutlineShoppingCart className="btn-icon__icon" />
         <span className="btn-icon__text">Cart</span>
-        <span className="badge__count"> 0 </span>
+        <span className="badge__count"> {cartItems.length} </span>
       </Link>
 
       <button

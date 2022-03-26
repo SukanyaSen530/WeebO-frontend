@@ -1,13 +1,18 @@
 import axios from "axios";
 
-import { productActions, userAuthActions, wishlistConstants } from "../context";
+import {
+  productActions,
+  userAuthActions,
+  wishlistConstants,
+  cartConstants,
+} from "../context";
 
-import { productURL, authURL, wishListURL } from "./api";
+import { productURL, authURL, wishListURL, cartURL } from "./api";
 
 // Products
 export const loadProducts = async (dispatch) => {
   try {
-    dispatch({ type: productActions.LOADING, payload: true });
+    dispatch({ type: productActions.LOADING });
     const response = await axios.get(productURL);
 
     dispatch({
@@ -86,7 +91,7 @@ const config = {
 
 export const loadWishlist = async (dispatch) => {
   try {
-    dispatch({ type: userAuthActions.LOADING, payload: true });
+    dispatch({ type: wishlistConstants.LOADING });
     const response = await axios.get(wishListURL, config);
 
     dispatch({
@@ -111,8 +116,6 @@ export const addToWishlist = async (id, dispatch) => {
         type: wishlistConstants.ADD_TO_WISHLIST,
         payload: response?.data.wishlist,
       });
-
-      console.log(response.data.wishlist);
     }
   } catch (e) {
     //Will be replaced by toast
@@ -143,5 +146,92 @@ export const removeFromWishlist = async (id, dispatch) => {
 };
 
 // Cart
+
+export const loadCart = async (dispatch) => {
+  try {
+    dispatch({ type: cartConstants.LOADING });
+    const { data } = await axios.get(cartURL, config);
+
+    dispatch({
+      type: cartConstants.LOAD_CART,
+      payload: data?.cart || [],
+    });
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e.response);
+  }
+};
+
+export const increaseQuantity = async (id, dispatch) => {
+  try {
+    const { data } = await axios.patch(
+      `${cartURL}/${id}`,
+      { action: "increment" },
+      config
+    );
+
+    dispatch({
+      type: cartConstants.INCREASE_QUANTITY,
+      payload: data?.cart || [],
+    });
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e?.response?.data?.message);
+  }
+};
+
+export const decreaseQuantity = async (id, dispatch) => {
+  try {
+    const { data } = await axios.patch(
+      `${cartURL}/${id}`,
+      { action: "decrement" },
+      config
+    );
+
+    dispatch({
+      type: cartConstants.DECREASE_QUANTITY,
+      payload: data?.cart || [],
+    });
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e?.response?.data?.message);
+  }
+};
+
+export const addToCart = async (id, dispatch, quantity = 1) => {
+  try {
+    const response = await axios.post(
+      `${cartURL}/add`,
+      { id, quantity },
+      config
+    );
+
+    if (response.status === 200) {
+      dispatch({
+        type: cartConstants.ADD_TO_CART,
+        payload: response?.data?.cart,
+      });
+    }
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e);
+  }
+};
+
+export const removeFromCart = async (id, dispatch) => {
+  try {
+    const response = await axios.delete(`${cartURL}/${id}`, config);
+
+    if (response.status === 200) {
+      dispatch({
+        type: cartConstants.REMOVE_FROM_CART,
+        payload: id,
+      });
+    }
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e);
+  }
+};
 
 // Address

@@ -1,10 +1,12 @@
-import { wishlistConstants } from "../constants/userConstants";
+import { cartConstants, wishlistConstants } from "../constants/userConstants";
 import { transformData } from "../utils/productsUtils";
 
 const authReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    // Wishlist
+
     case wishlistConstants.LOADING:
       return {
         ...state,
@@ -41,10 +43,74 @@ const authReducer = (state, action) => {
       return {
         ...state,
         userWishlist: {
-          error: null,
-          loading: false,
+          ...state.userWishlist,
           items: state.userWishlist.items.filter(
             (item) => item._id !== payload
+          ),
+        },
+      };
+
+    // Cart
+
+    case cartConstants.LOADING:
+      return {
+        ...state,
+        userCart: { ...state.userCart, loading: true },
+      };
+
+    case cartConstants.LOAD_CART:
+      return {
+        ...state,
+        userCart: {
+          error: null,
+          loading: false,
+          items: payload,
+        },
+      };
+
+    case cartConstants.ERROR:
+      return {
+        ...state,
+        userCart: { error: payload, loading: false, items: [] },
+      };
+
+    case cartConstants.ADD_TO_CART:
+      return {
+        ...state,
+        userCart: {
+          error: null,
+          loading: false,
+          items: payload,
+        },
+      };
+
+    case cartConstants.INCREASE_QUANTITY:
+      return {
+        ...state,
+        userCart: {
+          error: null,
+          loading: false,
+          items: payload,
+        },
+      };
+
+    case cartConstants.DECREASE_QUANTITY:
+      return {
+        ...state,
+        userCart: {
+          error: null,
+          loading: false,
+          items: payload,
+        },
+      };
+
+    case cartConstants.REMOVE_FROM_CART:
+      return {
+        ...state,
+        userCart: {
+          ...state.userCart,
+          items: state.userCart.items.filter(
+            (item) => item.product._id !== payload
           ),
         },
       };
