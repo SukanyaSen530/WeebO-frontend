@@ -90,10 +90,8 @@ function ProductCard({
 
       {tag && <span className="text-badge">{tag}</span>}
 
-      {inStock && !inStock ? (
-        <span className="text-badge">sold out</span>
-      ) : null}
-      {inStock && !inStock ? (
+      {!inStock ? <span className="text-badge">sold out</span> : null}
+      {!inStock ? (
         <Link to={`/products/${_id}`}>
           <div className="overlay"></div>
         </Link>

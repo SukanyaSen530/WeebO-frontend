@@ -11,6 +11,11 @@ const initialState = {
     error: null,
     items: [],
   },
+  userCart: {
+    loading: false,
+    error: null,
+    items: [],
+  },
 };
 
 const UserProvider = ({ children }) => {
