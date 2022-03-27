@@ -47,6 +47,7 @@
     background: transparent;
     transition: 0.5s transform ease;
     cursor: pointer;
+    border: none;
 
     &:hover {
       transform: translateY(-0.5rem);
@@ -106,6 +107,7 @@
     font-size: 1.8rem;
     transition: all 0.5s ease;
     background-color: $color-black;
+    border: none;
     color: $color-white;
 
     &__icon {

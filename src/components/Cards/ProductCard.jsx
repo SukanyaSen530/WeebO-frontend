@@ -67,13 +67,19 @@ function ProductCard({
       </div>
 
       <div className="product-card__actions">
-        <button
-          to="/cart"
-          className="product-card__btn"
-          onClick={() => addToCart(_id, userDispatch)}
-        >
-          {inCart ? "In cart" : "Add to cart"}
-        </button>
+        {!token ? (
+          <Link to="/cart" className="product-card__btn">
+            Add to Cart
+          </Link>
+        ) : (
+          <button
+            to="/cart"
+            className="product-card__btn"
+            onClick={() => addToCart(_id, userDispatch)}
+          >
+            {inCart ? "In cart" : "Add to cart"}
+          </button>
+        )}
 
         <Link to={`/products/${_id}`} className="product-card__btn">
           <i className="fa-solid fa-binoculars"></i>
