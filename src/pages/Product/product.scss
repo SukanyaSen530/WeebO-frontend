@@ -85,7 +85,12 @@
   &__actions {
     display: flex;
     gap: 2rem;
-    flex-wrap: wrap;
+    align-items: center;
+
+    .product-card__wishlist-icon {
+      position: unset;
+      vertical-align: middle;
+    }
 
     @include respond(phone) {
       & > * {

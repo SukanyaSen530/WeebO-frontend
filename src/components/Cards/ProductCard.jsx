@@ -72,7 +72,7 @@ function ProductCard({
           className="product-card__btn"
           onClick={() => addToCart(_id, userDispatch)}
         >
-          {inCart ? "Added to cart" : "Add to cart"}
+          {inCart ? "In cart" : "Add to cart"}
         </button>
 
         <Link to={`/products/${_id}`} className="product-card__btn">

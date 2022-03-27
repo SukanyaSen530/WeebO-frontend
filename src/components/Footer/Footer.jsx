@@ -41,10 +41,10 @@ const Footer = () => {
             <Link to="/products" className="footer__links">
               My Orders
             </Link>
-            <Link to="/cart" className="footer__links">
+            <Link to="/wishlist" className="footer__links">
               My Wishlist
             </Link>
-            <Link to="/wishlist" className="footer__links">
+            <Link to="/cart" className="footer__links">
               View Cart
             </Link>
           </ul>

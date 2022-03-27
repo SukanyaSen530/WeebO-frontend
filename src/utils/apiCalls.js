@@ -82,14 +82,22 @@ export const registerUser = async (payload, dispatch) => {
 };
 
 // Wishlist
-const token = localStorage.getItem("weeboToken");
-const config = {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
+
+const getConfig = () => {
+  const token = localStorage.getItem("weeboToken");
+
+  if (token)
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  else return "";
 };
 
 export const loadWishlist = async (dispatch) => {
+  const config = getConfig();
+
   try {
     dispatch({ type: wishlistConstants.LOADING });
     const response = await axios.get(wishListURL, config);
@@ -108,6 +116,8 @@ export const loadWishlist = async (dispatch) => {
 };
 
 export const addToWishlist = async (id, dispatch) => {
+  const config = getConfig();
+
   try {
     const response = await axios.post(`${wishListURL}/add`, { id }, config);
 
@@ -119,11 +129,13 @@ export const addToWishlist = async (id, dispatch) => {
     }
   } catch (e) {
     //Will be replaced by toast
-    console.log(e);
+    console.log(e.response.data.message);
   }
 };
 
 export const removeFromWishlist = async (id, dispatch) => {
+  const config = getConfig();
+
   try {
     const response = await axios.post(
       `${wishListURL}/remove`,
@@ -141,13 +153,15 @@ export const removeFromWishlist = async (id, dispatch) => {
     }
   } catch (e) {
     //Will be replaced by toast
-    console.log(e.response.data);
+    console.log(e.response.data.message);
   }
 };
 
 // Cart
 
-export const loadCart = async (dispatch) => {
+export const loadCart = async (dispatch, token) => {
+  const config = getConfig();
+
   try {
     dispatch({ type: cartConstants.LOADING });
     const { data } = await axios.get(cartURL, config);
@@ -158,11 +172,13 @@ export const loadCart = async (dispatch) => {
     });
   } catch (e) {
     //Will be replaced by toast
-    console.log(e.response);
+    console.log(e.response.data.message);
   }
 };
 
 export const increaseQuantity = async (id, dispatch) => {
+  const config = getConfig();
+
   try {
     const { data } = await axios.patch(
       `${cartURL}/${id}`,
@@ -176,11 +192,13 @@ export const increaseQuantity = async (id, dispatch) => {
     });
   } catch (e) {
     //Will be replaced by toast
-    console.log(e?.response?.data?.message);
+    console.log(e.response.data.message);
   }
 };
 
 export const decreaseQuantity = async (id, dispatch) => {
+  const config = getConfig();
+
   try {
     const { data } = await axios.patch(
       `${cartURL}/${id}`,
@@ -194,11 +212,13 @@ export const decreaseQuantity = async (id, dispatch) => {
     });
   } catch (e) {
     //Will be replaced by toast
-    console.log(e?.response?.data?.message);
+    console.log(e.response.data.message);
   }
 };
 
 export const addToCart = async (id, dispatch, quantity = 1) => {
+  const config = getConfig();
+
   try {
     const response = await axios.post(
       `${cartURL}/add`,
@@ -214,11 +234,13 @@ export const addToCart = async (id, dispatch, quantity = 1) => {
     }
   } catch (e) {
     //Will be replaced by toast
-    console.log(e);
+    console.log(e.response.data.message);
   }
 };
 
 export const removeFromCart = async (id, dispatch) => {
+  const config = getConfig();
+
   try {
     const response = await axios.delete(`${cartURL}/${id}`, config);
 
@@ -230,7 +252,7 @@ export const removeFromCart = async (id, dispatch) => {
     }
   } catch (e) {
     //Will be replaced by toast
-    console.log(e);
+    console.log(e.response.data.message);
   }
 };
 

@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import "./cart-card.scss";
 
 import {
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  addToWishlist,
 } from "../../utils/apiCalls";
 import { useUserContext } from "../../context";
 
@@ -29,6 +32,13 @@ const CartCard = ({
   const discountedPrice = parseInt(price - (price * discount || 0) / 100);
   const totalPrice = discountedPrice * quantity;
 
+  const handleMoveToWishlist = () => {
+    if (!inWishlist) {
+      addToWishlist(_id, userDispatch);
+      removeFromCart(_id, userDispatch);
+    } else return;
+  };
+
   return (
     <article className="cart-card">
       <div className="cart-card__product-details">
@@ -45,9 +55,14 @@ const CartCard = ({
           )}
 
           <div className="cart-card__actions">
-            <button className="cart-card__actions__btn" disabled={inWishlist}>
+            <button
+              className="cart-card__actions__btn"
+              disabled={inWishlist}
+              onClick={() => handleMoveToWishlist()}
+            >
               {inWishlist ? "Already in Wishlist" : "Move to Wishlist"}
             </button>
+
             <button
               className="cart-card__actions__btn"
               onClick={() => removeFromCart(_id, userDispatch)}
@@ -83,6 +98,17 @@ const CartCard = ({
       </div>
     </article>
   );
+};
+
+CartCard.prototype = {
+  _id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  brandName: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  discount: PropTypes.number,
+  categoryName: PropTypes.string.isRequired,
+  img: PropTypes.arrayOf(PropTypes.string),
+  quantity: PropTypes.number.isRequired,
 };
 
 export default CartCard;

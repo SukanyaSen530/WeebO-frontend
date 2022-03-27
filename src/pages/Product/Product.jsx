@@ -1,6 +1,8 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { BsFillStarFill } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
+import { VscHeart } from "react-icons/vsc";
 
 import {
   useProductContext,
@@ -10,6 +12,12 @@ import {
 import { Loader } from "../../components";
 import { ErrorPage } from "../ErrorPage";
 import { loadAProduct } from "../../utils/apiCalls";
+
+import {
+  addToCart,
+  addToWishlist,
+  removeFromWishlist,
+} from "../../utils/apiCalls";
 
 import "./product.scss";
 
@@ -21,7 +29,7 @@ const Product = () => {
     state: { productLoading, productFetchError, view_product },
     dispatch,
   } = useProductContext();
-  const { userState } = useUserContext();
+  const { userState, userDispatch } = useUserContext();
   const {
     authState: {
       user: { token },
@@ -62,6 +70,10 @@ const Product = () => {
 
   let inWishlist = wishlistItems.some((item) => item._id === _id);
   let inCart = cartItems.some((item) => item.product._id === _id);
+
+  const handleAddToCart = () => {
+    if (!inCart) addToCart(_id, userDispatch);
+  };
 
   return (
     <section className="productdetails-section">
@@ -107,29 +119,53 @@ const Product = () => {
 
           <div className="product-content__actions">
             {!token ? (
-              <button
-                className="btn btn--primary btn--md btn--contained product-content__btn"
-                onClick={openAuthModal}
-              >
-                Login to Add the product to cart / wishlist
-              </button>
+              <>
+                <button
+                  onClick={openAuthModal}
+                  className="product-card__wishlist-icon"
+                >
+                  <VscHeart className="product-card__wishlist-empty" />
+                </button>
+                <button
+                  className="btn btn--primary btn--md btn--contained product-content__btn"
+                  onClick={openAuthModal}
+                >
+                  Add To Cart
+                </button>
+              </>
             ) : (
               <>
                 <button
+                  className="product-card__wishlist-icon"
+                  disabled={!inStock}
+                >
+                  {inWishlist === true ? (
+                    <FaHeart
+                      className="product-card__wishlist-filled"
+                      onClick={() =>
+                        inStock && removeFromWishlist(_id, userDispatch)
+                      }
+                    />
+                  ) : (
+                    <VscHeart
+                      className="product-card__wishlist-empty"
+                      onClick={() =>
+                        inStock && addToWishlist(_id, userDispatch)
+                      }
+                    />
+                  )}
+                </button>
+
+                <button
                   className={`btn btn--primary btn--md btn--contained product-content__btn`}
-                  disabled={!inStock || inCart}
+                  disabled={!inStock}
+                  onClick={() => handleAddToCart()}
                 >
                   {!inStock
-                    ? "Out of stock"
+                    ? "Out of Stock"
                     : inCart
-                    ? "Already in cart"
+                    ? "In cart"
                     : "Add to cart"}
-                </button>
-                <button
-                  className={`btn btn--outlined btn--md btn--contained product-content__btn`}
-                  disabled={!inStock || inWishlist}
-                >
-                  Add to wishlist
                 </button>
               </>
             )}
