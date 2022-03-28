@@ -2,10 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
-import { BsSuitHeart, BsSuitHeartFill, BsFillStarFill } from "react-icons/bs";
+import { BsFillStarFill } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
+import { VscHeart } from "react-icons/vsc";
 
 import { useAuthContext, useUserContext } from "../../context";
-import { addToWishlist, removeFromWishlist } from "../../utils/apiCalls";
+import {
+  addToCart,
+  addToWishlist,
+  removeFromWishlist,
+} from "../../utils/apiCalls";
 
 import "./product-card.scss";
 
@@ -29,10 +35,11 @@ function ProductCard({
   const { userState, userDispatch } = useUserContext();
   const {
     userWishlist: { items: wishlistItems },
+    userCart: { items: cartItems },
   } = userState;
 
   let inWishlist = wishlistItems.some((item) => item._id === _id);
-  let inCart = null;
+  let inCart = cartItems.some((item) => item.product._id === _id);
 
   return (
     <article className="product-card">
@@ -60,9 +67,20 @@ function ProductCard({
       </div>
 
       <div className="product-card__actions">
-        <Link to="/cart" className="product-card__btn ">
-          Add to Cart
-        </Link>
+        {!token ? (
+          <Link to="/cart" className="product-card__btn">
+            Add to Cart
+          </Link>
+        ) : (
+          <button
+            to="/cart"
+            className="product-card__btn"
+            onClick={() => addToCart(_id, userDispatch)}
+          >
+            {inCart ? "In cart" : "Add to cart"}
+          </button>
+        )}
+
         <Link to={`/products/${_id}`} className="product-card__btn">
           <i className="fa-solid fa-binoculars"></i>
         </Link>
@@ -70,17 +88,17 @@ function ProductCard({
 
       {!token ? (
         <Link to="/wishlist" className="product-card__wishlist-icon">
-          <BsSuitHeart className="product-card__wishlist-empty" />
+          <VscHeart className="product-card__wishlist-empty" />
         </Link>
       ) : (
         <button className="product-card__wishlist-icon">
           {inWishlist === true ? (
-            <BsSuitHeartFill
+            <FaHeart
               className="product-card__wishlist-filled"
               onClick={() => removeFromWishlist(_id, userDispatch)}
             />
           ) : (
-            <BsSuitHeart
+            <VscHeart
               className="product-card__wishlist-empty"
               onClick={() => addToWishlist(_id, userDispatch)}
             />
@@ -90,10 +108,8 @@ function ProductCard({
 
       {tag && <span className="text-badge">{tag}</span>}
 
-      {inStock && !inStock ? (
-        <span className="text-badge">sold out</span>
-      ) : null}
-      {inStock && !inStock ? (
+      {!inStock ? <span className="text-badge">sold out</span> : null}
+      {!inStock ? (
         <Link to={`/products/${_id}`}>
           <div className="overlay"></div>
         </Link>

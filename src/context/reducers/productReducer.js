@@ -101,7 +101,6 @@ const productReducer = (state, action) => {
           };
 
     case filterActions.FILTER_BY_BRANDS:
-      console.log(payload);
       const payloadBrand = payload?.toLowerCase() || "";
       if (payloadBrand === "") return state;
       return state.productsFilter.filterByBrands.includes(payloadBrand)

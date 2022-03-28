@@ -42,9 +42,10 @@ const authReducer = (state, action) => {
 
     case userAuthActions.LOGOUT: {
       window.localStorage.removeItem("weeboToken");
+
       return {
         ...state,
-        user: {},
+        user: { token: null, details: null },
       };
     }
   }

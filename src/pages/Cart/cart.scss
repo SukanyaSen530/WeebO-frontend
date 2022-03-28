@@ -1,0 +1,76 @@
+@import "../../sass/global";
+
+.cart-section {
+  padding: 5rem 4rem 3rem;
+  min-height: 80vh;
+  box-sizing: border-box;
+
+  @include respond(phone) {
+    padding: 3rem 1rem 1rem;
+  }
+
+  &__heading {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(180, 179, 179);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(58, 58, 58);
+  }
+}
+
+.cart-info {
+  flex: 60%;
+
+  overflow-y: scroll;
+  height: 60vh;
+  padding: 1.5rem;
+
+  @include respond(tab-land) {
+    max-height: 40vh;
+  }
+}
+
+.bill-board {
+  flex: 0 0 40rem;
+  padding: 1.5rem;
+  border: 2px solid rgb(201, 201, 201);
+  border-radius: $border-radius-md;
+  margin: 0 auto;
+  height: fit-content;
+
+  &__heading {
+    font-size: 2rem;
+    color: $color-primary;
+  }
+
+  &__price-summary {
+    font-size: 1.5rem;
+    list-style-type: none;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin: 1.5rem 0;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}

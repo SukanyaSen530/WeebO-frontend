@@ -6,7 +6,7 @@ import { useUserContext } from "../../context";
 import emptyBox from "../../assets/empty.png";
 import "./wishlist.scss";
 
-function WishList() {
+const WishList = () => {
   const { userState } = useUserContext();
 
   const {
@@ -35,7 +35,7 @@ function WishList() {
   return (
     <section className="wishlist-section">
       <h1 className="wishlist-section__heading b-margin-md">
-        My WishList ( {items.length} items )
+        My WishList ( {items.length} )
       </h1>
       <div className="wishlist-section__items">
         {items.map((product) => (
@@ -44,6 +44,6 @@ function WishList() {
       </div>
     </section>
   );
-}
+};
 
 export default WishList;

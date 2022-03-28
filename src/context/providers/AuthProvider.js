@@ -1,7 +1,9 @@
-import { useReducer, useContext, createContext } from "react";
+import { useReducer, useContext, createContext, useEffect } from "react";
 
 import authReducer from "../reducers/authReducer";
 import { userAuthActions } from "../constants/authConstants";
+import { loadWishlist, loadCart } from "../../utils/apiCalls";
+import { useUserContext } from "./UserProvider";
 
 const authContext = createContext();
 
@@ -18,11 +20,28 @@ const initialState = {
 const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  const {
+    userState: {
+      userWishlist: { items: wishlistItems },
+      userCart: { items: cartItems },
+    },
+    userDispatch,
+  } = useUserContext();
+
   const openAuthModal = () =>
     dispatch({ type: userAuthActions.OPEN_AUTH_MODAL });
 
   const closeAuthModal = () =>
     dispatch({ type: userAuthActions.CLOSE_AUTH_MODAL });
+
+  useEffect(() => {
+    if (wishlistItems?.length === 0 && state.user.token)
+      loadWishlist(userDispatch);
+  }, [state.user.token]);
+
+  useEffect(() => {
+    if (cartItems?.length === 0 && state.user.token) loadCart(userDispatch);
+  }, [state.user.token]);
 
   return (
     <authContext.Provider

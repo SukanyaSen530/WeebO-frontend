@@ -1,13 +1,18 @@
 import axios from "axios";
 
-import { productActions, userAuthActions, wishlistConstants } from "../context";
+import {
+  productActions,
+  userAuthActions,
+  wishlistConstants,
+  cartConstants,
+} from "../context";
 
-import { productURL, authURL, wishListURL } from "./api";
+import { productURL, authURL, wishListURL, cartURL } from "./api";
 
 // Products
 export const loadProducts = async (dispatch) => {
   try {
-    dispatch({ type: productActions.LOADING, payload: true });
+    dispatch({ type: productActions.LOADING });
     const response = await axios.get(productURL);
 
     dispatch({
@@ -77,16 +82,24 @@ export const registerUser = async (payload, dispatch) => {
 };
 
 // Wishlist
-const token = localStorage.getItem("weeboToken");
-const config = {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
+
+const getConfig = () => {
+  const token = localStorage.getItem("weeboToken");
+
+  if (token)
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  else return "";
 };
 
 export const loadWishlist = async (dispatch) => {
+  const config = getConfig();
+
   try {
-    dispatch({ type: userAuthActions.LOADING, payload: true });
+    dispatch({ type: wishlistConstants.LOADING });
     const response = await axios.get(wishListURL, config);
 
     dispatch({
@@ -103,6 +116,8 @@ export const loadWishlist = async (dispatch) => {
 };
 
 export const addToWishlist = async (id, dispatch) => {
+  const config = getConfig();
+
   try {
     const response = await axios.post(`${wishListURL}/add`, { id }, config);
 
@@ -111,16 +126,16 @@ export const addToWishlist = async (id, dispatch) => {
         type: wishlistConstants.ADD_TO_WISHLIST,
         payload: response?.data.wishlist,
       });
-
-      console.log(response.data.wishlist);
     }
   } catch (e) {
     //Will be replaced by toast
-    console.log(e);
+    console.log(e.response.data.message);
   }
 };
 
 export const removeFromWishlist = async (id, dispatch) => {
+  const config = getConfig();
+
   try {
     const response = await axios.post(
       `${wishListURL}/remove`,
@@ -138,10 +153,107 @@ export const removeFromWishlist = async (id, dispatch) => {
     }
   } catch (e) {
     //Will be replaced by toast
-    console.log(e.response.data);
+    console.log(e.response.data.message);
   }
 };
 
 // Cart
+
+export const loadCart = async (dispatch, token) => {
+  const config = getConfig();
+
+  try {
+    dispatch({ type: cartConstants.LOADING });
+    const { data } = await axios.get(cartURL, config);
+
+    dispatch({
+      type: cartConstants.LOAD_CART,
+      payload: data?.cart || [],
+    });
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e.response.data.message);
+  }
+};
+
+export const increaseQuantity = async (id, dispatch) => {
+  const config = getConfig();
+
+  try {
+    const { data } = await axios.patch(
+      `${cartURL}/${id}`,
+      { action: "increment" },
+      config
+    );
+
+    dispatch({
+      type: cartConstants.INCREASE_QUANTITY,
+      payload: data?.cart || [],
+    });
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e.response.data.message);
+  }
+};
+
+export const decreaseQuantity = async (id, dispatch) => {
+  const config = getConfig();
+
+  try {
+    const { data } = await axios.patch(
+      `${cartURL}/${id}`,
+      { action: "decrement" },
+      config
+    );
+
+    dispatch({
+      type: cartConstants.DECREASE_QUANTITY,
+      payload: data?.cart || [],
+    });
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e.response.data.message);
+  }
+};
+
+export const addToCart = async (id, dispatch, quantity = 1) => {
+  const config = getConfig();
+
+  try {
+    const response = await axios.post(
+      `${cartURL}/add`,
+      { id, quantity },
+      config
+    );
+
+    if (response.status === 200) {
+      dispatch({
+        type: cartConstants.ADD_TO_CART,
+        payload: response?.data?.cart,
+      });
+    }
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e.response.data.message);
+  }
+};
+
+export const removeFromCart = async (id, dispatch) => {
+  const config = getConfig();
+
+  try {
+    const response = await axios.delete(`${cartURL}/${id}`, config);
+
+    if (response.status === 200) {
+      dispatch({
+        type: cartConstants.REMOVE_FROM_CART,
+        payload: id,
+      });
+    }
+  } catch (e) {
+    //Will be replaced by toast
+    console.log(e.response.data.message);
+  }
+};
 
 // Address

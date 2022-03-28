@@ -156,7 +156,7 @@ const Auth = ({ type, open, onClose }) => {
           {content}
           <button
             onClick={handleAuth}
-            className="btn btn--round btn--primary auth-from__btn"
+            className="btn btn--round btn--primary btn--sm auth-from__btn"
           >
             {loading ? (
               <i className="fas fa-cog fa-spin"></i>
