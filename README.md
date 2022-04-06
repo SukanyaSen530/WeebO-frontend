@@ -4,7 +4,7 @@
   <img src="src/assets/logo.png" width="150" title="App Logo">
 
    ## [WeebO](https://weebofigurines.vercel.app/)
-   E-commerce appliation for action figurines.
+   E-commerce application for action figurines.
 </div>
 
 ## Stack Used
