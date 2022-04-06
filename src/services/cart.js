@@ -11,55 +11,19 @@ export const loadCart = async (dispatch) => {
 
   try {
     dispatch({ type: cartConstants.LOADING });
-    const { data } = await axios.get(cartURL, config);
+    const { data, status } = await axios.get(cartURL, config);
 
-    dispatch({
-      type: cartConstants.LOAD_CART,
-      payload: data?.cart || [],
-    });
+    if (status === 200) {
+      dispatch({
+        type: cartConstants.LOAD_CART,
+        payload: data?.cart || [],
+      });
+    }
   } catch (e) {
-    //Will be replaced by toast
-    console.log(e.response.data.message);
-  }
-};
-
-export const increaseQuantity = async (id, dispatch) => {
-  const config = getConfig();
-
-  try {
-    const { data } = await axios.patch(
-      `${cartURL}/${id}`,
-      { action: "increment" },
-      config
-    );
-
     dispatch({
-      type: cartConstants.INCREASE_QUANTITY,
-      payload: data?.cart || [],
+      type: cartConstants.ERROR,
+      payload: e?.response?.data?.message,
     });
-  } catch (e) {
-    //Will be replaced by toast
-    console.log(e.response.data.message);
-  }
-};
-
-export const decreaseQuantity = async (id, dispatch) => {
-  const config = getConfig();
-
-  try {
-    const { data } = await axios.patch(
-      `${cartURL}/${id}`,
-      { action: "decrement" },
-      config
-    );
-
-    dispatch({
-      type: cartConstants.DECREASE_QUANTITY,
-      payload: data?.cart || [],
-    });
-  } catch (e) {
-    //Will be replaced by toast
-    console.log(e.response.data.message);
   }
 };
 
@@ -67,21 +31,21 @@ export const addToCart = async (id, dispatch, quantity = 1) => {
   const config = getConfig();
 
   try {
-    const response = await axios.post(
+    const { data, status } = await axios.post(
       `${cartURL}/add`,
       { id, quantity },
       config
     );
 
-    if (response.status === 200) {
+    if (status === 200) {
+      toast.success("Added to cart!");
       dispatch({
         type: cartConstants.ADD_TO_CART,
-        payload: response?.data?.cart,
+        payload: data?.cart,
       });
     }
   } catch (e) {
-    //Will be replaced by toast
-    console.log(e.response.data.message);
+    toast.error(e?.response?.data?.message);
   }
 };
 
@@ -89,16 +53,61 @@ export const removeFromCart = async (id, dispatch) => {
   const config = getConfig();
 
   try {
-    const response = await axios.delete(`${cartURL}/${id}`, config);
+    const { status } = await axios.delete(`${cartURL}/${id}`, config);
 
-    if (response.status === 200) {
+    if (status === 200) {
+      toast.info("Removed from cart!");
       dispatch({
         type: cartConstants.REMOVE_FROM_CART,
         payload: id,
       });
     }
   } catch (e) {
-    //Will be replaced by toast
-    console.log(e.response.data.message);
+    toast.error(e?.response?.data?.message);
   }
 };
+
+export const increaseQuantity = async (id, dispatch) => {
+  const config = getConfig();
+
+  try {
+    const { data, status } = await axios.patch(
+      `${cartURL}/${id}`,
+      { action: "increment" },
+      config
+    );
+
+    if (status === 200) {
+      dispatch({
+        type: cartConstants.INCREASE_QUANTITY,
+        payload: data?.cart || [],
+      });
+    }
+  } catch (e) {
+    toast.error(e?.response?.data?.message);
+  }
+};
+
+export const decreaseQuantity = async (id, dispatch) => {
+  const config = getConfig();
+
+  try {
+    const response = await axios.patch(
+      `${cartURL}/${id}`,
+      { action: "decrement" },
+      config
+    );
+
+    const { data, status } = response;
+
+    if (status === 200) {
+      dispatch({
+        type: cartConstants.DECREASE_QUANTITY,
+        payload: data?.cart || [],
+      });
+    }
+  } catch (e) {
+    toast.error(e?.response?.data?.message);
+  }
+};
+

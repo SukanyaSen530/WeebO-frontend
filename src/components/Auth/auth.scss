@@ -28,10 +28,20 @@
   align-items: center;
 
   &__cred-btn {
-    margin-top: 1rem;
-    color: white;
-    background-color: black;
+    margin:1rem;
     width: 90%;
+    font-size: 1.6rem;
+    background: transparent;
+    border: none;
+    transition: 0.4s all;
+    display: inline-block;
+    cursor: pointer;
+    font-family: inherit;
+
+    &:hover{
+      transform: scale(1.05);
+      color: $color-primary;
+    }
   }
 
   &__btn {

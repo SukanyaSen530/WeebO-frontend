@@ -11,7 +11,13 @@ const App = () => {
     <main>
       <Navbar />
       <section className="main-section">
-        <ToastContainer />
+        <ToastContainer
+          position="bottom-center"
+          autoClose={1200}
+          hideProgressBar
+          closeOnClick
+          theme="colored"
+        />
         <AllRoutes />
       </section>
       <Footer />

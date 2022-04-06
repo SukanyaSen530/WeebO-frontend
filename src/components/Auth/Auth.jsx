@@ -84,7 +84,7 @@ const Auth = ({ type, open, onClose }) => {
         />
         <button
           onClick={handleAuthwithTestCred}
-          className="btn btn--round btn--sm auth-from__cred-btn"
+          className="auth-from__cred-btn"
         >
           Load Test Credentials
         </button>

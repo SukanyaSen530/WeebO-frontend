@@ -7,12 +7,14 @@ import { productURL } from "./apiUrl";
 export const loadProducts = async (dispatch) => {
   try {
     dispatch({ type: productActions.LOADING });
-    const response = await axios.get(productURL);
+    const { data, status } = await axios.get(productURL);
 
-    dispatch({
-      type: productActions.LOAD_PRODUCTS,
-      payload: response?.data?.data || [],
-    });
+    if (status === 200) {
+      dispatch({
+        type: productActions.LOAD_PRODUCTS,
+        payload: data?.products || [],
+      });
+    }
   } catch (e) {
     dispatch({
       type: productActions.ERROR,
@@ -23,15 +25,16 @@ export const loadProducts = async (dispatch) => {
 
 export const loadAProduct = async (productId, dispatch) => {
   try {
-    dispatch({ type: productActions.LOADING, payload: true });
-    const response = await axios.get(`${productURL}/${productId}`);
+    dispatch({ type: productActions.LOADING });
+    const { data, status } = await axios.get(`${productURL}/${productId}`);
 
-    dispatch({
-      type: productActions.LOAD_SINGLE_PRODUCT,
-      payload: response?.data?.data || {},
-    });
+    if (status === 200) {
+      dispatch({
+        type: productActions.LOAD_SINGLE_PRODUCT,
+        payload: data?.product || {},
+      });
+    }
   } catch (e) {
-    console.log(e);
     dispatch({
       type: productActions.ERROR,
       payload: "The requested product can not be loaded!",

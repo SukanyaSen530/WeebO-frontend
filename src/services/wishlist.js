@@ -10,14 +10,15 @@ export const loadWishlist = async (dispatch) => {
 
   try {
     dispatch({ type: wishlistConstants.LOADING });
-    const response = await axios.get(wishListURL, config);
+    const { data, status } = await axios.get(wishListURL, config);
 
-    dispatch({
-      type: wishlistConstants.LOAD_WISHLIST,
-      payload: response.data?.wishlist || [],
-    });
+    if (status === 200) {
+      dispatch({
+        type: wishlistConstants.LOAD_WISHLIST,
+        payload: data?.wishlist || [],
+      });
+    }
   } catch (e) {
-    console.log(e.response);
     dispatch({
       type: wishlistConstants.ERROR,
       payload: e.response.data.message,
@@ -29,17 +30,21 @@ export const addToWishlist = async (id, dispatch) => {
   const config = getConfig();
 
   try {
-    const response = await axios.post(`${wishListURL}/add`, { id }, config);
+    const { data, status } = await axios.post(
+      `${wishListURL}/add`,
+      { id },
+      config
+    );
 
-    if (response.status === 200) {
+    if (status === 200) {
+      toast.success("Added to wishlist!");
       dispatch({
         type: wishlistConstants.ADD_TO_WISHLIST,
-        payload: response?.data.wishlist,
+        payload: data?.wishlist,
       });
     }
   } catch (e) {
-    //Will be replaced by toast
-    console.log(e.response.data.message);
+    toast.error(e?.response?.data?.message);
   }
 };
 
@@ -47,7 +52,7 @@ export const removeFromWishlist = async (id, dispatch) => {
   const config = getConfig();
 
   try {
-    const response = await axios.post(
+    const { status } = await axios.post(
       `${wishListURL}/remove`,
       {
         id,
@@ -55,14 +60,14 @@ export const removeFromWishlist = async (id, dispatch) => {
       config
     );
 
-    if (response.status === 200) {
+    if (status === 200) {
+      toast.info("Removed from wishlist!");
       dispatch({
         type: wishlistConstants.REMOVE_FROM_WISHLIST,
         payload: id,
       });
     }
   } catch (e) {
-    //Will be replaced by toast
-    console.log(e.response.data.message);
+    toast.error(e?.response?.data?.message);
   }
 };

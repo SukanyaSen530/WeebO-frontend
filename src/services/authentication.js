@@ -6,13 +6,15 @@ import { authURL } from "./apiUrl";
 // Auth
 export const loginUser = async (payload, dispatch) => {
   try {
-    dispatch({ type: userAuthActions.LOADING, payload: true });
-    const response = await axios.post(`${authURL}/login`, payload);
+    dispatch({ type: userAuthActions.LOADING });
+    const { data, status } = await axios.post(`${authURL}/login`, payload);
 
-    dispatch({
-      type: userAuthActions.LOAD_USER,
-      payload: { token: response.data.token, user: response.data.user },
-    });
+    if (status === 200) {
+      dispatch({
+        type: userAuthActions.LOAD_USER,
+        payload: { token: data?.token, user: data?.user },
+      });
+    }
   } catch (e) {
     dispatch({
       type: userAuthActions.ERROR,
@@ -23,15 +25,16 @@ export const loginUser = async (payload, dispatch) => {
 
 export const registerUser = async (payload, dispatch) => {
   try {
-    dispatch({ type: userAuthActions.LOADING, payload: true });
-    const response = await axios.post(`${authURL}/signup`, payload);
+    dispatch({ type: userAuthActions.LOADING });
+    const { data, status } = await axios.post(`${authURL}/signup`, payload);
 
-    dispatch({
-      type: userAuthActions.LOAD_USER,
-      payload: { token: response.data.token, user: response.data.user },
-    });
+    if (status === 201) {
+      dispatch({
+        type: userAuthActions.LOAD_USER,
+        payload: { token: data?.token, user: data?.user },
+      });
+    }
   } catch (e) {
-    console.log(e.response.data.message);
     dispatch({
       type: userAuthActions.ERROR,
       payload: e.response.data.message,
