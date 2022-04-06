@@ -1,4 +1,4 @@
-import ErrorPage from "../ErrorPage/ErrorPage";
+import ErrorPage from "../EmptyState/EmptyState";
 import { Loader, CartCard } from "../../components";
 
 import { useUserContext } from "../../context";

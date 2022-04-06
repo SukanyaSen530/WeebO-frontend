@@ -7,7 +7,7 @@ import {
   SearchSort,
   ProductCard,
 } from "../../components";
-import { ErrorPage } from "../ErrorPage";
+import { ErrorPage } from "../EmptyState";
 import { loadProducts } from "../../utils/apiCalls";
 
 // Styles, Images

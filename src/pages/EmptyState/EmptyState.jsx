@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-import "./error.scss";
+import "./empty-state.scss";
 import errorImage from "../../assets/error.jpg";
 
-const ErrorPage = ({
+const EmptyState = ({
   msg = "Unable to fetch data. Check you internet coonection!",
   imgSrc = errorImage,
   buttonText = "Go back",
@@ -28,9 +28,9 @@ const ErrorPage = ({
   );
 };
 
-ErrorPage.prototype = {
+EmptyState.prototype = {
   msg: PropTypes.string,
   imgSrc: PropTypes.string,
 };
 
-export default ErrorPage;
+export default EmptyState;

@@ -10,7 +10,7 @@ import {
   useAuthContext,
 } from "../../context";
 import { Loader } from "../../components";
-import { ErrorPage } from "../ErrorPage";
+import { ErrorPage } from "../EmptyState";
 import { loadAProduct } from "../../utils/apiCalls";
 
 import {

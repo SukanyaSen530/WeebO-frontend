@@ -15,6 +15,11 @@ const initialState = {
     error: null,
     items: [],
   },
+  userAddress: {
+    loading: false,
+    error: null,
+    items: [],
+  },
 };
 
 const UserProvider = ({ children }) => {
