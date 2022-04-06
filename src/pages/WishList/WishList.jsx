@@ -1,4 +1,4 @@
-import ErrorPage from "../EmptyState/EmptyState";
+import { EmptyState } from "../index";
 import { Loader, ProductCard } from "../../components";
 
 import { useUserContext } from "../../context";
@@ -18,12 +18,12 @@ const WishList = () => {
   }
 
   if (error) {
-    return <ErrorPage msg={error} />;
+    return <EmptyState msg={error} />;
   }
 
   if (items.length === 0) {
     return (
-      <ErrorPage
+      <EmptyState
         msg="Your wishlist is empty!"
         imgSrc={emptyBox}
         path="/products"

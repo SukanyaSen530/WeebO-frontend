@@ -1,16 +1,18 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import notFound from "../../assets/pageNotFound.jpg";
+import notFound from "../assets/pageNotFound.jpg";
 
-import { Home } from "../../pages/Home";
-import { Cart } from "../../pages/Cart";
-import { WishList } from "../../pages/WishList";
-import { Product } from "../../pages/Product";
-import { ProductList } from "../../pages/ProductList";
-import { ErrorPage } from "../../pages/ErrorPage";
+import {
+  Cart,
+  Home,
+  Product,
+  ProductList,
+  EmptyState,
+  WishList,
+} from "../pages";
 
-import ProtectedRoutes from "../Routes/ProtectedRoutes";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const AllRoutes = () => {
   return (
@@ -40,7 +42,7 @@ const AllRoutes = () => {
       <Route
         path="*"
         element={
-          <ErrorPage
+          <EmptyState
             imgSrc={notFound}
             msg="The page you are looking for does not exist!"
           />

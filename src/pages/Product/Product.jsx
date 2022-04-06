@@ -10,7 +10,7 @@ import {
   useAuthContext,
 } from "../../context";
 import { Loader } from "../../components";
-import { ErrorPage } from "../EmptyState";
+import { EmptyState } from "../index";
 import { loadAProduct } from "../../utils/apiCalls";
 
 import {
@@ -51,7 +51,7 @@ const Product = () => {
   }
 
   if (productFetchError) {
-    return <ErrorPage msg={productFetchError} />;
+    return <EmptyState msg={productFetchError} />;
   }
 
   const {

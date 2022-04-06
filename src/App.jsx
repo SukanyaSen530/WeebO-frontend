@@ -2,7 +2,7 @@ import "./App.scss";
 
 import { Navbar, Footer } from "./components";
 
-import AllRoutes from "./components/Routes/AllRoutes";
+import AllRoutes from "./Routes/AllRoutes";
 
 const App = () => {
   return (

@@ -7,7 +7,7 @@ import {
   SearchSort,
   ProductCard,
 } from "../../components";
-import { ErrorPage } from "../EmptyState";
+import { EmptyState } from "../index";
 import { loadProducts } from "../../utils/apiCalls";
 
 // Styles, Images
@@ -29,7 +29,7 @@ function ProductList() {
   }
 
   if (productFetchError) {
-    return <ErrorPage msg={productFetchError} />;
+    return <EmptyState msg={productFetchError} />;
   }
 
   return (
