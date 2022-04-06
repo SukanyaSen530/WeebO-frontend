@@ -1,8 +1,7 @@
 import axios from "axios";
 
 import { productActions } from "../context";
-
-import { productURL } from "./api";
+import { productURL } from "./apiUrl";
 
 // Products
 export const loadProducts = async (dispatch) => {

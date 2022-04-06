@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 import { wishlistConstants } from "../context";
-import { wishListURL } from "./api";
+import { wishListURL } from "./apiUrl";
 import getConfig from "./tokenConfig";
 
 export const loadWishlist = async (dispatch) => {

@@ -8,7 +8,8 @@ import {
   ProductCard,
 } from "../../components";
 import { EmptyState } from "../index";
-import { loadProducts } from "../../utils/apiCalls";
+
+import { loadProducts } from "../../services";
 
 // Styles, Images
 import notFound from "../../assets/productNotFound.jpg";

@@ -2,7 +2,7 @@ import { useReducer, useContext, createContext, useEffect } from "react";
 
 import authReducer from "../reducers/authReducer";
 import { userAuthActions } from "../constants/authConstants";
-import { loadWishlist, loadCart } from "../../utils/apiCalls";
+import { loadWishlist, loadCart } from "../../services";
 import { useUserContext } from "./UserProvider";
 
 const authContext = createContext();

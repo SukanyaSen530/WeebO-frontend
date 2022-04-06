@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 import { cartConstants } from "../context";
-import { cartURL } from "./api";
+import { cartURL } from "./apiUrl";
 import getConfig from "./tokenConfig";
 
 // Cart

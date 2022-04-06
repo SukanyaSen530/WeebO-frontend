@@ -8,7 +8,8 @@ import {
   increaseQuantity,
   decreaseQuantity,
   addToWishlist,
-} from "../../utils/apiCalls";
+} from "../../services";
+
 import { useUserContext } from "../../context";
 
 const CartCard = ({

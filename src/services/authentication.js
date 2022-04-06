@@ -1,8 +1,7 @@
 import axios from "axios";
 
 import { userAuthActions } from "../context";
-
-import { authURL } from "./api";
+import { authURL } from "./apiUrl";
 
 // Auth
 export const loginUser = async (payload, dispatch) => {

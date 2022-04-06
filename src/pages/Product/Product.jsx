@@ -11,13 +11,9 @@ import {
 } from "../../context";
 import { Loader } from "../../components";
 import { EmptyState } from "../index";
-import { loadAProduct } from "../../utils/apiCalls";
+import { loadAProduct } from "../../services";
 
-import {
-  addToCart,
-  addToWishlist,
-  removeFromWishlist,
-} from "../../utils/apiCalls";
+import { addToCart, addToWishlist, removeFromWishlist } from "../../services";
 
 import "./product.scss";
 
