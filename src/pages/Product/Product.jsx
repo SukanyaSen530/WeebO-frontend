@@ -10,14 +10,10 @@ import {
   useAuthContext,
 } from "../../context";
 import { Loader } from "../../components";
-import { ErrorPage } from "../ErrorPage";
-import { loadAProduct } from "../../utils/apiCalls";
+import { EmptyState } from "../index";
+import { loadAProduct } from "../../services";
 
-import {
-  addToCart,
-  addToWishlist,
-  removeFromWishlist,
-} from "../../utils/apiCalls";
+import { addToCart, addToWishlist, removeFromWishlist } from "../../services";
 
 import "./product.scss";
 
@@ -51,7 +47,7 @@ const Product = () => {
   }
 
   if (productFetchError) {
-    return <ErrorPage msg={productFetchError} />;
+    return <EmptyState msg={productFetchError} />;
   }
 
   const {

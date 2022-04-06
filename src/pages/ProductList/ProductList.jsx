@@ -7,8 +7,9 @@ import {
   SearchSort,
   ProductCard,
 } from "../../components";
-import { ErrorPage } from "../ErrorPage";
-import { loadProducts } from "../../utils/apiCalls";
+import { EmptyState } from "../index";
+
+import { loadProducts } from "../../services";
 
 // Styles, Images
 import notFound from "../../assets/productNotFound.jpg";
@@ -29,7 +30,7 @@ function ProductList() {
   }
 
   if (productFetchError) {
-    return <ErrorPage msg={productFetchError} />;
+    return <EmptyState msg={productFetchError} />;
   }
 
   return (

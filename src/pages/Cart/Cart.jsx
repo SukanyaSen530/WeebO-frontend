@@ -1,4 +1,4 @@
-import ErrorPage from "../ErrorPage/ErrorPage";
+import { EmptyState } from "../index";
 import { Loader, CartCard } from "../../components";
 
 import { useUserContext } from "../../context";
@@ -23,12 +23,12 @@ const Cart = () => {
   }
 
   if (error) {
-    return <ErrorPage msg={error} />;
+    return <EmptyState msg={error} />;
   }
 
   if (items.length === 0 && !loading) {
     return (
-      <ErrorPage
+      <EmptyState
         msg="Your cart is empty!"
         imgSrc={emptyBox}
         path="/products"

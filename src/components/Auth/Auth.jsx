@@ -4,7 +4,8 @@ import Modal from "../Modal/Modal";
 import InputField from "../InputField/InputField";
 import { validateInputs, testCredentials, initialFormValues } from "./helper";
 import { useAuthContext } from "../../context";
-import { loginUser, registerUser } from "../../utils/apiCalls";
+
+import { loginUser, registerUser } from "../../services";
 
 import "./auth.scss";
 import loginImage from "../../assets/login.png";
@@ -83,7 +84,7 @@ const Auth = ({ type, open, onClose }) => {
         />
         <button
           onClick={handleAuthwithTestCred}
-          className="btn btn--round btn--sm auth-from__cred-btn"
+          className="auth-from__cred-btn"
         >
           Load Test Credentials
         </button>

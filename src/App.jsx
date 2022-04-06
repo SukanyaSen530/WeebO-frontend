@@ -2,13 +2,22 @@ import "./App.scss";
 
 import { Navbar, Footer } from "./components";
 
-import AllRoutes from "./components/Routes/AllRoutes";
+import AllRoutes from "./Routes/AllRoutes";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <main>
       <Navbar />
       <section className="main-section">
+        <ToastContainer
+          position="bottom-center"
+          autoClose={1200}
+          hideProgressBar
+          closeOnClick
+          theme="colored"
+        />
         <AllRoutes />
       </section>
       <Footer />

@@ -7,11 +7,8 @@ import { FaHeart } from "react-icons/fa";
 import { VscHeart } from "react-icons/vsc";
 
 import { useAuthContext, useUserContext } from "../../context";
-import {
-  addToCart,
-  addToWishlist,
-  removeFromWishlist,
-} from "../../utils/apiCalls";
+
+import { addToWishlist, removeFromWishlist, addToCart } from "../../services";
 
 import "./product-card.scss";
 
