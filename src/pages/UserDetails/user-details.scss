@@ -1,0 +1,51 @@
+@import "../../sass/global";
+
+.user-details-section {
+  padding: 3rem;
+
+  // &__menu{
+
+  // }
+
+  &__links {
+    &,
+    &:link,
+    &:visited {
+      color: $color-black;
+      text-decoration: none;
+    }
+
+    margin: 0 1rem;
+    padding: 0.5rem 2rem;
+    border-radius: $border-radius-sm;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    transition: 0.4s background ease;
+
+    &:hover {
+      background: #eeeeee;
+    }
+
+    &__icon {
+      font-size: 4.5rem;
+      color: $color-primary;
+    }
+
+    &__items {
+      gap: 0.5rem;
+      & > *:first-child {
+        font-size: 1.7rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__outlet{
+    border: 1px solid black;
+    min-height: 80vh;
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
