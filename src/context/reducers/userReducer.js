@@ -137,7 +137,7 @@ const authReducer = (state, action) => {
         ...state,
         userAddress: {
           ...state.userAddress,
-          items: [ ...state.userAddress.items, payload ],
+          items: [...state.userAddress.items, payload],
         },
       };
 
@@ -153,7 +153,6 @@ const authReducer = (state, action) => {
       };
 
     case addressConstants.UPDATE_ADDRESS:
-      console.log(payload)
       return {
         ...state,
         userAddress: {

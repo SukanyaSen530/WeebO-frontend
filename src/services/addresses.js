@@ -33,8 +33,6 @@ export const addAddress = async (address, dispatch) => {
   try {
     const { data, status } = await axios.post(`${addressURL}`, address, config);
 
-    console.log(data);
-
     if (status === 201) {
       toast.info("New address added!");
       dispatch({
