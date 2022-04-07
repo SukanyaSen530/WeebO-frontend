@@ -11,20 +11,26 @@
     margin-bottom: 0.5rem;
     margin-left: 1rem;
     color: #023e8a;
+    text-transform: capitalize;
+    font-weight: 600;
   }
 
   &__input {
     font-family: inherit;
-    padding: 1rem;
+    padding: 0.8rem 1rem;
     border-radius: $border-radius-hg;
     width: 100%;
-
     border: 1px solid black;
 
     &:focus {
       outline: none;
       box-shadow: rgba(34, 73, 90, 0.12) 0px 2px 4px 0px,
         rgba(40, 83, 102, 0.32) 0px 2px 16px 0px;
+    }
+
+    &::-webkit-input-placeholder {
+      text-transform: capitalize;
+      color: gray;
     }
   }
 

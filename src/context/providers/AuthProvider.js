@@ -43,10 +43,6 @@ const AuthProvider = ({ children }) => {
     if (cartItems?.length === 0 && state.user.token) loadCart(userDispatch);
   }, [state.user.token]);
 
-
-  console.log(state);
-  
-  
   return (
     <authContext.Provider
       value={{
