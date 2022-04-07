@@ -29,6 +29,7 @@
 - 404 Page for unavailable routes
 - Cart Managment
 - Wishlist managment
+- Address management
 - Authentication:
   - User Signup
   - User Login
