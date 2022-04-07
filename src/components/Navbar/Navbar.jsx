@@ -4,7 +4,7 @@ import { Link, useNavigate, NavLink } from "react-router-dom";
 import "./navbar.scss";
 import logo from "../../assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaHandHoldingHeart } from "react-icons/fa";
+import { FaHandHoldingHeart, FaUserAlt } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import { userAuthActions, useAuthContext, useUserContext } from "../../context";
@@ -50,6 +50,11 @@ const Navbar = () => {
 
   const signedInRoutes = (
     <>
+      <Link to="/user" className="btn-icon badge">
+        <FaUserAlt className="btn-icon__icon" />
+        <span className="btn-icon__text">Profile</span>
+      </Link>
+
       <Link to="/wishlist" className="btn-icon badge">
         <FaHandHoldingHeart className="btn-icon__icon" />
         <span className="btn-icon__text">Wishlist</span>
@@ -63,7 +68,7 @@ const Navbar = () => {
       </Link>
 
       <button
-        className="btn btn--md btn--primary"
+        className="btn btn--md btn--primary btn--sm"
         onClick={() => {
           authDispatch({ type: userAuthActions.LOGOUT });
           navigate("/products");
