@@ -9,6 +9,13 @@ import {
   removeFromCart,
 } from "./cart";
 
+import {
+  loadAllAddresses,
+  addAddress,
+  updateAddress,
+  removeAddress,
+} from "./addresses";
+
 export {
   loginUser,
   registerUser,
@@ -23,4 +30,8 @@ export {
   decreaseQuantity,
   addToCart,
   removeFromCart,
+  loadAllAddresses,
+  addAddress,
+  updateAddress,
+  removeAddress,
 };

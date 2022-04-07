@@ -9,6 +9,7 @@ import ProductCard from "./Cards/ProductCard";
 import CartCard from "./Cards/CartCard";
 import Modal from "./Modal/Modal";
 import AddressForm from "./AddressForm/AddressForm";
+import AddressCard from "./Cards/AddressCard";
 
 export {
   Caraousel,
@@ -22,4 +23,5 @@ export {
   CartCard,
   Modal,
   AddressForm,
+  AddressCard,
 };

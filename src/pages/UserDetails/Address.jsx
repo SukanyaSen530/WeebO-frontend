@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
 import { MdAddLocationAlt } from "react-icons/md";
-import { AddressForm } from "../../components";
+import { AddressForm, AddressCard } from "../../components";
+import { useUserContext } from "../../context";
+import { loadAllAddresses } from "../../services";
 
 const Address = () => {
   const [show, setShow] = useState(false);
@@ -16,6 +18,17 @@ const Address = () => {
   });
   //if true - add, false - update
   const [type, setType] = useState(true);
+
+  const {
+    userState: {
+      userAddress: { loading, error, items: addresses },
+    },
+    userDispatch,
+  } = useUserContext();
+
+  useEffect(() => {
+    if (addresses?.length === 0) loadAllAddresses(userDispatch);
+  }, []);
 
   const handleModal = () => setShow((val) => !val);
 
@@ -41,6 +54,11 @@ const Address = () => {
         >
           <MdAddLocationAlt /> Add
         </button>
+      </div>
+      <div className="address-section__data">
+        {addresses?.map((item) => (
+          <AddressCard key={item._id} {...item} />
+        ))}
       </div>
     </section>
   );

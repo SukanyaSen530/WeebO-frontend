@@ -19,7 +19,6 @@ const initialState = {
     loading: false,
     error: null,
     items: [],
-    address: {},
   },
 };
 
