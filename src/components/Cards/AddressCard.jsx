@@ -1,6 +1,7 @@
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 const AddressCard = ({
+  _id,
   name,
   pinCode,
   state,
@@ -8,6 +9,7 @@ const AddressCard = ({
   mobile,
   city,
   addressType,
+  getIdType,
 }) => {
   return (
     <article className="address-card">
@@ -25,10 +27,10 @@ const AddressCard = ({
 
       <div className="flex flex-center">
         <button>
-          <AiFillEdit />
+          <AiFillEdit onClick={() => getIdType(_id, "update")} />
         </button>
         <button>
-          <AiFillDelete />
+          <AiFillDelete onClick={() => getIdType(_id, "delete")} />
         </button>
       </div>
     </article>

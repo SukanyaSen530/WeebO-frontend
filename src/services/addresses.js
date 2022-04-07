@@ -31,13 +31,11 @@ export const addAddress = async (address, dispatch) => {
   const config = getConfig();
 
   try {
-    const { data, status } = await axios.post(
-      `${addressURL}/login`,
-      address,
-      config
-    );
+    const { data, status } = await axios.post(`${addressURL}`, address, config);
 
-    if (status === 200) {
+    console.log(data);
+
+    if (status === 201) {
       toast.info("New address added!");
       dispatch({
         type: addressConstants.ADD_ADDRESS,
@@ -54,7 +52,7 @@ export const updateAddress = async (address, dispatch) => {
 
   try {
     const { data, status } = await axios.put(
-      `${addressURL}/login`,
+      `${addressURL}/${address._id}`,
       address,
       config
     );
@@ -62,7 +60,7 @@ export const updateAddress = async (address, dispatch) => {
     if (status === 200) {
       toast.info("Address updated!");
       dispatch({
-        type: addressConstants.ADD_ADDRESS,
+        type: addressConstants.UPDATE_ADDRESS,
         payload: data?.address,
       });
     }
