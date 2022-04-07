@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { Modal } from "../index";
 
 import { InputField } from "../index";
 import { states } from "../../utils/stateData";
 
 import "./address-form.scss";
+import { initalObj } from "../../pages/UserDetails/Address";
 
 const inputData = [
   {
@@ -52,6 +54,12 @@ const AddressForm = ({
     setAddress((values) => ({ ...values, [name]: value }));
   };
 
+  useEffect(() => {
+    if (!open) {
+      setAddress({ ...initalObj });
+    }
+  }, [open]);
+
   return (
     <Modal open={open} onClose={onClose}>
       <form onSubmit={handleSubmit} className="address-form">
@@ -91,7 +99,7 @@ const AddressForm = ({
           <div className="address-form__radio">
             <input
               type="radio"
-              name="address_type"
+              name="addressType"
               id="home"
               value="home"
               defaultChecked={address.addressType === "home"}
@@ -102,7 +110,7 @@ const AddressForm = ({
           <div className="address-form__radio">
             <input
               type="radio"
-              name="address_type"
+              name="addressType"
               id="work"
               value="work"
               defaultChecked={address.addressType === "work"}

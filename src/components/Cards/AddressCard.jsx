@@ -15,10 +15,10 @@ const AddressCard = ({
 }) => {
   return (
     <article className="address-card">
-      <div className="flex container flex-center-y">
+      <div className="flex container flex-center-y flex-wrap">
         <p>{name}</p>, <p className="addressType">{addressType}</p>
       </div>
-      <div className="flex container">
+      <div className="flex container flex-wrap">
         <p>{area}</p> ,<p>{city}</p>,<p>{state}</p>,<p>{pinCode}</p>,
       </div>
       <p>{mobile}</p>

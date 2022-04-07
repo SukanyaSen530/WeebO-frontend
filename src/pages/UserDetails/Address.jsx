@@ -10,7 +10,9 @@ import {
   updateAddress,
 } from "../../services";
 
-const initalObj = {
+import "./address.scss";
+
+export const initalObj = {
   name: "",
   pinCode: "",
   area: "",
@@ -85,6 +87,8 @@ const Address = () => {
       <div className="address-section__data">
         {loading ? (
           <Loader />
+        ) : addresses?.length === 0 ? (
+          <h5 className="address-section__info">No addresses found!</h5>
         ) : (
           addresses?.map((item) => (
             <AddressCard key={item._id} {...item} getIdType={getIdType} />
