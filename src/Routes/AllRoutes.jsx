@@ -10,6 +10,10 @@ import {
   ProductList,
   EmptyState,
   WishList,
+  UserDetails,
+  Profile,
+  Address,
+  Orders,
 } from "../pages";
 
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -39,6 +43,18 @@ const AllRoutes = () => {
           </ProtectedRoutes>
         }
       />
+      <Route
+        path="/user"
+        element={
+          <ProtectedRoutes>
+            <UserDetails />
+          </ProtectedRoutes>
+        }
+      >
+        <Route index path="/user" element={<Profile />} />
+        <Route path="/user/address" element={<Address />} />
+        <Route path="/user/orders" element={<Orders />} />
+      </Route>
       <Route
         path="*"
         element={

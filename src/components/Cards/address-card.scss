@@ -1,0 +1,61 @@
+@import "../../sass/global";
+
+.address-card {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  border-radius: 5px;
+  padding: 1.5rem;
+  width: 40rem;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin: 1rem auto;
+
+  .container {
+    margin: 0.5rem 0;
+    gap: 0.5rem;
+  }
+
+  .addressType {
+    background-color: rgba(220, 220, 220, 0.933);
+    padding: 0.3rem;
+    border-radius: 5px;
+  }
+
+  .btn-group {
+    gap: 1rem;
+  }
+
+  &__btn {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: transparent;
+    font-size: 2rem;
+    margin: 0 0.2rem;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    color: $color-white;
+
+    &:hover {
+      transform: translateY(-0.25em);
+    }
+
+    &:first-child {
+      background-color: $color-black;
+    }
+
+    &:last-child {
+      background-color: $color-primary;
+    }
+  }
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}

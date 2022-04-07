@@ -69,7 +69,9 @@ const Auth = ({ type, open, onClose }) => {
           type="email"
           label="Email"
           name="email"
+          id="email"
           value={userData.email}
+          htmlFor="email"
           onChange={handleChange}
           errorMessage={errors.email}
         />
@@ -77,7 +79,9 @@ const Auth = ({ type, open, onClose }) => {
           type="password"
           label="Password"
           name="password"
+          id="password"
           required
+          htmlFor="password"
           value={userData.password}
           onChange={handleChange}
           errorMessage={errors.password}
@@ -97,7 +101,9 @@ const Auth = ({ type, open, onClose }) => {
           type="text"
           label="Full Name"
           required
+          htmlFor="fullName"
           name="fullName"
+          id="fullName"
           value={userData.fullName}
           onChange={handleChange}
           errorMessage={errors.fullName}
@@ -106,6 +112,8 @@ const Auth = ({ type, open, onClose }) => {
           type="text"
           label="User Name"
           name="userName"
+          id="userName"
+          htmlFor="userName"
           value={userData.userName}
           onChange={handleChange}
           errorMessage={errors.userName}
@@ -115,6 +123,8 @@ const Auth = ({ type, open, onClose }) => {
           label="Email"
           required
           name="email"
+          id="email"
+          htmlFor="email"
           value={userData.email}
           onChange={handleChange}
           errorMessage={errors.email}
@@ -123,7 +133,9 @@ const Auth = ({ type, open, onClose }) => {
           type="password"
           label="Password"
           required
+          htmlFor="password"
           name="password"
+          id="password"
           value={userData.password}
           onChange={handleChange}
           errorMessage={errors.password}
@@ -131,8 +143,10 @@ const Auth = ({ type, open, onClose }) => {
         <InputField
           type="password"
           label="Confirm Password"
+          htmlFor="confirmPassword"
           required
           name="confirmPassword"
+          id="confirmPassword"
           value={userData.confirmPassword}
           onChange={handleChange}
           errorMessage={errors.confirmPassword}

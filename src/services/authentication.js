@@ -2,6 +2,9 @@ import axios from "axios";
 
 import { userAuthActions } from "../context";
 import { authURL } from "./apiUrl";
+import getConfig from "./tokenConfig";
+
+import { toast } from "react-toastify";
 
 // Auth
 export const loginUser = async (payload, dispatch) => {
@@ -39,5 +42,25 @@ export const registerUser = async (payload, dispatch) => {
       type: userAuthActions.ERROR,
       payload: e.response.data.message,
     });
+  }
+};
+
+export const getUserDetails = async (dispatch, setLoader) => {
+  const config = getConfig();
+
+  setLoader(true);
+  try {
+    const { data, status } = await axios.get(`${authURL}/user`, config);
+
+    if (status === 200) {
+      setLoader(false);
+      dispatch({
+        type: userAuthActions.LOAD_USER_PROFILE,
+        payload: data?.user,
+      });
+    }
+  } catch (e) {
+    setLoader(false);
+    toast.error(e?.response?.data?.message);
   }
 };

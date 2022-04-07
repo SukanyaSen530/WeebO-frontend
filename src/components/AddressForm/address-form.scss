@@ -1,0 +1,30 @@
+@import "../../sass/global";
+
+.address-form {
+  &__radio-group {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__radio {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: #023e8a;
+    font-weight: 600;
+
+    input[type="radio"] {
+      height: 2rem;
+    }
+  }
+
+  &__btn-group {
+    gap: 2rem;
+
+    .btn {
+      width: 100px;
+    }
+  }
+}

@@ -1,4 +1,8 @@
-import { cartConstants, wishlistConstants } from "../constants/userConstants";
+import {
+  addressConstants,
+  cartConstants,
+  wishlistConstants,
+} from "../constants/userConstants";
 import { transformData } from "../utils/productsUtils";
 
 const authReducer = (state, action) => {
@@ -113,6 +117,56 @@ const authReducer = (state, action) => {
             (item) => item.product._id !== payload
           ),
         },
+      };
+
+    case addressConstants.LOADING:
+      return { ...state, userAddress: { ...state.userAddress, loading: true } };
+
+    case addressConstants.LOAD_ADDRESSES:
+      return {
+        ...state,
+        userAddress: {
+          error: null,
+          loading: false,
+          items: payload,
+        },
+      };
+
+    case addressConstants.ADD_ADDRESS:
+      return {
+        ...state,
+        userAddress: {
+          ...state.userAddress,
+          items: [...state.userAddress.items, payload],
+        },
+      };
+
+    case addressConstants.REMOVE_ADDRESS:
+      return {
+        ...state,
+        userAddress: {
+          ...state.userAddress,
+          items: state.userAddress.items?.filter(
+            (item) => item._id !== payload
+          ),
+        },
+      };
+
+    case addressConstants.UPDATE_ADDRESS:
+      return {
+        ...state,
+        userAddress: {
+          ...state.userAddress,
+          items: state.userAddress.items.map((item) =>
+            item._id === payload._id ? payload : item
+          ),
+        },
+      };
+
+    case addressConstants.ERROR:
+      return {
+        ...state,
+        userAddress: { error: payload, loading: false, items: [] },
       };
 
     default:

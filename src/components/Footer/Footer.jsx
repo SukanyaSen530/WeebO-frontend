@@ -2,10 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.png";
+import { useProductContext, filterActions } from "../../context";
+import { brandData } from "../../utils/imageData";
 
 import "./footer.scss";
 
 const Footer = () => {
+  const { dispatch } = useProductContext();
+
   return (
     <footer className="footer">
       <Link to="/">
@@ -16,18 +20,21 @@ const Footer = () => {
         <div>
           <h2 className="b-margin-sm">Shop By License</h2>
           <ul className="footer__links-container">
-            <Link to="/products" className="footer__links">
-              Banpresto
-            </Link>
-            <Link to="/products" className="footer__links">
-              Funko
-            </Link>
-            <Link to="/products" className="footer__links">
-              S.H.Figuarts
-            </Link>
-            <Link to="/products" className="footer__links">
-              Bandai
-            </Link>
+            {brandData?.map(({ id, brandName }) => (
+              <Link
+                to={`/products`}
+                className="footer__links"
+                key={id}
+                onClick={() =>
+                  dispatch({
+                    type: filterActions.FILTER_BY_BRANDS,
+                    payload: brandName.toLowerCase(),
+                  })
+                }
+              >
+                {brandName}
+              </Link>
+            ))}
           </ul>
         </div>
 
@@ -35,10 +42,10 @@ const Footer = () => {
           <h2 className="b-margin-sm">My Account</h2>
 
           <ul className="footer__links-container">
-            <Link to="/" className="footer__links">
+            <Link to="/profile" className="footer__links">
               My Account
             </Link>
-            <Link to="/products" className="footer__links">
+            <Link to="/profile/orders" className="footer__links">
               My Orders
             </Link>
             <Link to="/wishlist" className="footer__links">
@@ -95,3 +102,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

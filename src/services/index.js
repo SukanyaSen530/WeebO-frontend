@@ -1,4 +1,4 @@
-import { loginUser, registerUser } from "./authentication";
+import { loginUser, registerUser, getUserDetails } from "./authentication";
 import { loadAProduct, loadProducts } from "./products";
 import { loadWishlist, addToWishlist, removeFromWishlist } from "./wishlist";
 import {
@@ -9,9 +9,17 @@ import {
   removeFromCart,
 } from "./cart";
 
+import {
+  loadAllAddresses,
+  addAddress,
+  updateAddress,
+  removeAddress,
+} from "./addresses";
+
 export {
   loginUser,
   registerUser,
+  getUserDetails,
   loadAProduct,
   loadProducts,
   loadWishlist,
@@ -22,4 +30,8 @@ export {
   decreaseQuantity,
   addToCart,
   removeFromCart,
+  loadAllAddresses,
+  addAddress,
+  updateAddress,
+  removeAddress,
 };
