@@ -1,0 +1,23 @@
+.profile-section {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+  &__img {
+    height: 15rem;
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    font-size: 1.5rem;
+    margin: 1rem;
+
+    & > *:first-child {
+      font-weight: 600;
+      width: 100px;
+    }
+  }
+}

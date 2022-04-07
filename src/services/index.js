@@ -1,4 +1,4 @@
-import { loginUser, registerUser } from "./authentication";
+import { loginUser, registerUser, getUserDetails } from "./authentication";
 import { loadAProduct, loadProducts } from "./products";
 import { loadWishlist, addToWishlist, removeFromWishlist } from "./wishlist";
 import {
@@ -12,6 +12,7 @@ import {
 export {
   loginUser,
   registerUser,
+  getUserDetails,
   loadAProduct,
   loadProducts,
   loadWishlist,

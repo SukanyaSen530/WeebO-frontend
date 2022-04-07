@@ -12,7 +12,7 @@ const menuOptions = [
     path: "/user",
     icon: <FaUserCog />,
     name: "Profile",
-    details: "Edit Details",
+    details: "Details",
   },
   {
     id: "u2",

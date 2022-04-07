@@ -3,10 +3,6 @@
 .user-details-section {
   padding: 3rem;
 
-  // &__menu{
-
-  // }
-
   &__links {
     &,
     &:link,
@@ -43,8 +39,7 @@
   }
 
   &__outlet{
-    border: 1px solid black;
-    min-height: 80vh;
+    min-height: 60vh;
     width: 90%;
     margin-top: 2rem;
   }
