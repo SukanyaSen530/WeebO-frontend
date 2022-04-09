@@ -1,4 +1,5 @@
-import { useReducer, useContext, createContext, useEffect } from "react";
+import { useReducer, useContext, createContext } from "react";
+import PropTypes from "prop-types";
 
 import userReducer from "../reducers/userReducer";
 
@@ -35,6 +36,10 @@ const UserProvider = ({ children }) => {
       {children}
     </userContext.Provider>
   );
+};
+
+UserProvider.prototype = {
+  children: PropTypes.element.isRequired,
 };
 
 const useUserContext = () => useContext(userContext);

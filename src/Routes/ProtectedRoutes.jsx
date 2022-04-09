@@ -1,4 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import { useAuthContext } from "../context";
 
 const ProtectedRoutes = ({ children }) => {
@@ -17,6 +19,10 @@ const ProtectedRoutes = ({ children }) => {
   }
 
   return children;
+};
+
+ProtectedRoutes.prototype = {
+  children: PropTypes.element.isRequired,
 };
 
 export default ProtectedRoutes;

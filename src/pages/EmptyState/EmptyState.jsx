@@ -31,6 +31,8 @@ const EmptyState = ({
 EmptyState.prototype = {
   msg: PropTypes.string,
   imgSrc: PropTypes.string,
+  buttonText: PropTypes.string,
+  path: PropTypes.string,
 };
 
 export default EmptyState;
