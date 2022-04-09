@@ -1,4 +1,5 @@
 import { useReducer, useContext, createContext } from "react";
+import PropTypes from "prop-types";
 
 import productReducer from "../reducers/productReducer";
 
@@ -41,6 +42,10 @@ const ProductProvider = ({ children }) => {
       {children}
     </productContext.Provider>
   );
+};
+
+ProductProvider.prototype = {
+  children: PropTypes.element.isRequired,
 };
 
 const useProductContext = () => useContext(productContext);

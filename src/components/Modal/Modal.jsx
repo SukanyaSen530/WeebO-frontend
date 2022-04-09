@@ -1,4 +1,6 @@
 import reactDom from "react-dom";
+import PropTypes from "prop-types";
+
 import { IoClose } from "react-icons/io5";
 
 import "./modal.scss";
@@ -15,6 +17,12 @@ const Modal = ({ open, onClose, children }) => {
     </article>,
     document.getElementById("modal-root")
   );
+};
+
+Modal.prototype = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired,
 };
 
 export default Modal;
