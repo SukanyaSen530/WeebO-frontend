@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 import { Modal } from "../index";
 
 import { InputField } from "../index";
@@ -131,5 +132,23 @@ const AddressForm = ({
     </Modal>
   );
 };
+
+AddressForm.prototype = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  type: PropTypes.bool,
+  address: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    pinCode: PropTypes.string.isRequired,
+    area: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    mobile: PropTypes.string.isRequired,
+    addressType: PropTypes.oneOf(["home", "work"]),
+  }),
+  setAddress: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+};
+
 
 export default AddressForm;
