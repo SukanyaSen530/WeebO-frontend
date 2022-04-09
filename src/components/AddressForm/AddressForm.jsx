@@ -138,6 +138,7 @@ AddressForm.prototype = {
   onClose: PropTypes.func.isRequired,
   type: PropTypes.bool,
   address: PropTypes.shape({
+    _id: PropTypes.string,
     name: PropTypes.string.isRequired,
     pinCode: PropTypes.string.isRequired,
     area: PropTypes.string.isRequired,

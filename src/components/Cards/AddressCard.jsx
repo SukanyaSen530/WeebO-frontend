@@ -1,4 +1,5 @@
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import PropTypes from "prop-types";
 
 import "./address-card.scss";
 
@@ -33,6 +34,18 @@ const AddressCard = ({
       </div>
     </article>
   );
+};
+
+AddressCard.prototype = {
+  _id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  pinCode: PropTypes.string.isRequired,
+  area: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  mobile: PropTypes.string.isRequired,
+  addressType: PropTypes.oneOf(["home", "work"]),
+  getIdType: PropTypes.func.isRequired,
 };
 
 export default AddressCard;
