@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import Modal from "../Modal/Modal";
 import InputField from "../InputField/InputField";
@@ -27,6 +28,7 @@ const Auth = ({ type, open, onClose }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
+      // type ---> true , login
       if (type === true) {
         loginUser(
           { email: userData.email, password: userData.password },
@@ -185,6 +187,12 @@ const Auth = ({ type, open, onClose }) => {
       </div>
     </Modal>
   );
+};
+
+Auth.prototype = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  type: PropTypes.bool,
 };
 
 export default Auth;
