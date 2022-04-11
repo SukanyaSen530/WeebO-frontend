@@ -1,12 +1,9 @@
-import { EmptyState } from "../index";
+import { Link } from "react-router-dom";
 import { Loader, CartCard } from "../../components";
+import { EmptyState } from "../index";
 
 import { useUserContext } from "../../context";
-import {
-  calcTotalDiscountedPrice,
-  calcTotalPrice,
-  calcTotalQuantity,
-} from "./helper";
+import { calcTotal } from "../../utils/priceCalc";
 
 import emptyBox from "../../assets/empty.png";
 import "./cart.scss";
@@ -37,18 +34,16 @@ const Cart = () => {
     );
   }
 
-  let totalPrice = calcTotalPrice(items);
-  let totalDiscountedPrice = calcTotalDiscountedPrice(items);
-  let totalQuantity = calcTotalQuantity(items);
-  let savedAmount = totalPrice - totalDiscountedPrice;
+  const { totalPrice, totalDiscountedPrice, totalQuantity } = calcTotal(items);
+  const savedAmount = totalPrice - totalDiscountedPrice;
 
   return (
     <section className="cart-section">
-      <h1 className="cart-section__heading b-margin-md">
+      <h1 className="secondary-heading b-margin-md">
         My Cart ( {items.length} )
       </h1>
       <div className="cart-section__content">
-        <section className="cart-info">
+        <section className="cart-info scrollbar">
           {items.map((item) => (
             <CartCard
               key={item._id}
@@ -59,7 +54,7 @@ const Cart = () => {
         </section>
 
         <aside className="bill-board">
-          <h1 className="bill-board__heading ">Order Summary</h1>
+          <h1 className="bill-board__heading ">Cart Summary</h1>
           <p className="divider "></p>
 
           <ul className="bill-board__price-summary t-margin-md">
@@ -86,9 +81,12 @@ const Cart = () => {
             <p className="divider"></p>
           </ul>
 
-          <button className="btn btn--md btn--primary bill-board__btn">
+          <Link
+            className="btn btn--md btn--primary bill-board__btn"
+            to="/checkout"
+          >
             Checkout
-          </button>
+          </Link>
         </aside>
       </div>
     </section>

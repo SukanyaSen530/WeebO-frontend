@@ -3,6 +3,12 @@
 .user-details-section {
   padding: 3rem;
 
+  &__menu{
+    @include respond(phone){
+      flex-direction: column;
+    }
+  }
+
   &__links {
     &,
     &:link,

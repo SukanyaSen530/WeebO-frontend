@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import "./loader.scss";
 
-const Loader = () => {
+const Loader = ({ size = "lg" }) => {
   const numOfBalls = 5;
   return (
-    <div className="loader-section">
+    <div className={`loader-section section-${size}`}>
       <div className="loader">
         {Array(numOfBalls)
           .fill(0)
@@ -16,6 +17,10 @@ const Loader = () => {
       </div>
     </div>
   );
+};
+
+Loader.prototype = {
+  size: PropTypes.oneOf(["lg", "md", "sm"]),
 };
 
 export default Loader;

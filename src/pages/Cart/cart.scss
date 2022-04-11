@@ -9,28 +9,11 @@
     padding: 3rem 1rem 1rem;
   }
 
-  &__heading {
-    font-size: 3rem;
-    text-align: center;
-  }
-
   &__content {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     align-items: flex-start;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgb(180, 179, 179);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(58, 58, 58);
   }
 }
 
@@ -72,5 +55,6 @@
 
   &__btn {
     width: 100%;
+    text-align: center;
   }
 }
