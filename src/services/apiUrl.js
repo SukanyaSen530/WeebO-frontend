@@ -1,5 +1,4 @@
-// const api = process.env.REACT_APP_BASE_URL;
-const api = "http://localhost:8000/api/";
+const api = process.env.REACT_APP_BASE_URL;
 
 const productURL = `${api}products`;
 const authURL = `${api}auth`;
