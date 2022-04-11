@@ -21,6 +21,11 @@ const initialState = {
     error: null,
     items: [],
   },
+  userOrders: {
+    loading: false,
+    error: null,
+    items: [],
+  },
 };
 
 const UserProvider = ({ children }) => {

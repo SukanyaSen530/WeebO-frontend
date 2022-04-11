@@ -5,6 +5,7 @@ import notFound from "../assets/pageNotFound.jpg";
 
 import {
   Cart,
+  Checkout,
   Home,
   Product,
   ProductList,
@@ -40,6 +41,14 @@ const AllRoutes = () => {
         element={
           <ProtectedRoutes>
             <WishList />
+          </ProtectedRoutes>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <ProtectedRoutes>
+            <Checkout />
           </ProtectedRoutes>
         }
       />

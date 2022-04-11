@@ -88,12 +88,6 @@ const Auth = ({ type, open, onClose }) => {
           onChange={handleChange}
           errorMessage={errors.password}
         />
-        <button
-          onClick={handleAuthwithTestCred}
-          className="auth-from__cred-btn"
-        >
-          Load Test Credentials
-        </button>
       </>
     );
   } else {
@@ -183,6 +177,14 @@ const Auth = ({ type, open, onClose }) => {
               "Sign Up"
             )}
           </button>
+          {type && (
+            <button
+              onClick={handleAuthwithTestCred}
+              className="auth-from__cred-btn"
+            >
+              Load Test Credentials
+            </button>
+          )}
         </form>
       </div>
     </Modal>

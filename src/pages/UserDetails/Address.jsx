@@ -86,7 +86,7 @@ const Address = () => {
       </div>
       <div className="address-section__data">
         {loading ? (
-          <Loader />
+          <Loader size="sm" />
         ) : addresses?.length === 0 ? (
           <h5 className="address-section__info">No addresses found!</h5>
         ) : (

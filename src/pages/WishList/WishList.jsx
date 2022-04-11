@@ -34,7 +34,7 @@ const WishList = () => {
 
   return (
     <section className="wishlist-section">
-      <h1 className="wishlist-section__heading b-margin-md">
+      <h1 className="secondary-heading b-margin-md">
         My WishList ( {items.length} )
       </h1>
       <div className="wishlist-section__items">

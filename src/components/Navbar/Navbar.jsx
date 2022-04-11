@@ -50,11 +50,6 @@ const Navbar = () => {
 
   const signedInRoutes = (
     <>
-      <Link to="/user" className="btn-icon badge">
-        <FaUserAlt className="btn-icon__icon" />
-        <span className="btn-icon__text">Profile</span>
-      </Link>
-
       <Link to="/wishlist" className="btn-icon badge">
         <FaHandHoldingHeart className="btn-icon__icon" />
         <span className="btn-icon__text">Wishlist</span>
@@ -67,8 +62,13 @@ const Navbar = () => {
         <span className="badge__count"> {cartItems.length} </span>
       </Link>
 
+      <Link to="/user" className="btn-icon badge">
+        <FaUserAlt className="btn-icon__icon" />
+        <span className="btn-icon__text">Profile</span>
+      </Link>
+
       <button
-        className="btn btn--md btn--primary btn--sm"
+        className="btn btn--md btn--primary logout-btn"
         onClick={() => {
           authDispatch({ type: userAuthActions.LOGOUT });
           navigate("/products");

@@ -1,0 +1,24 @@
+@import "../../sass/global";
+
+.address-radio {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  margin-top: 1rem;
+
+  .container {
+    margin: 0.3rem 0;
+    gap: 0.3rem;
+  }
+
+  .addressType {
+    background-color: rgba(220, 220, 220, 0.933);
+    border-radius: 5px;
+    padding: 0.3rem;
+  }
+}

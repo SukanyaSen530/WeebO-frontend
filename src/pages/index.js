@@ -1,4 +1,5 @@
 import Cart from "./Cart/Cart";
+import Checkout from "./Checkout/Checkout";
 import WishList from "./WishList/WishList";
 import Home from "./Home/Home";
 import Product from "./Product/Product";
@@ -11,6 +12,7 @@ import Orders from "./UserDetails/Orders";
 
 export {
   Cart,
+  Checkout,
   WishList,
   Home,
   Product,
