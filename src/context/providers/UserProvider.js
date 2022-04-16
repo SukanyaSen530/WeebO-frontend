@@ -24,7 +24,7 @@ const initialState = {
   userOrders: {
     loading: false,
     error: null,
-    items: [],
+    orders: [],
   },
 };
 

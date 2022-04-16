@@ -15,7 +15,9 @@ export const loadProducts = async (dispatch) => {
         payload: data?.products || [],
       });
     }
+
   } catch (e) {
+    console.log(e);
     dispatch({
       type: productActions.ERROR,
       payload: "Oops! Something went wrong :(",

@@ -46,15 +46,15 @@
 
   &__outlet{
     min-height: 60vh;
-    width: 50%;
+    width: 70%;
     margin-top: 4rem;
 
     @include respond(tab-land){
-      width: 70%;
+      width: 80%;
     }
     
     @include respond(tab-port){
-      width: 80%;
+      width: 90%;
     }
 
     @include respond(tab-land){

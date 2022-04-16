@@ -12,7 +12,7 @@ const filterActions = {
 const productActions = {
   LOADING: "LOADING",
   LOAD_PRODUCTS: "LOAD_PRODUCTS",
-  ERROR: "ERROR",
+  ERROR: "PRODUCT_ERROR",
   LOAD_SINGLE_PRODUCT: "LOAD_SINGLE_PRODUCT",
 };
 
