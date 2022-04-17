@@ -37,6 +37,7 @@ const Cart = () => {
   const { totalPrice, totalDiscountedPrice, totalQuantity } = calcTotal(items);
   const savedAmount = totalPrice - totalDiscountedPrice;
 
+
   return (
     <section className="cart-section">
       <h1 className="secondary-heading b-margin-md">

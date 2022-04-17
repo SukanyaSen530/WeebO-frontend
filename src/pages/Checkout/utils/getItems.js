@@ -11,6 +11,10 @@ export const getItems = (items) => {
         discount: curr.product?.discount || 0,
         img: curr.product?.img[0],
         qty: curr.quantity,
+        finalPrice: parseInt(
+          curr?.product?.price -
+            (curr?.product?.price * curr?.product?.discount || 0) / 100
+        ),
       },
     ],
     []

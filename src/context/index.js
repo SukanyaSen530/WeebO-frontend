@@ -21,6 +21,7 @@ import {
   wishlistConstants,
   cartConstants,
   addressConstants,
+  orderConstants,
 } from "./constants/userConstants";
 
 export {
@@ -36,4 +37,5 @@ export {
   wishlistConstants,
   cartConstants,
   addressConstants,
+  orderConstants,
 };

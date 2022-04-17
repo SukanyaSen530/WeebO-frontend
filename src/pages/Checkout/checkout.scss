@@ -1,49 +1,39 @@
 @import "../../sass/global";
 
 .checkout-section {
-  padding: 5rem 8rem;
+  padding: 5rem 8rem 8rem;
 
   @include respond(phone) {
     padding: 5rem 1rem;
+  }
+
+  &__address-section {
+    height: 50vh;
+    overflow-y: auto;
+
+    @include respond(phone) {
+      height: 35vh;
+    }
   }
 
   &__address {
     display: flex;
     gap: 1rem;
     align-items: center;
-    
-    label{
+
+    label {
       width: 85%;
     }
   }
 
-  &__address-section{
-    height: 50vh;
-    overflow-y: auto;
-  }
-
   &__container {
-    gap: 4rem;
-    & > * {
-      flex: 1;
-    }
+    gap: 5rem;
+    justify-content: center;
 
     @include respond(phone) {
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 2rem;
-
-      & > * {
-        width: 80%;
-      }
     }
-  }
-
-  input[type="radio"] {
-    height: 1.8rem;
-    width: 1.8rem;
-    accent-color: $color-primary;
   }
 
   ul {
@@ -52,47 +42,54 @@
 }
 
 .coupon-section {
-  &__apply-coupon {
-    li {
-      margin: 0.5rem;
-      font-size: 1.4rem;
-      color: $color-primary;
-      font-weight: 600;
+  input[type="radio"] {
+    height: 1.8rem;
+    width: 1.8rem;
+    accent-color: $color-primary;
+  }
 
-      label {
-        background-color: rgba($color-primary, 0.1);
-        padding: 0.8rem;
-        width: 150px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+  &__radio {
+    margin: 0.5rem;
+    font-size: 1.4rem;
+    color: $color-primary;
+    font-weight: 600;
 
-      input:disabled + label {
-        background-color: rgba(gray, 0.1);
-        color: grey;
-      }
+    label {
+      background-color: rgba($color-primary, 0.1);
+      padding: 0.8rem;
+      width: 160px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input:disabled + label {
+      background-color: rgba(gray, 0.1);
+      color: grey;
     }
   }
 
-  &__coupon-details {
-    li {
-      margin: 0.5rem;
-      font-size: 1.4rem;
+  li {
+    margin: 0.5rem;
+    font-size: 1.4rem;
 
-      svg {
-        color: green;
-      }
+    svg {
+      color: green;
     }
   }
 }
 
 .order-details {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  min-width: 40rem;
+  padding: 1.5rem;
+  border: 2px solid rgb(201, 201, 201);
+  border-radius: $border-radius-md;
 
   &__heading {
     font-size: 1.8rem;
     font-weight: 600;
     justify-content: center;
+    color: $color-primary-dark;
   }
 
   li {
@@ -102,5 +99,9 @@
     span {
       margin-left: auto;
     }
+  }
+
+  &__btn {
+    width: 100%;
   }
 }

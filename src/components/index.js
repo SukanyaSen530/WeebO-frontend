@@ -10,6 +10,7 @@ import CartCard from "./Cards/CartCard";
 import Modal from "./Modal/Modal";
 import AddressForm from "./AddressForm/AddressForm";
 import AddressCard from "./Cards/AddressCard";
+import AddressRadio from "./AddressRadio/AddressRadio";
 
 export {
   Caraousel,
@@ -24,4 +25,5 @@ export {
   Modal,
   AddressForm,
   AddressCard,
+  AddressRadio,
 };

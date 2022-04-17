@@ -9,6 +9,7 @@ import UserDetails from "./UserDetails/UserDetails";
 import Profile from "./UserDetails/Profile";
 import Address from "./UserDetails/Address";
 import Orders from "./UserDetails/Orders";
+import Success from "./Checkout/Success";
 
 export {
   Cart,
@@ -22,4 +23,5 @@ export {
   Profile,
   Address,
   Orders,
+  Success,
 };

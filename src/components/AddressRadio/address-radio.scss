@@ -5,11 +5,17 @@
     rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   border-radius: 5px;
   padding: 0.5rem 1rem;
-  width: 100%;
-  font-size: 1.2rem;
+  width: 40rem;
+  font-size: 1.4rem;
   text-transform: capitalize;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 0.1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+
+  @include respond(tab-land){
+    width: 35rem;
+  }
 
   .container {
     margin: 0.3rem 0;

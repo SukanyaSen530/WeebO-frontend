@@ -15,6 +15,7 @@ import {
   Profile,
   Address,
   Orders,
+  Success,
 } from "../pages";
 
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -49,6 +50,14 @@ const AllRoutes = () => {
         element={
           <ProtectedRoutes>
             <Checkout />
+          </ProtectedRoutes>
+        }
+      />
+      <Route
+        path="/checkout/success"
+        element={
+          <ProtectedRoutes>
+            <Success />
           </ProtectedRoutes>
         }
       />
