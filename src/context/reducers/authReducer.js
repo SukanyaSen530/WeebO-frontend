@@ -10,6 +10,7 @@ const authReducer = (state, action) => {
     case userAuthActions.LOAD_USER:
       if (payload.token !== "" || !payload.token) {
         window.localStorage.setItem("weeboToken", payload.token);
+        window.localStorage.setItem("weeboUserMail", payload.user.email);
       }
 
       return {
@@ -42,7 +43,7 @@ const authReducer = (state, action) => {
 
     case userAuthActions.LOGOUT: {
       window.localStorage.removeItem("weeboToken");
-
+      window.localStorage.removeItem("weeboUserMail");
       return {
         ...state,
         user: { token: null, details: null },

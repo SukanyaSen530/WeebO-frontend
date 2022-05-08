@@ -1,11 +1,12 @@
 import {
   addressConstants,
   cartConstants,
+  orderConstants,
   wishlistConstants,
 } from "../constants/userConstants";
 import { transformData } from "../utils/productsUtils";
 
-const authReducer = (state, action) => {
+const userReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -132,6 +133,12 @@ const authReducer = (state, action) => {
         },
       };
 
+    case addressConstants.ERROR:
+      return {
+        ...state,
+        userAddress: { error: payload, loading: false, items: [] },
+      };
+
     case addressConstants.ADD_ADDRESS:
       return {
         ...state,
@@ -169,9 +176,28 @@ const authReducer = (state, action) => {
         userAddress: { error: payload, loading: false, items: [] },
       };
 
+    case orderConstants.LOADING:
+      return { ...state, userOrders: { ...state.userOrders, loading: true } };
+
+    case orderConstants.LOAD_ORDERS:
+      return {
+        ...state,
+        userOrders: {
+          error: null,
+          loading: false,
+          items: payload,
+        },
+      };
+
+    case orderConstants.ERROR:
+      return {
+        ...state,
+        userOrders: { error: payload, loading: false, items: [] },
+      };
+
     default:
       return state;
   }
 };
 
-export default authReducer;
+export default userReducer;

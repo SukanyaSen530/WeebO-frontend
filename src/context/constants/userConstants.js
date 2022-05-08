@@ -28,6 +28,5 @@ export const addressConstants = {
 export const orderConstants = {
   LOADING: "ORDER_LOADING",
   LOAD_ORDERS: "LOAD_ORDERS",
-  ERROR: "OREDR_ERROR",
-  PLACE_ORDER: "PLACE_ORDER",
+  ERROR: "ORDER_ERROR",
 };

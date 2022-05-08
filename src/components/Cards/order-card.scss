@@ -1,0 +1,90 @@
+@import "../../sass/global";
+
+.order-card {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  margin: 2rem 0;
+  color: $color-black;
+  text-decoration: none;
+  font-size: 1.4rem;
+
+  &__header {
+    background-color: rgb(240, 240, 240);
+    padding: 1rem;
+    line-height: 1.6rem;
+
+    &__details {
+      @include respond(phone) {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    padding: 0 3rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+
+    &__content {
+      font-weight: 400;
+      color: rgb(85, 85, 85);
+      margin-left: 1rem;
+      font-size: 1.4rem;
+
+      & > * {
+        line-height: 2rem;
+      }
+    }
+
+    img {
+      height: 10rem;
+      object-fit: contain;
+    }
+
+    &__price {
+      text-align: end;
+    }
+
+    &__quantity {
+      text-align: center;
+    }
+
+    & > * {
+      flex: 1;
+    }
+  }
+
+  &__address {
+    padding: 1rem 3rem;
+
+    &__btn {
+      font-size: 4rem;
+      cursor: pointer;
+    }
+  }
+
+  &__address-card {
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      text-transform: capitalize;
+
+      @include respond(phone) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      span {
+        width: 100px;
+        display: inline-block;
+        font-weight: 500;
+      }
+    }
+  }
+}
