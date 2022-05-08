@@ -64,37 +64,39 @@ const AddressForm = ({
   return (
     <Modal open={open} onClose={onClose}>
       <form onSubmit={handleSubmit} className="address-form">
-        {inputData.map((item) => (
-          <InputField
-            key={item.id}
-            onChange={handleChange}
-            label={item.name}
-            id={item.id}
-            {...item}
-            htmlFor={item.id}
-            value={address[item.name]}
-          />
-        ))}
-        <div className="input-group">
-          <label htmlFor="state" className="input-group__label">
-            Select State
-          </label>
-          <select
-            name="state"
-            id="state"
-            className="input-group__input"
-            value={address.state}
-            onChange={handleChange}
-          >
-            <option disabled value="">
-              Select
-            </option>
-            {states.map((state, index) => (
-              <option key={index} value={state}>
-                {state}
+        <div className="address-form__inputs">
+          {inputData.map((item) => (
+            <InputField
+              key={item.id}
+              onChange={handleChange}
+              label={item.name}
+              id={item.id}
+              {...item}
+              htmlFor={item.id}
+              value={address[item.name]}
+            />
+          ))}
+          <div className="input-group">
+            <label htmlFor="state" className="input-group__label">
+              Select State
+            </label>
+            <select
+              name="state"
+              id="state"
+              className="input-group__input"
+              value={address.state}
+              onChange={handleChange}
+            >
+              <option disabled value="">
+                Select
               </option>
-            ))}
-          </select>
+              {states.map((state, index) => (
+                <option key={index} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div className="flex address-from__radio-group flex-center">
           <div className="address-form__radio">

@@ -21,8 +21,8 @@ export const loginUser = async (payload, dispatch) => {
   } catch (e) {
     dispatch({
       type: userAuthActions.ERROR,
-      payload: e.response.data.message,
     });
+    toast.error(e?.response?.data?.message);
   }
 };
 
@@ -40,8 +40,8 @@ export const registerUser = async (payload, dispatch) => {
   } catch (e) {
     dispatch({
       type: userAuthActions.ERROR,
-      payload: e.response.data.message,
     });
+    toast.error(e?.response?.data?.message);
   }
 };
 

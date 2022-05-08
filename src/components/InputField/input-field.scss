@@ -7,8 +7,8 @@
 
   &__label {
     display: block;
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     margin-left: 1rem;
     color: #023e8a;
     text-transform: capitalize;
@@ -20,7 +20,7 @@
     padding: 0.8rem 1rem;
     border-radius: $border-radius-hg;
     width: 100%;
-    border: 1px solid black;
+    border: 2px solid #495057;
 
     &:focus {
       outline: none;
@@ -37,9 +37,9 @@
   &__error-message {
     display: inline-block;
     margin-left: 1rem;
-    color: red;
+    color: rgb(170, 0, 0);
     margin-top: 0.5rem;
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 500;
   }
 }
