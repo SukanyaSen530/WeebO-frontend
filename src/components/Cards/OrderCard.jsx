@@ -15,8 +15,6 @@ const OrderCard = ({
   const [show, setShow] = useState(false);
   const not_allowed = ["_id", "name", "__v"];
 
-  console.log("Shit", orderItems);
-
   return (
     <article className="order-card">
       <div className="order-card__header">

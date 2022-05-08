@@ -17,7 +17,6 @@ const Orders = () => {
     if (orders?.length === 0) loadAllOrders(userDispatch);
   }, []);
 
-  console.log(orders);
 
   if (loading) {
     return <Loader size="md" />;

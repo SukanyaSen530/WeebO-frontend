@@ -47,9 +47,7 @@ const Checkout = () => {
     calcTotal(cartItems);
 
   let addressSection = null;
-
-  console.log(orderDetails);
-
+  
   if (addressLoading) addressSection = <Loader size="sm" />;
   else if (addresses.length === 0)
     addressSection = (
@@ -158,9 +156,9 @@ const Checkout = () => {
 
             <button
               className="btn btn--md btn--primary order-details__btn"
-              // disabled={!orderDetails.addressId}
+              disabled={!orderDetails.addressId}
               onClick={makePayment}
-              disabled={true}
+              // disabled={true}
             >
               Place Order
             </button>
