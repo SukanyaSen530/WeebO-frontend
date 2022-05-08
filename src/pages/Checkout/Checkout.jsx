@@ -47,7 +47,7 @@ const Checkout = () => {
     calcTotal(cartItems);
 
   let addressSection = null;
-
+  
   if (addressLoading) addressSection = <Loader size="sm" />;
   else if (addresses.length === 0)
     addressSection = (
@@ -94,19 +94,29 @@ const Checkout = () => {
           <h3 className="tertiary-heading b-margin-sm">Coupons</h3>
 
           <ul className="coupon-section b-margin-sm">
-            {totalPrice < 20000 && (
-              <li className="flex flex-center-y gap-sm">
-                <MdLocalOffer /> Shop for more ₹ {20000 - totalDiscountedPrice}{" "}
-                to use GETLUCKY promocode while paying!
-              </li>
-            )}
-            {totalPrice < 40000 && (
-              <li className="flex flex-center-y gap-sm">
-                <MdLocalOffer />
-                Shop for more ₹ {40000 - totalDiscountedPrice} to use BONZANNA
-                promocode while paying!
-              </li>
-            )}
+            <li className="flex flex-center-y gap-sm">
+              <MdLocalOffer />
+              {totalPrice < 20000 ? (
+                <span>
+                  Shop for more ₹ {20000 - totalDiscountedPrice} to use GETLUCKY
+                  promocode while paying!
+                </span>
+              ) : (
+                <span> Use GETLUCKY promocode while paying!</span>
+              )}
+            </li>
+
+            <li className="flex flex-center-y gap-sm">
+              <MdLocalOffer />
+              {totalPrice < 40000 ? (
+                <span>
+                  Shop for more ₹ {40000 - totalDiscountedPrice} to use BONZANNA
+                  promocode while paying!
+                </span>
+              ) : (
+                <span> Use BONZANNA promocode while paying!</span>
+              )}
+            </li>
           </ul>
 
           <h3 className="tertiary-heading b-margin-sm">Order Summary</h3>
@@ -148,6 +158,7 @@ const Checkout = () => {
               className="btn btn--md btn--primary order-details__btn"
               disabled={!orderDetails.addressId}
               onClick={makePayment}
+              // disabled={true}
             >
               Place Order
             </button>

@@ -46,7 +46,6 @@ export const addToCart = async (id, dispatch, quantity = 1) => {
       });
     }
 
-    console.log("cart", data);
   } catch (e) {
     toast.error(e?.response?.data?.message);
   }

@@ -1,5 +1,8 @@
-const api = process.env.REACT_APP_BASE_URL;
-// const api = process.env.REACT_APP_DEV_URL;
+const { REACT_APP_APP_MODE, REACT_APP_BASE_URL, REACT_APP_DEV_URL } =
+  process.env;
+const api = REACT_APP_APP_MODE === "" ? REACT_APP_DEV_URL : REACT_APP_BASE_URL;
+
+console.log("api", api);
 
 const productURL = `${api}products`;
 const authURL = `${api}auth`;

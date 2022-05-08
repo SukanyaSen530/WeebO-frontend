@@ -14,7 +14,7 @@ import {
   updateAddress,
   removeAddress,
 } from "./addresses";
-import { loadAllOrders, createOrder } from "./order";
+import { loadAllOrders } from "./order";
 import { payForOrder } from "./payment";
 
 export {
@@ -36,6 +36,5 @@ export {
   updateAddress,
   removeAddress,
   loadAllOrders,
-  createOrder,
   payForOrder,
 };

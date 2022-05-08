@@ -1,4 +1,5 @@
 import "./success.scss";
+import { Link } from "react-router-dom";
 
 import orderBox from "../../assets/box.gif";
 
@@ -15,6 +16,9 @@ export default function Success() {
         <div className="success-section__content__image">
           <img src={orderBox} alt="order box" />
         </div>
+        <Link to="/user/orders" className="link">
+          Check Orders
+        </Link>
       </div>
     </section>
   );
