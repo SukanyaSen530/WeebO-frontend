@@ -67,6 +67,7 @@ const AddressForm = ({
         <div className="address-form__inputs">
           {inputData.map((item) => (
             <InputField
+              autoFocus
               key={item.id}
               onChange={handleChange}
               label={item.name}

@@ -117,6 +117,11 @@ const Checkout = () => {
                 <span> Use BONZANNA promocode while paying!</span>
               )}
             </li>
+
+            <li className="notify">
+              Use Card Number - <strong>4242 4242 4242 4242</strong> for
+              successful payment!
+            </li>
           </ul>
 
           <h3 className="tertiary-heading b-margin-sm">Order Summary</h3>
@@ -156,9 +161,9 @@ const Checkout = () => {
 
             <button
               className="btn btn--md btn--primary order-details__btn"
-              disabled={!orderDetails.addressId}
+              // disabled={!orderDetails.addressId}
               onClick={makePayment}
-              // disabled={true}
+              disabled={true}
             >
               Place Order
             </button>
