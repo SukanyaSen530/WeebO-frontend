@@ -1,6 +1,7 @@
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-
 import { useState } from "react";
+import PropTypes from "prop-types";
+
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 import "./order-card.scss";
 
@@ -8,9 +9,9 @@ const OrderCard = ({
   _id,
   orderItems,
   couponDiscount,
-  createdAt,
   totalPaid,
   address,
+  createdAt,
 }) => {
   const [show, setShow] = useState(false);
   const not_allowed = ["_id", "name", "__v"];
@@ -97,6 +98,27 @@ const OrderCard = ({
       </div>
     </article>
   );
+};
+
+OrderCard.propTypes = {
+  _id: PropTypes.string.isRequired,
+  orderItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      product: PropTypes.object,
+      quantity: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  couponDiscount: PropTypes.string.isRequired,
+  totalPaid: PropTypes.number.isRequired,
+  address: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    pinCode: PropTypes.string.isRequired,
+    area: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    mobile: PropTypes.string.isRequired,
+    addressType: PropTypes.oneOf(["home", "work"]),
+  }),
 };
 
 export default OrderCard;

@@ -191,7 +191,7 @@ const Auth = ({ type, open, onClose }) => {
   );
 };
 
-Auth.prototype = {
+Auth.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   type: PropTypes.bool,

@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
@@ -12,7 +11,7 @@ import { addToWishlist, removeFromWishlist, addToCart } from "../../services";
 
 import "./product-card.scss";
 
-function ProductCard({
+const ProductCard = ({
   _id,
   name,
   brandName,
@@ -23,7 +22,7 @@ function ProductCard({
   inStock,
   rating,
   discountedPrice,
-}) {
+}) => {
   const {
     authState: {
       user: { token },
@@ -113,9 +112,9 @@ function ProductCard({
       ) : null}
     </article>
   );
-}
+};
 
-ProductCard.prototype = {
+ProductCard.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   brandName: PropTypes.string.isRequired,

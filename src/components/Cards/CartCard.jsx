@@ -101,7 +101,7 @@ const CartCard = ({
   );
 };
 
-CartCard.prototype = {
+CartCard.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   brandName: PropTypes.string.isRequired,

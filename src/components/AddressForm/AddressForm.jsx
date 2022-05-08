@@ -133,7 +133,7 @@ const AddressForm = ({
   );
 };
 
-AddressForm.prototype = {
+AddressForm.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   type: PropTypes.bool,

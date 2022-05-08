@@ -19,7 +19,7 @@ const Modal = ({ open, onClose, children }) => {
   );
 };
 
-Modal.prototype = {
+Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
