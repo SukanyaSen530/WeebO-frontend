@@ -15,6 +15,8 @@ const OrderCard = ({
   const [show, setShow] = useState(false);
   const not_allowed = ["_id", "name", "__v"];
 
+  console.log("Shit", orderItems);
+
   return (
     <article className="order-card">
       <div className="order-card__header">
@@ -40,27 +42,27 @@ const OrderCard = ({
         <div key={item.product._id} className="order-card__item">
           <div className="flex flex-center-y">
             <img
-              src={item.product.img[0]}
-              alt={item.product.name}
+              src={item?.product?.img[0]}
+              alt={item?.product?.name}
               className="order-card__item__image"
             />
             <div className="order-card__item__content">
-              <p> {item.product.name}</p>
-              <p> {item.product.brandName}</p>
-              <p> {item.product.categoryName}</p>
+              <p> {item?.product?.name}</p>
+              <p> {item?.product?.brandName}</p>
+              <p> {item?.product?.categoryName}</p>
             </div>
           </div>
 
           <p className="order-card__item__quantity">
-            Quantity : {item.quantity}
+            Quantity : {item?.quantity}
           </p>
 
           <p className="order-card__item__price">
             ₹{" "}
             {parseInt(
-              item.product.price -
-                ((item.product.price * (item.product.discount || 0)) / 100) *
-                  item.quantity
+              item?.product.price -
+                ((item?.product.price * (item?.product.discount || 0)) / 100) *
+                  item?.quantity
             )}
           </p>
         </div>
@@ -68,7 +70,7 @@ const OrderCard = ({
 
       <div className="order-card__address">
         <div className="flex flex-space-between flex-center-y">
-          <p>Shipped to - {address.name}</p>
+          <p>Shipped to - {address?.name}</p>
           {!show ? (
             <IoIosArrowDown
               onClick={() => setShow((val) => !val)}
