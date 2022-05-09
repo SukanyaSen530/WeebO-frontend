@@ -36,7 +36,7 @@ const AddressCard = ({
   );
 };
 
-AddressCard.prototype = {
+AddressCard.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   pinCode: PropTypes.string.isRequired,

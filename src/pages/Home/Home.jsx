@@ -8,7 +8,7 @@ import { useProductContext, filterActions } from "../../context";
 // STYLES
 import "./home.scss";
 
-export default function Home() {
+const Home = () => {
   const { dispatch } = useProductContext();
 
   return (
@@ -71,4 +71,6 @@ export default function Home() {
       </div>
     </section>
   );
-}
+};
+
+export default Home;

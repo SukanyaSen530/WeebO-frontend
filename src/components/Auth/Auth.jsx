@@ -14,7 +14,7 @@ import signUpImage from "../../assets/signup.png";
 
 const Auth = ({ type, open, onClose }) => {
   const { authState, authDispatch } = useAuthContext();
-  const { loading, fetchError } = authState;
+  const { loading } = authState;
 
   const [userData, setUserData] = useState({ ...initialFormValues });
   const [errors, setErrors] = useState({});
@@ -161,16 +161,15 @@ const Auth = ({ type, open, onClose }) => {
           />
         </div>
         <form className="auth-from">
-          <p className="auth-from__errorStatus">
-            {fetchError ? fetchError : null}
-          </p>
           {content}
           <button
             onClick={handleAuth}
             className="btn btn--round btn--primary btn--sm auth-from__btn"
           >
             {loading ? (
-              <i className="fas fa-cog fa-spin"></i>
+              <span>
+                <i className="fas fa-cog fa-spin"></i> Loading ....
+              </span>
             ) : type === true ? (
               "Login"
             ) : (
@@ -182,7 +181,7 @@ const Auth = ({ type, open, onClose }) => {
               onClick={handleAuthwithTestCred}
               className="auth-from__cred-btn"
             >
-              Load Test Credentials
+              Fill with Test Credentials
             </button>
           )}
         </form>
@@ -191,7 +190,7 @@ const Auth = ({ type, open, onClose }) => {
   );
 };
 
-Auth.prototype = {
+Auth.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   type: PropTypes.bool,

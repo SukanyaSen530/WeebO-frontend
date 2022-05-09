@@ -19,7 +19,7 @@ const Loader = ({ size = "lg" }) => {
   );
 };
 
-Loader.prototype = {
+Loader.propTypes = {
   size: PropTypes.oneOf(["lg", "md", "sm"]),
 };
 

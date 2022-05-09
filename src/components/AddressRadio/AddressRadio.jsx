@@ -23,7 +23,7 @@ const AddressRadio = ({
   );
 };
 
-AddressRadio.prototype = {
+AddressRadio.propTypes = {
   name: PropTypes.string.isRequired,
   pinCode: PropTypes.string.isRequired,
   area: PropTypes.string.isRequired,

@@ -10,7 +10,6 @@ const authContext = createContext();
 
 const initialState = {
   loading: false,
-  fetchError: null,
   modalOpen: false,
   user: {
     token: localStorage.getItem("weeboToken"),
