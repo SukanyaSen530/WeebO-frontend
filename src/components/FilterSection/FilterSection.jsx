@@ -1,10 +1,9 @@
-import { useState } from "react";
-
 // Data
 import { brandData, categoryData } from "../../utils/imageData";
 
 import { useProductContext, filterActions } from "../../context";
 
+//Icons
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 // Styles
