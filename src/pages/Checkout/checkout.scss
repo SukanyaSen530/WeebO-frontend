@@ -2,6 +2,8 @@
 
 .checkout-section {
   padding: 5rem 8rem 8rem;
+  width: 90vw;
+  margin: 1rem auto;
 
   @include respond(phone) {
     padding: 5rem 1rem;
@@ -40,7 +42,7 @@
     list-style-type: none;
   }
 
-  .notify{
+  .notify {
     background-color: rgb(219, 255, 198);
     padding: 1rem;
     border-radius: 5px;
@@ -112,4 +114,8 @@
   &__btn {
     width: 100%;
   }
+}
+
+.flex-1 {
+  flex: 1;
 }

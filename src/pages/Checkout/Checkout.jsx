@@ -57,7 +57,7 @@ const Checkout = () => {
     );
   else
     addressSection = addresses?.map((address) => (
-      <div key={address._id} className="checkout-section__address scrollbar">
+      <div key={address._id} className="checkout-section__address">
         <input
           type="radio"
           id={address._id}
@@ -83,14 +83,14 @@ const Checkout = () => {
       <h1 className="secondary-heading center-aligned b-margin-md">Checkout</h1>
       {/* Address */}
       <div className="flex checkout-section__container">
-        <div>
+        <div className="flex-1">
           <h3 className="tertiary-heading b-margin-sm">Deliver to </h3>
           <div className="checkout-section__address-section scrollbar">
             {addressSection}
           </div>
         </div>
 
-        <div>
+        <div className="flex-1">
           <h3 className="tertiary-heading b-margin-sm">Coupons</h3>
 
           <ul className="coupon-section b-margin-sm">
@@ -161,9 +161,8 @@ const Checkout = () => {
 
             <button
               className="btn btn--md btn--primary order-details__btn"
-              // disabled={!orderDetails.addressId}
+              disabled={!orderDetails.addressId}
               onClick={makePayment}
-              disabled={true}
             >
               Place Order
             </button>
