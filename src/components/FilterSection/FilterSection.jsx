@@ -1,9 +1,11 @@
-import React from "react";
+import { useState } from "react";
 
 // Data
 import { brandData, categoryData } from "../../utils/imageData";
 
 import { useProductContext, filterActions } from "../../context";
+
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 // Styles
 import "./filter-section.scss";
@@ -18,6 +20,7 @@ const FilterSection = () => {
       filterByCategories,
       filterByBrands,
       maxPrice,
+      filterRating,
     },
   } = state;
 
@@ -96,6 +99,41 @@ const FilterSection = () => {
             <label htmlFor={id}>{brandName}</label>
           </div>
         ))}
+      </div>
+
+      <div className="filters">
+        <h3 className="filter-heading">Ratings</h3>
+        <div className="rating">
+          {[...Array(5)].map((s, index) => {
+            return (
+              <label className="rating__label">
+                <input
+                  type="radio"
+                  className="rating__input items"
+                  name="rating"
+                  onClick={(e) => {
+                    dispatch({
+                      type: filterActions.FILTER_BY_RATING,
+                      payload: Number(e.target.value),
+                    });
+                  }}
+                  value={index + 1}
+                  key={index}
+                />
+                <AiOutlineStar
+                  className={`${
+                    index + 1 <= filterRating ? "rating__hide" : ""
+                  }`}
+                />
+                <AiFillStar
+                  className={`${
+                    index + 1 <= filterRating ? "rating--fill" : "rating__hide"
+                  }`}
+                />
+              </label>
+            );
+          })}
+        </div>
       </div>
 
       <div className="filters">

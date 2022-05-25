@@ -24,6 +24,7 @@ const initialState = {
     filterByCategories: [],
     filterByBrands: [],
     maxPrice: 20000,
+    filterRating: 0,
     searchQuery: "",
   },
 };
