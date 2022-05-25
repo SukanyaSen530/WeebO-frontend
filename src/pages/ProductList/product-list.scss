@@ -34,6 +34,23 @@
 
   p {
     font-size: 1.4rem;
+    align-self: flex-start;
+    @include respond(phone) {
+      align-self: stretch;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2.5rem 0;
+
+    @include respond(phone) {
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
   }
 }
 
@@ -43,12 +60,22 @@
 
 .productlist-items {
   grid-area: items;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  row-gap: 1.5rem;
 
   &__image {
     height: 30rem;
+  }
+}
+
+.paginate {
+  &__buttons {
+    margin-right: 0.5rem;
+    width: 50px;
+
+    &.active-page {
+      background-color: #303030;
+    }
   }
 }
