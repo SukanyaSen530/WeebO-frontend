@@ -1,6 +1,17 @@
 @import "../../sass/global";
 
 .address-form {
+  &__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+
+    @include respond(phone) {
+          grid-template-columns: 1fr;
+    }
+  }
+
   &__radio-group {
     width: 90%;
     margin: 0 auto;

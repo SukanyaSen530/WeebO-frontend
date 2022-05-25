@@ -5,6 +5,7 @@ import { cartConstants } from "../context";
 import { cartURL } from "./apiUrl";
 import getConfig from "./tokenConfig";
 
+
 // Cart
 export const loadCart = async (dispatch) => {
   const config = getConfig();
@@ -44,6 +45,7 @@ export const addToCart = async (id, dispatch, quantity = 1) => {
         payload: data?.cart,
       });
     }
+
   } catch (e) {
     toast.error(e?.response?.data?.message);
   }
@@ -83,6 +85,7 @@ export const increaseQuantity = async (id, dispatch) => {
         payload: data?.cart || [],
       });
     }
+
   } catch (e) {
     toast.error(e?.response?.data?.message);
   }

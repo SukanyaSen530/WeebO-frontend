@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import Modal from "../Modal/Modal";
 import InputField from "../InputField/InputField";
@@ -13,7 +14,7 @@ import signUpImage from "../../assets/signup.png";
 
 const Auth = ({ type, open, onClose }) => {
   const { authState, authDispatch } = useAuthContext();
-  const { loading, fetchError } = authState;
+  const { loading } = authState;
 
   const [userData, setUserData] = useState({ ...initialFormValues });
   const [errors, setErrors] = useState({});
@@ -27,6 +28,7 @@ const Auth = ({ type, open, onClose }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
+      // type ---> true , login
       if (type === true) {
         loginUser(
           { email: userData.email, password: userData.password },
@@ -86,12 +88,6 @@ const Auth = ({ type, open, onClose }) => {
           onChange={handleChange}
           errorMessage={errors.password}
         />
-        <button
-          onClick={handleAuthwithTestCred}
-          className="auth-from__cred-btn"
-        >
-          Load Test Credentials
-        </button>
       </>
     );
   } else {
@@ -165,26 +161,39 @@ const Auth = ({ type, open, onClose }) => {
           />
         </div>
         <form className="auth-from">
-          <p className="auth-from__errorStatus">
-            {fetchError ? fetchError : null}
-          </p>
           {content}
           <button
             onClick={handleAuth}
             className="btn btn--round btn--primary btn--sm auth-from__btn"
           >
             {loading ? (
-              <i className="fas fa-cog fa-spin"></i>
+              <span>
+                <i className="fas fa-cog fa-spin"></i> Loading ....
+              </span>
             ) : type === true ? (
               "Login"
             ) : (
               "Sign Up"
             )}
           </button>
+          {type && (
+            <button
+              onClick={handleAuthwithTestCred}
+              className="auth-from__cred-btn"
+            >
+              Fill with Test Credentials
+            </button>
+          )}
         </form>
       </div>
     </Modal>
   );
+};
+
+Auth.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  type: PropTypes.bool,
 };
 
 export default Auth;

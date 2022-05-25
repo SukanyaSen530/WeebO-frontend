@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 import { Modal } from "../index";
 
 import { InputField } from "../index";
@@ -63,37 +64,40 @@ const AddressForm = ({
   return (
     <Modal open={open} onClose={onClose}>
       <form onSubmit={handleSubmit} className="address-form">
-        {inputData.map((item) => (
-          <InputField
-            key={item.id}
-            onChange={handleChange}
-            label={item.name}
-            id={item.id}
-            {...item}
-            htmlFor={item.id}
-            value={address[item.name]}
-          />
-        ))}
-        <div className="input-group">
-          <label htmlFor="state" className="input-group__label">
-            Select State
-          </label>
-          <select
-            name="state"
-            id="state"
-            className="input-group__input"
-            value={address.state}
-            onChange={handleChange}
-          >
-            <option disabled value="">
-              Select
-            </option>
-            {states.map((state, index) => (
-              <option key={index} value={state}>
-                {state}
+        <div className="address-form__inputs">
+          {inputData.map((item) => (
+            <InputField
+              autoFocus
+              key={item.id}
+              onChange={handleChange}
+              label={item.name}
+              id={item.id}
+              {...item}
+              htmlFor={item.id}
+              value={address[item.name]}
+            />
+          ))}
+          <div className="input-group">
+            <label htmlFor="state" className="input-group__label">
+              Select State
+            </label>
+            <select
+              name="state"
+              id="state"
+              className="input-group__input"
+              value={address.state}
+              onChange={handleChange}
+            >
+              <option disabled value="">
+                Select
               </option>
-            ))}
-          </select>
+              {states.map((state, index) => (
+                <option key={index} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div className="flex address-from__radio-group flex-center">
           <div className="address-form__radio">
@@ -131,5 +135,24 @@ const AddressForm = ({
     </Modal>
   );
 };
+
+AddressForm.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  type: PropTypes.bool,
+  address: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    pinCode: PropTypes.string.isRequired,
+    area: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    mobile: PropTypes.string.isRequired,
+    addressType: PropTypes.oneOf(["home", "work"]),
+  }),
+  setAddress: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+};
+
 
 export default AddressForm;

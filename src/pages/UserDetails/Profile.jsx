@@ -22,12 +22,14 @@ const Profile = () => {
   }, [details]);
 
   if (loading) {
-    return <Loader />;
+    return <Loader size="sm" />;
   }
 
   return (
     <div className="profile-section">
-      <img src={userLogo} className="profile-section__img" />
+      <div className="center-aligned b-margin-sm">
+        <img src={userLogo} className="profile-section__img" />
+      </div>
       <p className="profile-section__info">
         <span>Full Name </span> <span>: {details?.fullName}</span>
       </p>

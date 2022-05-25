@@ -1,6 +1,8 @@
+import PropTypes from "prop-types";
+
 import "./input-field.scss";
 
-function InputField({ label, errorMessage, htmlFor, ...other }) {
+const InputField = ({ label, errorMessage, htmlFor, ...other }) => {
   return (
     <div className="input-group">
       <label className="input-group__label" htmlFor={htmlFor ? htmlFor : ""}>
@@ -12,6 +14,12 @@ function InputField({ label, errorMessage, htmlFor, ...other }) {
       )}
     </div>
   );
-}
+};
+
+InputField.propTypes = {
+  label: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
+  htmlFor: PropTypes.string.isRequired,
+};
 
 export default InputField;

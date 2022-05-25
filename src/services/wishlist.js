@@ -21,7 +21,7 @@ export const loadWishlist = async (dispatch) => {
   } catch (e) {
     dispatch({
       type: wishlistConstants.ERROR,
-      payload: e.response.data.message,
+      payload: e?.response?.data?.message,
     });
   }
 };

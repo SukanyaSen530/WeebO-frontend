@@ -1,4 +1,5 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import authReducer from "../reducers/authReducer";
 import { userAuthActions } from "../constants/authConstants";
@@ -9,7 +10,6 @@ const authContext = createContext();
 
 const initialState = {
   loading: false,
-  fetchError: null,
   modalOpen: false,
   user: {
     token: localStorage.getItem("weeboToken"),
@@ -54,6 +54,10 @@ const AuthProvider = ({ children }) => {
       {children}
     </authContext.Provider>
   );
+};
+
+AuthProvider.prototype = {
+  children: PropTypes.element.isRequired,
 };
 
 const useAuthContext = () => useContext(authContext);

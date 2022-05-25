@@ -1,4 +1,5 @@
 import Cart from "./Cart/Cart";
+import Checkout from "./Checkout/Checkout";
 import WishList from "./WishList/WishList";
 import Home from "./Home/Home";
 import Product from "./Product/Product";
@@ -8,9 +9,11 @@ import UserDetails from "./UserDetails/UserDetails";
 import Profile from "./UserDetails/Profile";
 import Address from "./UserDetails/Address";
 import Orders from "./UserDetails/Orders";
+import Success from "./Checkout/Success";
 
 export {
   Cart,
+  Checkout,
   WishList,
   Home,
   Product,
@@ -20,4 +23,5 @@ export {
   Profile,
   Address,
   Orders,
+  Success,
 };

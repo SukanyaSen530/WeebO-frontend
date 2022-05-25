@@ -28,9 +28,11 @@ const EmptyState = ({
   );
 };
 
-EmptyState.prototype = {
+EmptyState.propTypes = {
   msg: PropTypes.string,
   imgSrc: PropTypes.string,
+  buttonText: PropTypes.string,
+  path: PropTypes.string,
 };
 
 export default EmptyState;

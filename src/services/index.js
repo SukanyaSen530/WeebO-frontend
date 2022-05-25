@@ -8,13 +8,14 @@ import {
   addToCart,
   removeFromCart,
 } from "./cart";
-
 import {
   loadAllAddresses,
   addAddress,
   updateAddress,
   removeAddress,
 } from "./addresses";
+import { loadAllOrders } from "./order";
+import { payForOrder } from "./payment";
 
 export {
   loginUser,
@@ -34,4 +35,6 @@ export {
   addAddress,
   updateAddress,
   removeAddress,
+  loadAllOrders,
+  payForOrder,
 };

@@ -1,0 +1,39 @@
+@import "../../sass/global";
+
+.success-section {
+  height: 90vh;
+  position: relative;
+  
+  &__content{
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    width: 40rem;
+    padding: 2rem;
+    @include absCenter;
+    animation: topToBottom 4s ease-in-out;
+    animation-fill-mode: none, forwards;
+    text-align: center;
+
+    &__heading{
+      color: rgb(0, 97, 0);
+      text-align: center;
+      font-size: 3rem;
+    }
+
+    &__details{
+      color: rgb(137, 137, 137);
+      font-size: 1.8rem;
+      text-align: justify;
+      font-weight: 500;
+    }
+
+    &__image{
+      height: 15rem;
+      text-align: center;
+      margin-top: 2rem;
+
+      img{
+        height: 100%;
+      }
+    }
+  }
+}

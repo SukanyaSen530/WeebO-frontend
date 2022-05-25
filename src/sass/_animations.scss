@@ -7,3 +7,16 @@
     transform: translateY(-10rem);
   }
 }
+
+
+@keyframes topToBottom {
+   0% {
+    top: -50%;
+    opacity: 0;
+  }
+
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
