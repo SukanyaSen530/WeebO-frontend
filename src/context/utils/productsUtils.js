@@ -47,12 +47,14 @@ const filterData = (
       filterByCategories,
       filterByBrands,
       maxPrice,
+      filterRating,
     },
   },
   data
 ) => {
   return (data || [])
     .filter((product) => product.discountedPrice <= parseInt(maxPrice))
+    .filter((product) => product.rating >= parseInt(filterRating))
     .filter((product) => (includeOutOfStock ? true : product?.inStock))
     .filter(({ tag }) =>
       filterOnSale ? tag && tag.toLowerCase() === "sale" : true

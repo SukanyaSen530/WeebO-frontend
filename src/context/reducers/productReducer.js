@@ -74,6 +74,15 @@ const productReducer = (state, action) => {
         },
       };
 
+    case filterActions.FILTER_BY_RATING:
+      return {
+        ...state,
+        productsFilter: {
+          ...state.productsFilter,
+          filterRating: payload,
+        },
+      };
+
     case filterActions.FILTER_BY_CATEGORIES:
       const payloadCategory = payload?.toLowerCase() || "";
 
@@ -134,6 +143,7 @@ const productReducer = (state, action) => {
           filterByCategories: [],
           filterByBrands: [],
           maxPrice: 20000,
+          filterRating: 0,
           searchQuery: "",
         },
       };
