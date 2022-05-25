@@ -2,7 +2,6 @@
 
 <div align="center">
   <img src="src/assets/logo.png" width="150" title="App Logo">
-
    ## [WeebO](https://weebofigurines.vercel.app/)
    E-commerce application for action figurines.
 </div>
@@ -30,6 +29,8 @@
 - Cart Managment
 - Wishlist managment
 - Address management
+- Stripe Payment integration
+- Orders page
 - Authentication:
   - User Signup
   - User Login
