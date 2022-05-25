@@ -137,7 +137,7 @@ const productReducer = (state, action) => {
       return {
         ...state,
         productsFilter: {
-          includeOutOfStock: false,
+          includeOutOfStock: true,
           filterOnSale: false,
           sortOption: "",
           filterByCategories: [],

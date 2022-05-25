@@ -101,11 +101,11 @@ const FilterSection = () => {
       </div>
 
       <div className="filters">
-        <h3 className="filter-heading">Ratings</h3>
+        <h3 className="filter-heading">Filter by Rating</h3>
         <div className="rating">
           {[...Array(5)].map((s, index) => {
             return (
-              <label className="rating__label">
+              <label className="rating__label" key={`rating-${index}`}>
                 <input
                   type="radio"
                   className="rating__input items"
@@ -117,7 +117,6 @@ const FilterSection = () => {
                     });
                   }}
                   value={index + 1}
-                  key={index}
                 />
                 <AiOutlineStar
                   className={`${
