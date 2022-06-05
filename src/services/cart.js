@@ -55,7 +55,7 @@ export const removeFromCart = async (id, dispatch) => {
   const config = getConfig();
 
   try {
-    const { status } = await axios.post(`${cartURL}`, { id }, config);
+    const { status } = await axios.post(`${cartURL}/remove`, { id }, config);
 
     if (status === 200) {
       toast.info("Removed from cart!");
