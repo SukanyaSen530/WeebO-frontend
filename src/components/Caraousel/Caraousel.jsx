@@ -21,7 +21,6 @@ const Caraousel = ({ data = [] }) => {
 
   useEffect(() => {
     let intervalID = setInterval(() => moveNext(), 6000);
-
     return () => {
       clearImmediate(intervalID);
     };

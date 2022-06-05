@@ -55,7 +55,7 @@ export const removeFromCart = async (id, dispatch) => {
   const config = getConfig();
 
   try {
-    const { status } = await axios.delete(`${cartURL}/${id}`, config);
+    const { status } = await axios.post(`${cartURL}`, { id }, config);
 
     if (status === 200) {
       toast.info("Removed from cart!");
@@ -74,7 +74,7 @@ export const increaseQuantity = async (id, dispatch) => {
 
   try {
     const { data, status } = await axios.patch(
-      `${cartURL}/${id}`,
+      `${cartURL}/quantity/${id}`,
       { action: "increment" },
       config
     );
@@ -85,7 +85,6 @@ export const increaseQuantity = async (id, dispatch) => {
         payload: data?.cart || [],
       });
     }
-
   } catch (e) {
     toast.error(e?.response?.data?.message);
   }
@@ -96,7 +95,7 @@ export const decreaseQuantity = async (id, dispatch) => {
 
   try {
     const response = await axios.patch(
-      `${cartURL}/${id}`,
+      `${cartURL}/quantity/${id}`,
       { action: "decrement" },
       config
     );
