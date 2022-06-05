@@ -19,7 +19,7 @@
       "filter items items";
   }
 
-  @include respond(xs-phone) {
+  @include respond(phone) {
     grid-template-columns: 1fr;
     gap: 2rem;
     grid-template-areas:
@@ -35,7 +35,7 @@
   p {
     font-size: 1.4rem;
     align-self: flex-start;
-    @include respond(phone) {
+    @include respond(tab-port) {
       align-self: stretch;
     }
   }
@@ -46,7 +46,7 @@
     align-items: center;
     margin: 2.5rem 0;
 
-    @include respond(phone) {
+    @include respond(tab-port) {
       flex-direction: column;
       gap: 2rem;
       text-align: center;
