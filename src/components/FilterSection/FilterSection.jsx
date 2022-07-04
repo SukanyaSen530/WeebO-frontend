@@ -12,6 +12,17 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 // Styles
 import "./filter-section.scss";
 
+function debouce(cb, delay) {
+  let timeout;
+  return function (...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      cb.apply(context, args);
+    });
+  };
+}
+
 const FilterSection = () => {
   const { state, dispatch } = useProductContext();
 

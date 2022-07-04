@@ -33,7 +33,7 @@ export const bannerData = [
     id: uuid(),
     imgSrc: `${bannerURL}banner-4.jpg`,
     altText: "banner4",
-    imageDescription: "All your favourite anime!",
+    imageDescription: "Figures from your favourite anime!",
   },
 ];
 

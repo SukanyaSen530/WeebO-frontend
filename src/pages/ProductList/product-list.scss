@@ -61,11 +61,19 @@
 .productlist-items {
   grid-area: items;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   row-gap: 1.5rem;
 
-  &__image {
-    height: 30rem;
+  &__empty {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.8rem;
+    color: $color-primary-dark;
+    line-height: 2.5rem;
+    font-weight: 500;
+  }
+
+  &__not-empty {
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   }
 }
 
