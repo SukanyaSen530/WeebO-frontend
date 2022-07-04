@@ -12,7 +12,7 @@ import { EmptyState } from "../index";
 import { loadProducts } from "../../services";
 
 // Styles, Images
-import notFound from "../../assets/productNotFound.jpg";
+import notFound from "../../assets/productNotFound.png";
 import "./product-list.scss";
 
 function ProductList() {
@@ -110,11 +110,10 @@ function ProductList() {
             <ProductCard key={product._id} {...product} />
           ))
         ) : (
-          <img
-            src={notFound}
-            alt="Product Not Found!"
-            className="productlist-items__image"
-          />
+          <div className="productlist-items__empty">
+            <img src={notFound} alt="no_search_results" />
+            <p>No product match your current filter!</p>
+          </div>
         )}
       </div>
     </section>
