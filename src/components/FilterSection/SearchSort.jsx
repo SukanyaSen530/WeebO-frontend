@@ -20,6 +20,25 @@ const SearchSort = () => {
     productsFilter: { sortOption, searchQuery },
   } = state;
 
+  const debounce = (cb, delay = 1000) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        cb(...args);
+      }, delay);
+    };
+  };
+
+  const handleSearch = (e) => {
+    dispatch({
+      type: filterActions.FILTER_SEARCH,
+      payload: e.target.value,
+    });
+  };
+
+  const debouncedSearch = debounce(handleSearch);
+
   return (
     <section className="search-sort-container">
       <div className="search-container">
@@ -28,13 +47,8 @@ const SearchSort = () => {
           type="search"
           placeholder="Search by product name (Ex: batman)"
           className="search-container__input"
-          value={searchQuery}
-          onChange={(e) =>
-            dispatch({
-              type: filterActions.FILTER_SEARCH,
-              payload: e.target.value,
-            })
-          }
+          defaultValue={searchQuery}
+          onChange={debouncedSearch}
         />
       </div>
 

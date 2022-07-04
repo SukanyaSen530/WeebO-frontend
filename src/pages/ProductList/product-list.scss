@@ -61,11 +61,15 @@
 .productlist-items {
   grid-area: items;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   row-gap: 1.5rem;
 
   &__image {
     height: 30rem;
+    margin: 0 auto;
+  }
+
+  &__not-empty {
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   }
 }
 

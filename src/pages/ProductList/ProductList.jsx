@@ -100,7 +100,11 @@ function ProductList() {
       <div className="productlist-filter">
         <FilterSection />
       </div>
-      <div className="productlist-items">
+      <div
+        className={`productlist-items ${
+          filteredProducts?.length !== 0 ? "productlist-items__not-empty" : ""
+        }`}
+      >
         {filteredProducts?.length !== 0 ? (
           paginatedProducts?.map((product) => (
             <ProductCard key={product._id} {...product} />
