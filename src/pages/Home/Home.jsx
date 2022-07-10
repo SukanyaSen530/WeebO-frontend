@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import { Caraousel } from "../../components";
 import { bannerData, categoryData, brandData } from "../../utils/imageData";
 import { useProductContext, filterActions } from "../../context";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 // STYLES
 import "./home.scss";
 
 const Home = () => {
   const { dispatch } = useProductContext();
+
+  useScrollToTop();
 
   return (
     <section className="home-section">

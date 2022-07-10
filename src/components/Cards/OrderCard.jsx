@@ -10,6 +10,7 @@ const OrderCard = ({
   orderItems,
   couponDiscount,
   totalPaid,
+  totalAmount,
   address,
   createdAt,
 }) => {
@@ -19,15 +20,22 @@ const OrderCard = ({
   return (
     <article className="order-card">
       <div className="order-card__header">
-        <p className="b-margin-sm">OrderID : {_id}</p>
+        <p className="b-margin-sm">
+          <strong>OrderID: </strong> {_id}
+        </p>
         <div className="flex flex-space-between flex-center-y order-card__header__details">
-          <p>Total Paid : ₹ {totalPaid} </p>
           <p>
-            Discount :{" "}
+            <strong>Total:</strong> ₹ {totalAmount || 0}{" "}
+          </p>
+          <p>
+            <strong>Total Paid:</strong> ₹ {totalPaid || 0}{" "}
+          </p>
+          <p>
+            <strong>Discount: - </strong>
             {totalPaid === couponDiscount ? "NA" : `₹ ${couponDiscount}`}{" "}
           </p>
           <p>
-            Ordered Placed :{" "}
+            <strong> Ordered Placed: </strong>{" "}
             {new Date(createdAt).toLocaleDateString("en-US", {
               weekday: "long",
               year: "numeric",
@@ -108,8 +116,9 @@ OrderCard.propTypes = {
       quantity: PropTypes.number.isRequired,
     })
   ).isRequired,
-  couponDiscount: PropTypes.string.isRequired,
+  couponDiscount: PropTypes.number,
   totalPaid: PropTypes.number.isRequired,
+  totalAmount: PropTypes.number.isRequired,
   address: PropTypes.shape({
     name: PropTypes.string.isRequired,
     pinCode: PropTypes.string.isRequired,

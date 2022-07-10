@@ -8,6 +8,7 @@ import {
   ProductCard,
 } from "../../components";
 import { EmptyState } from "../index";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 import { loadProducts } from "../../services";
 
@@ -18,6 +19,8 @@ import "./product-list.scss";
 function ProductList() {
   const { state, dispatch, filteredProducts } = useProductContext();
   const { productLoading, productFetchError } = state;
+
+  useScrollToTop();
 
   const numOfProductsInPage = 8;
   const [page, setPage] = useState(1);

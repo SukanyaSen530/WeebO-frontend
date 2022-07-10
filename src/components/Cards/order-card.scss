@@ -13,6 +13,11 @@
     padding: 1rem;
     line-height: 1.6rem;
 
+    strong{
+      font-weight: 600;
+      color: $color-primary-dark;
+    }
+
     &__details {
       @include respond(phone) {
         flex-direction: column;

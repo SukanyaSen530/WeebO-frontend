@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 
 import notFound from "../assets/pageNotFound.jpg";
 
+import useScrollToTop from "../hooks/useScrollToTop";
+
 import {
   Cart,
   Checkout,
@@ -21,6 +23,8 @@ import {
 import ProtectedRoutes from "./ProtectedRoutes";
 
 const AllRoutes = () => {
+  useScrollToTop();
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />

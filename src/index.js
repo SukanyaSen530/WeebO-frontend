@@ -9,7 +9,7 @@ import { Elements } from "@stripe/react-stripe-js";
 // Provdiers
 import { ProductProvider, AuthProvider, UserProvider } from "./context";
 //Stripe
-const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUB_KEY}`);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUB_KEY);
 
 ReactDOM.render(
   <React.StrictMode>

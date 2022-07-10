@@ -2,12 +2,15 @@ import { EmptyState } from "../index";
 import { Loader, ProductCard } from "../../components";
 
 import { useUserContext } from "../../context";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 import emptyBox from "../../assets/empty.png";
 import "./wishlist.scss";
 
 const WishList = () => {
   const { userState } = useUserContext();
+
+  useScrollToTop();
 
   const {
     userWishlist: { loading, error, items },

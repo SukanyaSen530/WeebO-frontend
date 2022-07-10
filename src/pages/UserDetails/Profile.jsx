@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import { getUserDetails } from "../../services";
 import { useAuthContext } from "../../context";
 import { Loader } from "../../components";
-import userLogo from ".././../assets/user.png";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
+import userLogo from ".././../assets/user.png";
 import "./profile.scss";
 
 const Profile = () => {
   const [loading, setLoading] = useState(false);
+
+  useScrollToTop();
 
   const {
     authState: {

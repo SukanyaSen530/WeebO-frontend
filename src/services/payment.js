@@ -16,9 +16,14 @@ export const payForOrder = async (order, stripe) => {
     );
 
     if (status === 200) {
-      await stripe.redirectToCheckout({ sessionId: data.sessionId });
+      try {
+        await stripe.redirectToCheckout({ sessionId: data.sessionId });
+      } catch (e) {
+        console.log("stripe redirect error", e);
+      }
     }
   } catch (e) {
     toast.error("Something went wrong!");
+    console.log("stripe session error", e);
   }
 };
