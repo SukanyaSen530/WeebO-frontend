@@ -12,6 +12,7 @@ import {
 import { Loader } from "../../components";
 import { EmptyState } from "../index";
 import { loadAProduct } from "../../services";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 import { addToCart, addToWishlist, removeFromWishlist } from "../../services";
 
@@ -20,6 +21,8 @@ import "./product.scss";
 const Product = () => {
   const params = useParams();
   const productId = params.productId;
+
+  useScrollToTop();
 
   const {
     state: { productLoading, productFetchError, view_product },

@@ -6,15 +6,19 @@ import { useStripe } from "@stripe/react-stripe-js";
 import { useUserContext } from "../../context";
 import { loadAllAddresses, payForOrder } from "../../services";
 import { Loader, AddressRadio } from "../../components";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 import { getItems } from "./utils/getItems";
 import { calcTotal } from "../../utils/priceCalc";
 
 import "./checkout.scss";
+import { toast } from "react-toastify";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const { userState, userDispatch } = useUserContext();
+
+  useScrollToTop();
 
   const [orderDetails, setOrderDetails] = useState({
     addressId: "",
@@ -47,7 +51,7 @@ const Checkout = () => {
     calcTotal(cartItems);
 
   let addressSection = null;
-  
+
   if (addressLoading) addressSection = <Loader size="sm" />;
   else if (addresses.length === 0)
     addressSection = (
@@ -78,6 +82,11 @@ const Checkout = () => {
 
   const makePayment = () => payForOrder(orderDetails, stripe);
 
+  const clipBoardCopy = (code) => {
+    navigator.clipboard.writeText(code);
+    toast.success("Copied to clipbaord!");
+  };
+
   return (
     <section className="checkout-section">
       <h1 className="secondary-heading center-aligned b-margin-md">Checkout</h1>
@@ -94,17 +103,27 @@ const Checkout = () => {
           <h3 className="tertiary-heading b-margin-sm">Coupons</h3>
 
           <ul className="coupon-section b-margin-sm">
-            <li className="flex flex-center-y gap-sm">
-              <MdLocalOffer />
-              {totalPrice < 20000 ? (
-                <span>
-                  Shop for more ₹ {20000 - totalDiscountedPrice} to use GETLUCKY
-                  promocode while paying!
-                </span>
-              ) : (
-                <span> Use GETLUCKY promocode while paying!</span>
-              )}
-            </li>
+            {totalPrice < 40000 && (
+              <li className="flex flex-center-y gap-sm">
+                <MdLocalOffer />
+                {totalPrice < 20000 ? (
+                  <span>
+                    Shop for more ₹ {20000 - totalDiscountedPrice} to use
+                    GETLUCKY promocode while paying!
+                  </span>
+                ) : (
+                  <p>
+                    <span
+                      className="clipboard"
+                      onClick={() => clipBoardCopy("GETLUCKY")}
+                    >
+                      GETLUCKY{" "}
+                    </span>{" "}
+                    - click to copy code
+                  </p>
+                )}
+              </li>
+            )}
 
             <li className="flex flex-center-y gap-sm">
               <MdLocalOffer />
@@ -114,7 +133,15 @@ const Checkout = () => {
                   promocode while paying!
                 </span>
               ) : (
-                <span> Use BONZANNA promocode while paying!</span>
+                <p>
+                  <span
+                    className="clipboard"
+                    onClick={() => clipBoardCopy("BONZANNA")}
+                  >
+                    BONZANNA{" "}
+                  </span>{" "}
+                  - click to copy code
+                </p>
               )}
             </li>
 

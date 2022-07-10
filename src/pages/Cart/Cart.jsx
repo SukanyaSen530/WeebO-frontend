@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
+
+
 import { Loader, CartCard } from "../../components";
 import { EmptyState } from "../index";
-
 import { useUserContext } from "../../context";
 import { calcTotal } from "../../utils/priceCalc";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 import emptyBox from "../../assets/empty.png";
 import "./cart.scss";
 
 const Cart = () => {
   const { userState } = useUserContext();
+
+  useScrollToTop();
 
   const {
     userCart: { loading, error, items },
@@ -36,7 +40,6 @@ const Cart = () => {
 
   const { totalPrice, totalDiscountedPrice, totalQuantity } = calcTotal(items);
   const savedAmount = totalPrice - totalDiscountedPrice;
-
 
   return (
     <section className="cart-section">
